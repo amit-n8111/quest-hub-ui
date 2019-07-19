@@ -26,11 +26,22 @@ export class AppComponent implements OnInit {
   getUserInformation() {
     this.entitlementService.getUserInformation().subscribe(
       (data) => {
-        console.log(data);
         if (data) {
-
+          this.isLoggedInUser = true;
+          this.router.navigate(['posters']);
         } else {
           this.router.navigate(['login']);
+          this.observeUserInfo();
+        }
+      }
+    );
+  }
+
+  observeUserInfo() {
+    this.entitlementService.getUserInfo().subscribe(
+      (data) => {
+        if (data) {
+          this.isLoggedInUser = true;
         }
       }
     );

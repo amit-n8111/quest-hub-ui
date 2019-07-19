@@ -5,10 +5,11 @@ import { catchError } from 'rxjs/operators';
 
 import { HelperService } from './helper.service';
 import { CoreConstants } from '../core.constants';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable()
 export class EntitlementService {
+  public userInfoChangeObserver$ = new Subject();
 
   constructor(
     private helperService: HelperService,
@@ -24,5 +25,13 @@ export class EntitlementService {
     // );
 
     return of(false);
+  }
+
+  setUserInfo(soeId: any) {
+    this.userInfoChangeObserver$.next(soeId);
+  }
+
+  getUserInfo() {
+    return this.userInfoChangeObserver$.asObservable();
   }
 }

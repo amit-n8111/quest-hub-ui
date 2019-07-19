@@ -5,8 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from './services/helper.service';
 import { EntitlementService } from './services/entitlement.service';
 
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [NavBarComponent],
   imports: [
     CommonModule,
     HttpClientModule
@@ -16,7 +18,7 @@ import { EntitlementService } from './services/entitlement.service';
     EntitlementService
   ],
   exports: [
-    HttpClientModule
+    NavBarComponent
   ]
 })
 export class CoreModule { }
