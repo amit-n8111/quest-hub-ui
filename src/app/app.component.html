@@ -1,8 +1,7 @@
-<div>
-    <div *ngIf="isLoggedInUser">
-        <app-nav-bar></app-nav-bar>
-    </div>
-    <div>
-        <router-outlet> </router-outlet>
-    </div>
-</div>
+<header>
+    <app-nav-bar></app-nav-bar>
+</header>
+
+<main class="marginTop">
+    <router-outlet></router-outlet>
+</main>

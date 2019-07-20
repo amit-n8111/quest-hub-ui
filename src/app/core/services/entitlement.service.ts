@@ -24,7 +24,7 @@ export class EntitlementService {
     //   catchError(this.helperService.handleError<any>('getUserInformation', []))
     // );
 
-    return of(false);
+    return of(true);
   }
 
   setUserInfo(soeId: any) {
