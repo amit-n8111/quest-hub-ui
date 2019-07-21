@@ -9,6 +9,7 @@ import { Observable, of, Subject } from 'rxjs';
 
 @Injectable()
 export class EntitlementService {
+  public userDetails: Object;
   public userInfoChangeObserver$ = new Subject();
 
   constructor(
@@ -16,7 +17,7 @@ export class EntitlementService {
     private http: HttpClient
   ) { }
 
-  getUserInformation(): Observable<boolean> {
+  getUserInformation(): Observable<Object> {
     const resourceURL = this.helperService.getResourceURL(CoreConstants.USERS);
 
     // Service call will go here.
@@ -24,14 +25,25 @@ export class EntitlementService {
     //   catchError(this.helperService.handleError<any>('getUserInformation', []))
     // );
 
-    return of(true);
+    const soeId = sessionStorage['soeId'];
+
+    if (soeId) {
+      this.userDetails = { 'soeId': soeId };
+    }
+
+    return of(this.userDetails);
   }
 
   setUserInfo(soeId: any) {
+    this.userDetails = soeId;
     this.userInfoChangeObserver$.next(soeId);
   }
 
   getUserInfo() {
     return this.userInfoChangeObserver$.asObservable();
+  }
+
+  get isUserLoggedIn(): boolean {
+    return !!this.userDetails;
   }
 }

@@ -25,12 +25,12 @@ export class AppComponent implements OnInit {
 
   getUserInformation() {
     this.entitlementService.getUserInformation().subscribe(
-      (data) => {
-        if (data) {
+      (userDetails) => {
+        if (!!userDetails) {
           this.isLoggedInUser = true;
-          // this.router.navigate(['posts']);
+          this.router.navigate(['home/overview']);
         } else {
-          this.router.navigate(['login']);
+          this.router.navigate(['home']);
           this.observeUserInfo();
         }
       }

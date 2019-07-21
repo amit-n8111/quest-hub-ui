@@ -1,20 +1,23 @@
-Post List
-
-<p-table [columns]="cols" [value]="posts">
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                <span (click)="navigateToEditSection(rowData)" *ngSwitchCase="'editPost'"><i
-                        class="fa fa-edit"></i></span>
-                <span *ngSwitchDefault>{{rowData[col.field]}}</span>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+<div>
+    <p-table [columns]="cols" [value]="posts">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <span (click)="navigateToEditSection(rowData)" *ngSwitchCase="'editPost'"><i
+                            class="fa fa-edit"></i></span>
+                    <span *ngSwitchCase="'postName'">
+                        <a [routerLink]="" (click)="navigateToDetailSection(rowData)">{{rowData[col.field]}}</a>
+                    </span>
+                    <span *ngSwitchDefault>{{rowData[col.field]}}</span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

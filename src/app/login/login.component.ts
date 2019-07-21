@@ -20,12 +20,9 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    if (this.soeId.length === 7) {
-      this.entitlementService.setUserInfo(this.soeId);
-      this.router.navigate(['/posts']);
-    }
-
-    return true;
+    sessionStorage['soeId'] = this.soeId;
+    this.entitlementService.setUserInfo(this.soeId);
+    this.router.navigate(['/home/overview']);
   }
 
 }

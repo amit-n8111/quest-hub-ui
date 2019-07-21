@@ -1,23 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">
-            <img src="assets/quest.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" [routerLink]="entitlementService.isUserLoggedIn ? ['home/overview'] :['']">
+            <img src="assets/images/quest.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
             Quest Hub
         </a>
         <ul class="navbar-nav ml-auto float-right">
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['posts']" routerLinkActive="active">Post a Task</a>
+            <li class="nav-item" *ngIf="!entitlementService.isUserLoggedIn">
+                <a class="nav-link">HOW IT WORKS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Search Users</a>
+                <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">POST A TASK</a>
             </li>
-            <li class="nav-item nav-icon">
-                <i class="fa fa-search fa-pad"></i>
+            <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn">
+                <a class="nav-link">SEARCH USERS</a>
             </li>
-            <li class="nav-item nav-icon">
-                <i class="fa fa-user fa"></i>
+            <li class="nav-item">
+                <a class="nav-link"><i class="fa fa-search fa-pad"></i></a>
             </li>
-
+            <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn" (click)="logOutUser()">
+                <a class="nav-link" [routerLink]="['']"><i class="fa fa-user"></i></a>
+            </li>
         </ul>
     </div>
 </nav>

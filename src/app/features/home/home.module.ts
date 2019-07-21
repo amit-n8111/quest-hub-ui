@@ -4,9 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
+import { HomeOverviewComponent } from './home-overview/home-overview.component';
 
 @NgModule({
-    declarations: [HomeComponent],
+    declarations: [
+        HomeComponent,
+        HomeOverviewComponent
+    ],
     imports: [
         FormsModule,
         HomeRoutingModule
