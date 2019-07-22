@@ -110,8 +110,18 @@
             "isDocument": true
         },
         {
-            "sections": [],
-            "documentName": "Review",
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "Review and Post",
+                    "sectionName": "Review and Post",
+                    "sectionValue": "reviewAndPost",
+                    "valueType": "information",
+                    "value": "",
+                    "options": []
+                }
+            ],
+            "documentName": "Review and Post",
             "documentValue": "review",
             "isDocument": true
         }

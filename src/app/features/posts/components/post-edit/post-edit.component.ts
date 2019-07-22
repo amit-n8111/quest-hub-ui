@@ -50,12 +50,18 @@ export class PostEditComponent implements OnInit {
     this.getPostDetails(1);
   }
 
-  selectDocumentSection(documentDetails) {
+  selectDocumentSection(documentDetails, docIndex) {
+    this.selectedDocumentIndex = docIndex + 1;
     this.selectedDocumentValue = documentDetails.documentValue;
   }
 
   changeDocumentByIndex() {
     this.selectedDocumentValue = this.taskDetails.documents[this.selectedDocumentIndex + 1].documentValue;
+    this.selectedDocumentIndex = this.selectedDocumentIndex + 1;
+  }
+
+  submitPostDetails() {
+
   }
 
 }

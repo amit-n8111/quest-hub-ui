@@ -2,55 +2,23 @@
     <div class="col-md-2">
         <ul class="nav flex-column nav-pills" aria-orientation="vertical">
             <li class="nav-link" [ngClass]="{'active': ( selectedDocumentValue == document.documentValue) }"
-                *ngFor="let document of taskDetails.documents">
-                <a [routerLink]="" (click)="selectDocumentSection(document)">{{document.documentName}}</a>
+                *ngFor="let document of taskDetails.documents; let i=index">
+                <a [routerLink]="" (click)="selectDocumentSection(document, i)">{{document.documentName}}</a>
             </li>
         </ul>
     </div>
     <div class="col-md-10">
         <div [hidden]="selectedDocumentValue != document.documentValue"
             *ngFor="let document of taskDetails.documents; let i=index">
-            <div class="card card-user mb-2" *ngFor="let section of document.sections">
-                <div class="card-header" *ngIf="section.isSection">
-                    <h5 class="card-title ">{{document.documentName}}</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12 pr-1">
-                            <div class="form-group">
-                                <label>{{section.header}} </label>
-                                <div [ngSwitch]="section.valueType">
-                                    <div *ngSwitchCase="'radio'" class="ui-g" style="width:250px;margin-bottom:10px">
-                                        <div class="ui-g-12" *ngFor="let radio of section.options">
-                                            <p-radioButton name="group1" value="{{radio.value}}" label="{{radio.value}}"
-                                                [(ngModel)]="radio.isSelected" inputId="opt1">
-                                            </p-radioButton>
-                                        </div>
-                                    </div>
-
-                                    <textarea *ngSwitchCase="'textarea'" type="text" class="form-control"
-                                        name="{{section.sectionValue}}" [(ngModel)]="section.value"></textarea>
-
-                                    <div class="row" *ngSwitchCase="'chipset'">
-                                        <div class="col-md-4 height50" *ngFor="let chip of section.options">
-                                            <div class="card text-center align-middle h-100 chipsetBoxShadow">
-                                                {{chip.value}}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="ml-2 text-success" *ngSwitchCase="'dynamicInputSet'">
-                                        <a class=""><i class="fa fa-plus"></i></a>
-                                        <span class="ml-2">Add</span>
-                                    </div>
-
-                                    <p-chips *ngSwitchCase="'dynamicChipSet'" [(ngModel)]="section.value"></p-chips>
-
-                                    <input *ngSwitchDefault type="text" class="form-control"
-                                        name="{{section.sectionValue}}" [(ngModel)]="section.value">
-                                </div>
-                            </div>
-                        </div>
+            <div *ngIf="document.documentValue != 'review' else documentReviewTemplate">
+                <div class="card card-user mb-2" *ngFor="let section of document.sections; let j=index">
+                    <div class="card-header" *ngIf="j==0">
+                        <h5 class="card-title ">{{document.documentName}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <ng-container [ngTemplateOutlet]="sectionTemplate"
+                            [ngTemplateOutletContext]="{section: section}">
+                        </ng-container>
                     </div>
                 </div>
             </div>
@@ -60,11 +28,78 @@
             <div class="card-body">
                 <div class="row">
                     <div class="update ml-auto mr-auto">
-                        <button type="submit" class="btn btn-primary btn-round"
+                        <button
+                            *ngIf="(taskDetails.documents && selectedDocumentIndex != taskDetails.documents.length) else submitButton"
+                            type="submit" class="btn btn-primary btn-round"
                             (click)="changeDocumentByIndex()">Next</button>
+                        <ng-template #submitButton>
+                            <button type="submit" class="btn btn-primary btn-round"
+                                (click)="submitPostDetails()">Submit</button>
+                        </ng-template>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #documentReviewTemplate>
+    <div *ngFor="let document of taskDetails.documents">
+        <div *ngFor="let section of document.sections; let i=index">
+            <div class="card card-user mb-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 pr-1">
+                            <div class="form-group">
+                                <h6>{{section.header}}: </h6>
+                                <div>
+                                    {{section.value}} Some value will come here...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #sectionTemplate let-section="section">
+    <div class="row">
+        <div class="col-md-12 pr-1">
+            <div class="form-group">
+                <label>{{section.header}} </label>
+                <div [ngSwitch]="section.valueType">
+                    <div *ngSwitchCase="'radio'" class="ui-g" style="width:250px;margin-bottom:10px">
+                        <div class="ui-g-12" *ngFor="let radio of section.options">
+                            <p-radioButton name="group1" value="{{radio.value}}" label="{{radio.value}}"
+                                [(ngModel)]="radio.isSelected" inputId="opt1">
+                            </p-radioButton>
+                        </div>
+                    </div>
+
+                    <textarea *ngSwitchCase="'textarea'" type="text" class="form-control"
+                        name="{{section.sectionValue}}" [(ngModel)]="section.value"></textarea>
+
+                    <div class="row" *ngSwitchCase="'chipset'">
+                        <div class="col-md-4 height50" *ngFor="let chip of section.options">
+                            <div class="card text-center align-middle h-100 chipsetBoxShadow">
+                                {{chip.value}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ml-2 text-success" *ngSwitchCase="'dynamicInputSet'">
+                        <a class=""><i class="fa fa-plus"></i></a>
+                        <span class="ml-2">Add</span>
+                    </div>
+
+                    <p-chips *ngSwitchCase="'dynamicChipSet'" [(ngModel)]="section.value"></p-chips>
+
+                    <input *ngSwitchDefault type="text" class="form-control" name="{{section.sectionValue}}"
+                        [(ngModel)]="section.value">
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
