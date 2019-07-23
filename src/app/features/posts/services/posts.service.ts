@@ -12,7 +12,7 @@ export class PostsService {
     ) { }
 
     getPostList() {
-        const resourceURL = this.helperService.getResourceURL(PostsConstants.POST_LIST);
+        const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
         return this.http.get(resourceURL).pipe(
             catchError(this.helperService.handleError<any>('getPostList', []))
@@ -20,9 +20,17 @@ export class PostsService {
     }
 
     getPostDetailsByPostId(postId) {
-        const resourceUrl = this.helperService.getResourceURL(PostsConstants.POST_DESCRIPTION);
+        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_DETAILS);
 
         // reourceUrl = resourceUrl + postId;
+
+        return this.http.get(resourceUrl).pipe(
+            catchError(this.helperService.handleError<any>('getPostDetail', {}))
+        );
+    }
+
+    getEmptyForm() {
+        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_EMPTY_FORM);
 
         return this.http.get(resourceUrl).pipe(
             catchError(this.helperService.handleError<any>('getPostDetail', {}))

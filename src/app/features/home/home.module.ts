@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -13,7 +14,8 @@ import { HomeOverviewComponent } from './home-overview/home-overview.component';
     ],
     imports: [
         FormsModule,
-        HomeRoutingModule
+        HomeRoutingModule,
+        RouterModule
     ]
 })
 

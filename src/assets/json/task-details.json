@@ -4,11 +4,11 @@
             "sections": [
                 {
                     "isSection": true,
-                    "header": "Enter the name of your job post",
+                    "header": "Enter the tittle of your job post",
                     "sectionName": "Task Title",
                     "sectionValue": "taskTitle",
                     "valueType": "input",
-                    "value": "",
+                    "value": "Needed a web developer.",
                     "options": []
                 },
                 {
@@ -17,7 +17,7 @@
                     "sectionName": "",
                     "sectionValue": "taskCategory",
                     "valueType": "radio",
-                    "value": "",
+                    "value": "webDevelopment",
                     "options": [
                         {
                             "key": "webDevelopment",
@@ -44,7 +44,7 @@
                     "sectionName": "Task Title",
                     "sectionValue": "taskTitle",
                     "valueType": "textarea",
-                    "value": "",
+                    "value": "I want a web developer who can work on Angular independently.",
                     "options": []
                 }
             ],
@@ -60,12 +60,12 @@
                     "sectionName": "Task Screening",
                     "sectionValue": "taskScreening",
                     "valueType": "chipset",
-                    "value": "",
+                    "value": "microTask",
                     "options": [
                         {
                             "key": "microTask",
                             "value": "Micro Task",
-                            "isSelected": false
+                            "isSelected": true
                         },
                         {
                             "key": "microProject",
@@ -86,7 +86,16 @@
                     "sectionValue": "screeningQuestions",
                     "valueType": "dynamicInputSet",
                     "value": "",
-                    "options": []
+                    "options": [
+                        {
+                            "question": "Do you have Angular knowledge?",
+                            "answer": ""
+                        },
+                        {
+                            "question": "Please rate yourself in Angular",
+                            "answer": ""
+                        }
+                    ]
                 }
             ],
             "documentName": "Task Screening",
@@ -101,7 +110,7 @@
                     "sectionName": "Skillset",
                     "sectionValue": "skillset",
                     "valueType": "dynamicChipSet",
-                    "value": "",
+                    "value": "Some chipset will come here",
                     "options": []
                 }
             ],

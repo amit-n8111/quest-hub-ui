@@ -9,9 +9,9 @@ import { PostsService } from './../../services/posts.service';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  posts: any[];
+  tasks: any[];
 
-  cols: any[];
+  isShowFilters: boolean = false;
 
   constructor(
     private router: Router,
@@ -20,14 +20,6 @@ export class PostListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.cols = [
-      { field: 'postId', header: 'Post Id' },
-      { field: 'postName', header: 'Post Name' },
-      { field: 'postDate', header: 'Post Date' },
-      { field: 'postTopic', header: 'Post Topic' },
-      { field: 'editPost', header: 'Edit Post' }
-    ];
-
     this.getPostList();
   }
 
@@ -40,8 +32,9 @@ export class PostListComponent implements OnInit {
   }
 
   getPostList() {
-    this.postsService.getPostList().subscribe((postList) => {
-      this.posts = postList;
+    this.postsService.getPostList().subscribe((taskList) => {
+      this.tasks = taskList;
+      console.log(this.tasks);
     });
   }
 

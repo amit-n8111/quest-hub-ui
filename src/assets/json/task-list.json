@@ -1,0 +1,26 @@
+[
+    {
+        "taskId": 1,
+        "taskName": "Create a Web Page for landing page",
+        "taskCreateDate": "26/06/1992",
+        "taskStatus": "Draft"
+    },
+    {
+        "taskId": 2,
+        "taskName": "Needed a Mobile Developer",
+        "taskCreateDate": "22/06/1992",
+        "taskStatus": "Published"
+    },
+    {
+        "taskId": 3,
+        "taskName": "Create a java method",
+        "taskCreateDate": "21/06/1992",
+        "taskStatus": "Filled"
+    },
+    {
+        "taskId": 4,
+        "taskName": "Create a table for employyes",
+        "taskCreateDate": "22/06/1992",
+        "taskStatus": "Closed"
+    }
+]

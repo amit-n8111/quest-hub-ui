@@ -1,0 +1,129 @@
+{
+    "documents": [
+        {
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "Enter the name of your job post",
+                    "sectionName": "Task Title",
+                    "sectionValue": "taskTitle",
+                    "valueType": "input",
+                    "value": "",
+                    "options": []
+                },
+                {
+                    "isSection": false,
+                    "header": "Job Category",
+                    "sectionName": "",
+                    "sectionValue": "taskCategory",
+                    "valueType": "radio",
+                    "value": "",
+                    "options": [
+                        {
+                            "key": "webDevelopment",
+                            "value": "Web Development",
+                            "isSelected": true
+                        },
+                        {
+                            "key": "frontEndDevelopment",
+                            "value": "Front End Development",
+                            "isSelected": false
+                        }
+                    ]
+                }
+            ],
+            "documentName": "Task Overview",
+            "documentValue": "taskOverview",
+            "isDocument": true
+        },
+        {
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "A good description of task",
+                    "sectionName": "Task Title",
+                    "sectionValue": "taskTitle",
+                    "valueType": "textarea",
+                    "value": "",
+                    "options": []
+                }
+            ],
+            "documentName": "Task Description",
+            "documentValue": "taskDescription",
+            "isDocument": true
+        },
+        {
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "What type of task do you have?",
+                    "sectionName": "Task Screening",
+                    "sectionValue": "taskScreening",
+                    "valueType": "chipset",
+                    "value": "",
+                    "options": [
+                        {
+                            "key": "microTask",
+                            "value": "Micro Task",
+                            "isSelected": false
+                        },
+                        {
+                            "key": "microProject",
+                            "value": "Micro Project",
+                            "isSelected": false
+                        },
+                        {
+                            "key": "recurringTask",
+                            "value": "Recurring Task",
+                            "isSelected": false
+                        }
+                    ]
+                },
+                {
+                    "isSection": false,
+                    "header": "Screening Questions",
+                    "sectionName": "",
+                    "sectionValue": "screeningQuestions",
+                    "valueType": "dynamicInputSet",
+                    "value": "",
+                    "options": []
+                }
+            ],
+            "documentName": "Task Screening",
+            "documentValue": "taskScreening",
+            "isDocument": true
+        },
+        {
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "Select Task Skillset",
+                    "sectionName": "Skillset",
+                    "sectionValue": "skillset",
+                    "valueType": "dynamicChipSet",
+                    "value": "",
+                    "options": []
+                }
+            ],
+            "documentName": "Task Skillset",
+            "documentValue": "taskSkillSet",
+            "isDocument": true
+        },
+        {
+            "sections": [
+                {
+                    "isSection": true,
+                    "header": "Review and Post",
+                    "sectionName": "Review and Post",
+                    "sectionValue": "reviewAndPost",
+                    "valueType": "information",
+                    "value": "",
+                    "options": []
+                }
+            ],
+            "documentName": "Review and Post",
+            "documentValue": "review",
+            "isDocument": true
+        }
+    ]
+}

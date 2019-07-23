@@ -1,23 +1,29 @@
-<div>
-    <p-table [columns]="cols" [value]="posts">
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th *ngFor="let col of columns">
-                    {{col.header}}
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr>
-                <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                    <span (click)="navigateToEditSection(rowData)" *ngSwitchCase="'editPost'"><i
-                            class="fa fa-edit"></i></span>
-                    <span *ngSwitchCase="'postName'">
-                        <a [routerLink]="" (click)="navigateToDetailSection(rowData)">{{rowData[col.field]}}</a>
-                    </span>
-                    <span *ngSwitchDefault>{{rowData[col.field]}}</span>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
+<div class="row pt-4">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <i class="fa fa-search absolutePos"></i>
+                <input type="text" class="form-control searchInput" size="50" placeholder="Search by Title">
+                <button (click)="isShowFilters = !isShowFilters" type="button" class="btn btn-primary pull-right">
+                    <i class="fa fa-filter mr-2"></i>
+                    Filters
+                </button>
+            </div>
+
+            <div *ngIf="isShowFilters" class="card-header height150">Filters will come inside
+                this...</div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item cursorPointer" *ngFor="let task of tasks"
+                    [routerLink]="['/posts', 'edit', task.taskId]">
+                    <h6>
+                        {{task.taskName}}
+                    </h6>
+                    <!-- <span class="fontSize8">Saved </span> -->
+                    {{task.taskStatus}} - <span class="font-weight-light fontSize12">{{task.taskCreateDate}}</span>
+                    <i class="fa fa-bars pull-right marginTop6" aria-hidden="true"></i>
+                </li>
+
+            </ul>
+        </div>
+    </div>

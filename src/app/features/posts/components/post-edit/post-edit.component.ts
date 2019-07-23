@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { PostsService } from '../../services/posts.service';
 
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+
 @Component({
   selector: 'app-post-edit',
   templateUrl: './post-edit.component.html',
@@ -14,7 +16,10 @@ export class PostEditComponent implements OnInit {
   selectedDocumentValue: string;
   selectedDocumentIndex: number = 0;
 
+  taskForm: FormGroup;
+
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
     private postsService: PostsService,
     private activateRoute: ActivatedRoute,
@@ -25,9 +30,11 @@ export class PostEditComponent implements OnInit {
       const postId = +params.id;
 
       if (postId) {
+        console.log('post id' + postId);
         this.getPostDetails(params.id);
       } else {
-        this.createPost();
+        console.log('new post');
+        this.getEmptyForm();
       }
     });
   }
@@ -42,17 +49,26 @@ export class PostEditComponent implements OnInit {
         this.selectedDocumentIndex = 0;
         this.selectedDocumentValue = postDetails.documents[0].documentValue;
         this.taskDetails = postDetails;
+        this.createTaskForm(this.taskDetails);
+        console.log(this.taskForm);
       }
     );
   }
 
-  createPost() {
-    this.getPostDetails(1);
+  getEmptyForm() {
+    this.postsService.getEmptyForm().subscribe(
+      (emptyFormDetails) => {
+        this.selectedDocumentIndex = 0;
+        this.selectedDocumentValue = emptyFormDetails.documents[0].documentValue;
+        this.taskDetails = emptyFormDetails;
+        this.createTaskForm(this.taskDetails);
+      }
+    );
   }
 
-  selectDocumentSection(documentDetails, docIndex) {
+  selectDocumentSection(documentForm, docIndex) {
     this.selectedDocumentIndex = docIndex + 1;
-    this.selectedDocumentValue = documentDetails.documentValue;
+    this.selectedDocumentValue = documentForm.get('documentValue').value;
   }
 
   changeDocumentByIndex() {
@@ -61,7 +77,76 @@ export class PostEditComponent implements OnInit {
   }
 
   submitPostDetails() {
+    this.router.navigate(['/posts']);
+  }
 
+  createTaskForm(taskData) {
+    this.taskForm = this.formBuilder.group({
+      documents: this.createDocumentForm(taskData.documents)
+    });
+  }
+
+  createDocumentForm(documents): FormArray {
+    let documentForm: FormArray = this.formBuilder.array([]);
+
+    if (documents) {
+      documents.forEach(document => {
+        documentForm.push(
+          this.formBuilder.group({
+            sections: this.createSectionForm(document.sections),
+            documentName: document.documentName,
+            documentValue: document.documentValue,
+            isDocument: document.isDocument
+          })
+        );
+      });
+    }
+
+    return documentForm;
+  }
+
+  createSectionForm(sections): FormArray {
+    let sectionForm: FormArray = this.formBuilder.array([]);
+
+    if (sections) {
+      sections.forEach(section => {
+        sectionForm.push(
+          this.formBuilder.group({
+            isSection: section.isSection,
+            header: section.header,
+            sectionName: section.sectionName,
+            sectionValue: section.sectionValue,
+            valueType: section.valueType,
+            value: section.value,
+            options: this.generateOptionsForm(section.options, section.sectionValue)
+          })
+        );
+      });
+    }
+
+    return sectionForm;
+  }
+
+  generateOptionsForm(options, sectionKey): FormArray {
+    let optionForm: FormArray = this.formBuilder.array([]);
+
+    if (options) {
+      if (sectionKey !== 'skillset') {
+        options.forEach(option => {
+          optionForm.push(
+            this.formBuilder.group({
+              key: option.key,
+              value: option.value,
+              isSelected: option.isSelected
+            })
+          );
+        });
+      } else {
+        optionForm = this.formBuilder.array(options || []);
+      }
+    }
+
+    return optionForm;
   }
 
 }
