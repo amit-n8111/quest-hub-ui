@@ -19,6 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'profiles',
+    loadChildren: './features/profiles/profiles.module#ProfilesModule',
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'home',
     loadChildren: './features/home/home.module#HomeModule'
   },

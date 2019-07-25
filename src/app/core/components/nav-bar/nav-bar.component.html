@@ -12,7 +12,7 @@
                 <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">POST A TASK</a>
             </li>
             <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn">
-                <a class="nav-link">SEARCH USERS</a>
+                <a class="nav-link" [routerLink]="['profiles']">SEARCH USERS</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"><i class="fa fa-search fa-pad"></i></a>
