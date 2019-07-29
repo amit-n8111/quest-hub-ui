@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileListComponent implements OnInit {
 
+  displaySidebar: boolean = false;
+  isShowFilters: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

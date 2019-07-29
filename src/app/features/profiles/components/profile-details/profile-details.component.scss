@@ -1,0 +1,95 @@
+.card-user .image {
+    height: 130px;
+}
+
+.card .image {
+    overflow: hidden;
+    height: 100px;
+    position: relative;
+}
+
+.card-user .image img {
+    border-radius: 12px;
+}
+
+img {
+    max-width:100%;
+    border-radius: 3px;
+}
+
+.card-user .author {
+    text-transform: none;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body ul{
+    list-style-type: none;
+}
+
+.card-body .avatar {
+    width: 124px;
+    height: 124px;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.author a {
+    color: #007ad9; cursor: pointer; 
+}
+
+::ng-deep {
+    .ui-sidebar-lg {
+        z-index: 1500 !important;
+        width: 70vw !important
+    }
+}
+
+.card .avatar {
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+img {
+    max-width: 100px;
+    border-radius: 3px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.card-user .card-body+.card-footer {
+    padding-top: 0;
+}
+
+.card .card-footer {
+    background-color: transparent;
+    border: 0;
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 calc(.25rem-1px) calc(.25rem-1px);
+}
+
+.card-footer {
+    padding: .75rem 1.25 rem;
+    background-color: rgba(0,0,0, .03);
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.card-user .button-container {
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.userCard {
+    border-radius: 15px !important; 
+    box-shadow: 8px 8px 8px #ccc !important;
+}
+
+.description {
+    margin-bottom: 0px !important;
+}
+

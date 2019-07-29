@@ -1,6 +1,8 @@
 
 body {
     background-color: #F2F2F2 !important;
+    font-size: 12px;
+    font-family: Arial;
 }
 
 .navbar {
@@ -10,3 +12,44 @@ body {
 .cursorPointer {
     cursor: pointer;
 }
+
+.pad{ padding: 0px !important; }
+.pad-l{ padding-left: 0px !important; }
+.pad-r{ padding-right: 0px !important; }
+.pad-t{ padding-top: 0px !important; }
+.pad-b{ padding-bottom: 0px !important; }
+.pad-20{ padding: 0px 20px !important; }
+.pad-t-15{margin-top: 15px !important;}
+
+.mar{ margin: 0px;}
+.row{ margin: 0px !important;}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(203,203,203,0.2)
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBCBCB;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #CBCBCB;
+}
+
+.responsive-tabs-container ::-webkit-scrollbar-thumb {
+    background: rgba(25,25,25,0.35) !important;
+    border-radius: 10px;
+    background: transparent;
+} 
+
+.responsive-tabs-container ::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+} 
+
