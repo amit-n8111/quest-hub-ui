@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { HomeService } from './services/home.service';
 
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
   topicList: string[];
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private homeService: HomeService
   ) { }
 
@@ -41,7 +44,8 @@ export class HomeComponent implements OnInit {
   }
 
   onTopicSelect(value) {
-    console.log(value);
+    const topicName = value['name'];
+    this.router.navigate(['posts'], { queryParams: { topicName } });
   }
 
 }
