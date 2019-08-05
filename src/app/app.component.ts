@@ -28,9 +28,9 @@ export class AppComponent implements OnInit {
       (userDetails) => {
         if (!!userDetails) {
           this.isLoggedInUser = true;
-          this.router.navigate(['home/overview']);
-        } else {
           this.router.navigate(['home']);
+        } else {
+          this.router.navigate(['login']);
           this.observeUserInfo();
         }
       }
@@ -42,6 +42,8 @@ export class AppComponent implements OnInit {
       (data) => {
         if (data) {
           this.isLoggedInUser = true;
+        } else {
+          this.isLoggedInUser = false;
         }
       }
     );

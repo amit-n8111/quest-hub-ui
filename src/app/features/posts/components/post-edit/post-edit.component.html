@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="update ml-auto mr-auto">
                         <button
-                            *ngIf="(taskForm.get('documents').value && selectedDocumentIndex != taskForm.get('documents').value.length) else submitButton"
+                            *ngIf="(taskForm.get('documents').value && ( selectedDocumentIndex + 1 ) != taskForm.get('documents').value.length) else submitButton"
                             type="submit" class="btn btn-primary btn-round"
                             (click)="changeDocumentByIndex()">Next</button>
                         <ng-template #submitButton>

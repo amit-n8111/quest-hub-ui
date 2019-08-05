@@ -18,7 +18,7 @@
                 <a class="nav-link"><i class="fa fa-search fa-pad"></i></a>
             </li>
             <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn" (click)="logOutUser()">
-                <a class="nav-link" [routerLink]="['']"><i class="fa fa-user"></i></a>
+                <a class="nav-link" [routerLink]="['login']"><i class="fa fa-user"></i></a>
             </li>
         </ul>
     </div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { HomeOverviewComponent } from './home-overview/home-overview.component';
+import { HomeOverviewComponent } from './components/home-overview/home-overview.component';
 
 const routes: Routes = [
     {
@@ -11,11 +11,12 @@ const routes: Routes = [
             {
                 path: '',
                 component: HomeComponent
-            },
-            {
-                path: 'overview',
-                component: HomeOverviewComponent
             }
+            // ,
+            // {
+            //     path: 'overview',
+            //     component: HomeOverviewComponent
+            // }
         ]
     }
 ];
