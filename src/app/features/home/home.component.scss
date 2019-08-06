@@ -116,11 +116,11 @@
 .searchBar {
   position: relative;
   top: 50vh;
-  left: 40vw;
+  left: 35vw;
   width: 31%;
 }
-.autoComplete .ui-inputtext{
-  width: 20vw;
+::ng-deep .autoComplete .ui-inputtext{
+  width: 22vw !important;
 }
 .alignCenter {
   text-align: center;
