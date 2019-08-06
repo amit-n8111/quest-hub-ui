@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 import { AuthGuard } from './services/auth.guard';
 import { HelperService } from './services/helper.service';
@@ -14,7 +15,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayPanelModule
   ],
   providers: [
     AuthGuard,
@@ -22,7 +24,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     EntitlementService
   ],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    OverlayPanelModule
   ]
 })
 

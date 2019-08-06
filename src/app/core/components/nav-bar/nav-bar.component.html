@@ -9,16 +9,59 @@
                 <a class="nav-link">HOW IT WORKS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">POST A TASK</a>
+                <a class="nav-link" (click)="op.toggle($event)">TASKS</a>
+                <p-overlayPanel [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" #op
+                    [dismissable]="true" >
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">MY
+                                TASKS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">POST A TASK</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">ALL TASKS</a>
+                        </li>
+                    </ul>
+                </p-overlayPanel>
             </li>
             <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn">
-                <a class="nav-link" [routerLink]="['profiles']">SEARCH USERS</a>
+                <a class="nav-link" (click)="oq.toggle($event)">USERS</a>
+                <p-overlayPanel #oq [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" >
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['profiles']">FIND USERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['profiles']">MY USERS</a>
+                        </li>
+                    </ul>
+                </p-overlayPanel>
             </li>
             <li class="nav-item">
-                <a class="nav-link"><i class="fa fa-search fa-pad"></i></a>
+                <label class="expandSearch">
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <i class="fa fa-search fa-pad"></i>
+                </label>
             </li>
-            <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn" (click)="logOutUser()">
-                <a class="nav-link" [routerLink]="['login']"><i class="fa fa-user"></i></a>
+            <li class="nav-item">
+                <a class="nav-link" (click)="or.toggle($event)"><i class="fa fa-user"></i></a>
+                <p-overlayPanel #or  [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" >
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fa fa-user"></i> &nbsp; Amit Navarkar </a>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li class="nav-item">
+                            <a class="nav-link">SETTINGS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['login']" *ngIf="entitlementService.isUserLoggedIn"
+                                (click)="logOutUser()"> LOGOUT</a>
+                        </li>
+                    </ul>
+                </p-overlayPanel>
             </li>
         </ul>
     </div>
