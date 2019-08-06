@@ -2,15 +2,15 @@
     <!-- <h1>Welcome to Quest Hub</h1>
             <h2>Here you can post your task and everyone can find you &amp; more...</h2>-->
     <div class="input-group mb-3 searchBar">
-        <p-autoComplete class="autoComplete" [immutable]="false" [(ngModel)]="searchString" [suggestions]="topicList"
+        <p-autoComplete class="autoComplete" placeholder="Who do you need to hire" [immutable]="false" [(ngModel)]="searchString" [suggestions]="topicList"
             (completeMethod)="searchTopics($event)" field="name" (onSelect)="onTopicSelect($event)">
         </p-autoComplete>
         <div class="input-group-append">
-            <button class="btn btn-primary" type="button" style="padding: 0px 10px;">Search</button>
+            <button class="btn btn-primary" type="button" style="padding: 0px 10px;">Get Started</button>
         </div>
     </div>
 </div>
-<div class="col-md-12 pad">
+<div class="col-md-12 pad alignCenter">
     <app-home-carousel>
     </app-home-carousel>
 </div>
