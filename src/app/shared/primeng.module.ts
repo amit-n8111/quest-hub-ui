@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
     declarations: [],
@@ -13,14 +14,16 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
         ChipsModule,
         RadioButtonModule,
         SidebarModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        CarouselModule
     ],
     exports: [
         TableModule,
         ChipsModule,
         RadioButtonModule,
         SidebarModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        CarouselModule
     ]
 })
 

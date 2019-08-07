@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+// ToDo:: If more primeng packages are required import shared module.
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CarouselModule } from 'primeng/carousel';
 
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -22,7 +24,8 @@ import { HomeService } from './services/home.service';
         FormsModule,
         HomeRoutingModule,
         RouterModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        CarouselModule
     ],
     providers: [
         HomeService
