@@ -8,13 +8,15 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 
 import { PostsService } from './services/posts.service';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { PostOverviewCardComponent } from './components/post-overview-card/post-overview-card.component';
 
 @NgModule({
   declarations: [
     PostEditComponent,
     MyPostListComponent,
     PostDetailComponent,
-    PostListComponent
+    PostListComponent,
+    PostOverviewCardComponent
   ],
   imports: [
     PostsRoutingModule,
