@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
+  displaySidebar: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  test(abc) {
+    this.displaySidebar = true;
   }
 
 }

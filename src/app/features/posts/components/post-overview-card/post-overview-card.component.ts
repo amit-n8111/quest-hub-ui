@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post-overview-card',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-overview-card.component.scss']
 })
 export class PostOverviewCardComponent implements OnInit {
+  @Output() emitClick: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  cardClick() {
+    console.log('coming here');
+    this.emitClick.emit('abc');
   }
 
 }

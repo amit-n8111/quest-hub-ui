@@ -21,10 +21,11 @@
         <div class="card-header">
             <input type="checkbox">&nbsp;
             <label> 2443 Results</label>
-            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i class="fa fa-angle-down"></i></label></div>
+            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i
+                        class="fa fa-angle-down"></i></label></div>
         </div>
         <div class="card-body pad">
-            <app-post-overview-card></app-post-overview-card>
+            <app-post-overview-card (emitClick)="test($event)"></app-post-overview-card>
         </div>
     </div>
 </div>
