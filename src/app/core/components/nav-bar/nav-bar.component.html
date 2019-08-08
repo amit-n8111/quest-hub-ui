@@ -11,24 +11,25 @@
             <li class="nav-item">
                 <a class="nav-link" (click)="op.toggle($event)">TASKS</a>
                 <p-overlayPanel [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" #op
-                    [dismissable]="true" >
+                    [dismissable]="true">
                     <ul>
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">MY
+                            <a class="nav-link" [routerLink]="['posts', 'edit', 0]" routerLinkActive="active">POST A
+                                TASK</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['posts', 'myPosts']" routerLinkActive="active">MY
                                 TASKS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">POST A TASK</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">ALL TASKS</a>
+                            <a class="nav-link" [routerLink]="['posts']" routerLinkActive="active">ALL TASKS</a>
                         </li>
                     </ul>
                 </p-overlayPanel>
             </li>
             <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn">
                 <a class="nav-link" (click)="oq.toggle($event)">USERS</a>
-                <p-overlayPanel #oq [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" >
+                <p-overlayPanel #oq [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
                     <ul>
                         <li class="nav-item">
                             <a class="nav-link" [routerLink]="['profiles']">FIND USERS</a>
@@ -47,7 +48,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="or.toggle($event)"><i class="fa fa-user"></i></a>
-                <p-overlayPanel #or  [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" >
+                <p-overlayPanel #or [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
                     <ul>
                         <li class="nav-item">
                             <a class="nav-link"><i class="fa fa-user"></i> &nbsp; Amit Navarkar </a>

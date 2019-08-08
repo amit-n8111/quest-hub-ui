@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PostEditComponent } from './components/post-edit/post-edit.component';
-import { PostListComponent } from './components/post-list/post-list.component';
+import { MyPostListComponent } from './components/my-post-list/my-post-list.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: '',
         component: PostListComponent,
+      },
+      {
+        path: 'myPosts',
+        component: MyPostListComponent,
       },
       {
         path: ':id',

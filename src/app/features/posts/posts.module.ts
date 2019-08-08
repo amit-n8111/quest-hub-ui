@@ -3,16 +3,18 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { SharedModule } from './../../shared/shared.module';
 
 import { PostEditComponent } from './components/post-edit/post-edit.component';
-import { PostListComponent } from './components/post-list/post-list.component';
+import { MyPostListComponent } from './components/my-post-list/my-post-list.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 import { PostsService } from './services/posts.service';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 @NgModule({
   declarations: [
     PostEditComponent,
-    PostListComponent,
-    PostDetailComponent
+    MyPostListComponent,
+    PostDetailComponent,
+    PostListComponent
   ],
   imports: [
     PostsRoutingModule,
