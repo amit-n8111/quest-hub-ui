@@ -1,0 +1,36 @@
+.title {
+  color: #008de6;
+  padding: 6px 0px;
+}
+.detailBlock {
+  background: #eee;
+  padding: 5px;
+  margin-bottom: 10px !important;
+}
+.label-default {
+  background: #eee;
+  padding: 2px 8px;
+  margin-right: 10px;
+}
+.user {
+  width: auto;
+  display: -webkit-box;
+  margin-top: 10px;
+}
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-right: 10px;
+  margin-top: 4px;
+  display: inherit;
+}
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
+}
+.align-center {
+  text-align: center;
+  margin-top: 20px;
+}

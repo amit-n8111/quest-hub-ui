@@ -1,0 +1,20 @@
+.dropdown-toggle {
+  border-radius: 0px;
+  background: #ccc;
+  border: 1px solid #eee;
+}
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #ccc !important;
+  border: 1px solid #eee !important;
+}
+.textBox {
+  position: relative;
+  left: -1px;
+  border-radius: 0px;
+  height: 33px;
+}
+.card-body {
+  border-bottom: 1px solid #ccc;
+}

@@ -12,6 +12,14 @@ body {
 .cursorPointer {
     cursor: pointer;
 }
+.form-control:focus {
+    box-shadow: none !important;
+}
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: none !important;
+}
+.btn {padding: 4px 10px !important; border-radius: 0px !important;}
+label {margin-bottom: 0px !important;}
 
 .pad{ padding: 0px !important; }
 .pad-l{ padding-left: 0px !important; }
@@ -20,6 +28,7 @@ body {
 .pad-b{ padding-bottom: 0px !important; }
 .pad-20{ padding: 0px 20px !important; }
 .pad-t-15{margin-top: 15px !important;}
+.pad-b-15{margin-bottom: 15px !important;}
 
 .mar{ margin: 0px;}
 .row{ margin: 0px !important;}

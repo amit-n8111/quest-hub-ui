@@ -1,1 +1,30 @@
-<p>post-list works!</p>
+<div class="container pad-t-15 pad-b-15">
+    <div class="row" style="padding-bottom: 15px;">
+        <div class="col-md-10 pad-l" style="display: inline-flex">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+                        class="fa fa-list-alt"></i> &nbsp;Any Category
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Select a Category</a></li>
+                </ul>
+            </div>
+            <input type="text" class="form-control textBox">
+        </div>
+        <div class="col-md-2 pad">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+                    class="fa fa-filter"></i> &nbsp;Filters
+                <span class="caret"></span></button>
+        </div>
+    </div>
+    <div class="col-md-12 pad card">
+        <div class="card-header">
+            <input type="checkbox">&nbsp;
+            <label> 2443 Results</label>
+            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i class="fa fa-angle-down"></i></label></div>
+        </div>
+        <div class="card-body pad">
+            <app-post-overview-card></app-post-overview-card>
+        </div>
+    </div>
+</div>
