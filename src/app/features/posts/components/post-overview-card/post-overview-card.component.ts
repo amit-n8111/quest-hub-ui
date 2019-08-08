@@ -14,7 +14,6 @@ export class PostOverviewCardComponent implements OnInit {
   }
 
   cardClick() {
-    console.log('coming here');
     this.emitClick.emit('abc');
   }
 

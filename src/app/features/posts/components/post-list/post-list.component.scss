@@ -15,6 +15,49 @@
   border-radius: 0px;
   height: 33px;
 }
+.user {
+  width: auto;
+  display: -webkit-box; 
+}
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-right: 10px;
+  margin-top: 4px;
+  display: inherit;
+}
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
+}
+.label-default {
+  background: #eee;
+  padding: 2px 8px;
+  margin: 7px;
+}
+.title {
+  color: #008de6;
+}
 .card-body {
   border-bottom: 1px solid #ccc;
+}
+::ng-deep {
+  .ui-sidebar-lg {
+    z-index: 1500 !important;
+    width: 80vw !important;
+  }
+}
+::ng-deep {
+  .profileDetails .card-body,
+  .card-header {
+    border: 1px solid #ccc !important;
+  }
+}
+::ng-deep {
+  .profileDetails .card-body {
+    height: calc(100vh - 85px);
+    overflow-y: auto;
+  }
 }
