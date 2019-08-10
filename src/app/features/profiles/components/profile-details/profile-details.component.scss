@@ -1,95 +1,53 @@
-.card-user .image {
-    height: 130px;
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #379F01;
+    border: 1px solid #D8D8D8;
+    border-left: 8px solid #379F01;
+    background-color: white !important;
 }
 
-.card .image {
-    overflow: hidden;
-    height: 100px;
-    position: relative;
+::ng-deep div.profileDetails {
+    background-color: #F2F2F2 !important;
 }
 
-.card-user .image img {
-    border-radius: 12px;
+.sidebarNavigation {
+    color: #379F01;
+    font-size: 15px;
 }
 
-img {
-    max-width:100%;
-    border-radius: 3px;
+.boxDesign {
+    background-color: white !important;
+    box-shadow: 0 1px 6px rgba(57,73,76,0.35);
 }
 
-.card-user .author {
-    text-transform: none;
+.user {
+  width: auto;
+  display: -webkit-box;
+  margin-top: 10px;
 }
 
-.card-body {
-    padding: 20px;
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-right: 10px;
+  margin-top: 4px;
+  display: inherit;
 }
 
-.card-body ul{
-    list-style-type: none;
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
 }
 
-.card-body .avatar {
-    width: 124px;
-    height: 124px;
-    border: 1px solid #fff;
-    position: relative;
+.title {
+  color: #008de6;
+  padding: 6px 0px;
+  cursor: pointer;
 }
 
-.author a {
-    color: #007ad9; cursor: pointer; 
+.fixedBottom {
+    position: absolute;
+    bottom: 2vh;
+    margin-left: 18%;
 }
-
-::ng-deep {
-    .ui-sidebar-lg {
-        z-index: 1500 !important;
-        width: 70vw !important
-    }
-}
-
-.card .avatar {
-    overflow: hidden;
-    border-radius: 50%;
-    margin-bottom: 5px;
-}
-
-img {
-    max-width: 100px;
-    border-radius: 3px;
-    vertical-align: middle;
-    border-style: none;
-}
-
-.card-user .card-body+.card-footer {
-    padding-top: 0;
-}
-
-.card .card-footer {
-    background-color: transparent;
-    border: 0;
-}
-
-.card-footer:last-child {
-    border-radius: 0 0 calc(.25rem-1px) calc(.25rem-1px);
-}
-
-.card-footer {
-    padding: .75rem 1.25 rem;
-    background-color: rgba(0,0,0, .03);
-    border-top: 1px solid rgba(0,0,0,.125);
-}
-
-.card-user .button-container {
-    margin-bottom: 6px;
-    text-align: center;
-}
-
-.userCard {
-    border-radius: 15px !important; 
-    box-shadow: 8px 8px 8px #ccc !important;
-}
-
-.description {
-    margin-bottom: 0px !important;
-}
-

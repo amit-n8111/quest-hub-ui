@@ -1,3 +1,49 @@
-.marginLeft35 {
-    margin-left: 35px;
+::ng-deep {
+  .profileDetails .card-body,
+  .card-header {
+    border: 1px solid #ccc !important;
+  }
+}
+
+.card-body {
+  border-bottom: 1px solid #ccc;
+}
+
+::ng-deep {
+  .profileDetails .card-body {
+    height: calc(100vh - 85px);
+    overflow-y: auto;
+  }
+}
+
+.title {
+  color: #008de6;
+}
+
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
+}
+
+.label-default {
+  background: #eee;
+  padding: 2px 8px;
+  margin: 7px;
+}
+
+
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-right: 10px;
+  margin-top: 4px;
+  display: inherit;
+}
+
+
+.sidebarNavigation {
+    color: #379F01;
+    font-size: 15px;
 }

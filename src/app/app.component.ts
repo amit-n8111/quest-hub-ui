@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
       (userDetails) => {
         if (!!userDetails) {
           this.isLoggedInUser = true;
-          this.router.navigate(['home']);
         } else {
           this.router.navigate(['login']);
           this.observeUserInfo();

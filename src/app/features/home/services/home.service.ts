@@ -11,10 +11,11 @@ export class HomeService {
         private helperService: HelperService
     ) { }
 
-    getTopicList() {
+    getTopicList(topicName) {
         const resourceURL = this.helperService.getResourceURL(HomeConstants.TOPIC_LIST);
+        const options = { params: { topicName } };
 
-        return this.http.get(resourceURL).pipe(
+        return this.http.get(resourceURL, options).pipe(
             catchError(this.helperService.handleError<any>('getTopicList', []))
         );
     }

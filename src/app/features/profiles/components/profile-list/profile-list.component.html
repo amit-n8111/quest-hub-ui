@@ -1,67 +1,33 @@
-<div class="row pt-4">
-    <div class="col-md-12">
-        <div class="card card-user">
-            <div class="card-header">
-                <i class="fa fa-search absolutePos"></i>
-                <input type="text" class="form-control searchInput" size="50" placeholder="Search by Title">
-                <button (click)="isShowFilters != !isShowFilters" type="button" class="btn btn-primary pull-right">
-                    <i class="fa fa-filter mr-2"></i>
-                    Filters
-                </button>
+<div class="container pad-t-15 pad-b-15">
+    <div class="row" style="padding-bottom: 15px;">
+        <div class="col-md-10 pad-l" style="display: inline-flex">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+                        class="fa fa-list-alt"></i> &nbsp;Any Category
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Select a Category</a></li>
+                </ul>
             </div>
+            <input type="text" class="form-control textBox">
+        </div>
+        <div class="col-md-2 pad">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+                    class="fa fa-filter"></i> &nbsp;Filters
+                <span class="caret"></span></button>
         </div>
     </div>
-</div>
 
-<p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg">
-    <app-profile-details></app-profile-details>
-</p-sidebar>
+    <div class="col-md-12 pad card">
+        <div class="card-header">
+            <!-- <input type="checkbox">&nbsp; -->
+            <label> 10 Results</label>
+            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i
+                        class="fa fa-angle-down"></i></label></div>
+        </div>
 
-<div class="row pt-4">
-    <div class="col-md-4" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-        <div class="card card-user userCard">
-            <div class="image">
-                <img alt="..." src="./assets/images/damir-bosnjak.jpg">
-            </div>
-            <div class="card-body">
-                <div class="author">
-                    <a (click)="displaySidebar=true">
-                        <img alt="..." class="avatar border-grey" src="./assets/images/mike.jpg">
-                        <h6 class="title"> Jon Doe </h6>
-                        <p class="description"> @JonDoe</p>
-                    </a>
-                </div>
-                <p class="description text-center" style="font-size: 12px;">
-                    11 Years work exoerience in Web Development.
-                    <br /> Completed BE in Computer Science.
-                </p>
-            </div>
-            <div class="card-footer">
-                <hr>
-                <div class="button-container">
-                    <div class="row">
-                        <div class="col-md-4 pad">
-                            <h6>22
-                                <br>
-                                <small> Jobs </small>
-                            </h6>
-                        </div>
-                        <div class="col-md-4 pad">
-                            <h6>Angular
-                                <br>
-                                <small> Skill </small>
-                            </h6>
-                        </div>
-                        <div class="col-md-4 pad">
-                            <h6>BE
-                                <br>
-                                <small> Qual. </small>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="card-body pad">
+            <app-profile-overview-card *ngFor="let i of [1,2,3]"></app-profile-overview-card>
         </div>
     </div>
 </div>

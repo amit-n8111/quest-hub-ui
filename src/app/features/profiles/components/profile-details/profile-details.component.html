@@ -1,69 +1,106 @@
-<div class="row">
-    <div class="col-md-8">
-        <div class="card card-ser userCard">
-            <div class="card-body">
-                <div class="author">
-                    <h5 class="title">Jon Doe</h5>
-                    <p class="description">@jondoe </p>
+<div class="row sidebarNavigation mb-3 mt-3" *ngIf="isSidebar">
+    <div class="col-md-6">
+        <i class="fa fa-arrow-circle-left"></i>
+        Back to list
+    </div>
+    <div class="col-md-6 ">
+        <span class="float-right" (click)="openProfileDetails()">
+            <i class="fa fa-window-restore"></i>
+            Open profile in new window
+        </span>
+    </div>
+
+</div>
+
+<div class="row sidebarContent mt-3">
+    <div class="col-md-3">
+        <ul class="nav flex-column nav-pills" aria-orientation="vertical">
+            <li class="nav-link active">
+                <a>Profile</a>
+            </li>
+            <li class="nav-link">
+                <a>Skillsets</a>
+            </li>
+            <li class="nav-link">
+                <a>Work History and Feedback</a>
+            </li>
+        </ul>
+
+        <hr />
+
+        <div class="pad ml-3">
+            <label class="title">Availablility</label><br />
+            <span>Less than 5 hours</span>
+        </div>
+
+        <hr />
+
+        <div class="pad align-center fixedBottom">
+            <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
+                    class="fa fa-heart"></i></button>
+            <button class="btn btn-primary" style="margin-top: 10px;">Contact</button>
+        </div>
+    </div>
+
+    <div class="col-md-9 pad">
+        <div class="card-body boxDesign">
+            <div class="row">
+                <div class="col-md-1">
+                    <i class="fa fa-user-circle userIcon" aria-hidden="true"></i>
                 </div>
-                <div class="description">
-                    <strong>Full-stack PHP Developer | Codeignitor | Wordpress</strong>
-                    <br>
-                    <small>High Quality | Clean code | In-time</small>
-                    <p>Delivery I'll be the right person for your project as I ecer compromise tge quaity id delivery &
-                        at the end, only your satisfaction will be reward to my efforts.
-                    </p>
-                    <br><strong>Why you should hire me?</strong>
-                    <ul>
-                        <li>** 100+ projects completed **</li>
-                        <li>** Always deliver on time **</li>
-                        <li>** Strict to deadlines and milestones **</li>
-                        <li>** 100+ Client satisfaction guaranteed **</li>
-                        <li>** Redy for Immediate start **</li>
-                        <li>** Always deliver on time **</li>
-                    </ul>
-                    <strong>My techncal expertise at a glance:</strong>
-                    <p>--- Solid understanding and experience with HTML/Html5, CSS/CSS3...
-                        <a href="more"></a>
-                    </p>
+
+                <div class="col-md-9 pad user">
+                    <div class="ml-3">
+                        <h6 class="title"> Amit Navarkar </h6>
+                        <br />
+
+                        <span>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            Pune, Maharashtra, India
+                        </span>
+                        |
+                        <span>
+                            BU: GFTS
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <span class=" float-right">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
+                    </span></div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <p><strong>Angular Developer</strong></p><br />
+
+                    <p>Hi there.</p><br />
+
+                    <p>My main expertise is Angular and the frontend side of applications: from simple tools to big
+                        enterprise systems.</p><br />
+
+                    <p>I can create/improve an application for you or consult your team.</p><br />
+
+                    <p>Also I am working on ngx-kit.com - open-source toolkit project for Angular.
+                        And ngrefs.com — Angular references.</p><br />
+                    <p>My GitHub profile: github.com/navix</p><br />
                 </div>
             </div>
 
-            <div class="card-footer">
-                <hr>
-                <div class="button-container">
-                    <div class="row">
-                        <div class="col-md-3 pad">
-                            <h6>$11.00
-                                <br>
-                                <small> Hourly Rate</small>
-                            </h6>
-                        </div>
-                        <div class="col-md-3 pad">
-                            <h6>$9k+
-                                <br>
-                                <small> Total Earned</small>
-                            </h6>
-                        </div>
-                        <div class="col-md-3 pad">
-                            <h6>16
-                                <br>
-                                <small> Jobs</small>
-                            </h6>
-                        </div>
-                        <div class="col-md-3 pad">
-                            <h6>247
-                                <br>
-                                <small> Hourly Worked</small>
-                            </h6>
-                        </div>
-                    </div>
+            <div class="row mt-4">
+                <div class="col-md-4 pl-5 border-right">
+                    <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
+                    <small style="position: relative; left: 20px;">Hours Worked</small>
+                </div>
+                <div class="col-md-4 pl-5 border-right">
+                    <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
+                    <small style="position: relative; left: 20px;">Experties</small>
+                </div>
+                <div class="col-md-4 pl-5">
+                    <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
+                    <small style="position: relative; left: 20px;">Task Completed</small>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4 text-center">
-        <button class="btn btn-primary ml-3" type="button">Invite</button>
-        <button class="btn btn-success" type="button">Save</button>
-    </div>
-</div>

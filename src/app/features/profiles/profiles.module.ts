@@ -6,12 +6,14 @@ import { SharedModule } from './../../shared/shared.module';
 
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { ProfileOverviewCardComponent } from './components/profile-overview-card/profile-overview-card.component';
 
 
 @NgModule({
   declarations: [
     ProfileListComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    ProfileOverviewCardComponent
   ],
   imports: [
     CommonModule,

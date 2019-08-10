@@ -1,112 +1,63 @@
-.fontSize8 {
-    font-size: 8px;
+.dropdown-toggle {
+  border-radius: 0px;
+  background: #ccc;
+  border: 1px solid #eee;
 }
-
-.absolutePos {
-    position: absolute;
-    padding-left: 12px;
-    padding-top: 10px;
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #ccc !important;
+  border: 1px solid #eee !important;
 }
-
-.searchInput {
-    text-indent: 23px;
-    width: 50% !important;
-    display: inline-block;
+.textBox {
+  position: relative;
+  left: -1px;
+  border-radius: 0px;
+  height: 33px;
 }
-
-.height150 {
-    height: 150px !important;
+.user {
+  width: auto;
+  display: -webkit-box; 
 }
-
-.card-user .image {
-    height: 130px;
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-right: 10px;
+  margin-top: 4px;
+  display: inherit;
 }
-
-.card .image {
-    overflow: hidden;
-    height: 100px;
-    position: relative;
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
 }
-
-.card-user .image img {
-    border-radius: 12px;
+.label-default {
+  background: #eee;
+  padding: 2px 8px;
+  margin: 7px;
 }
-
-img {
-    max-width: 100%;
-    border-radius: 3px;
+.title {
+  color: #008de6;
 }
-
-.card-user .author {
-    text-align: center;
-    text-transform: none;
-    margin-top: -77px;
-}
-
-.card-user .avatar {
-    width: 124px;
-    height: 124px;
-    border : 1px solid #fff;
-    position: relative;
-}
-
-.author a { color: #007ad9; cursor: poiner; }
-
-::ng-deep { 
-    .ui-sidebar-lg {
-        z-index: 1500 !important;
-        width: 70vw !important;
-    } 
-}
-
-.card .avatar {
-    overflow: hidden;
-    border-radius: 50%;
-    margin-bottom: 5px;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 3px;
-    vertical-align: middle;
-    border-style: none;
-}
-
-.card-user .card-body+.card-footer {
-    padding-top:0;
-}
-
 .card-body {
-    padding: 0px;
+  border-bottom: 1px solid #ccc;
 }
-
-.card .card-footer {
-    background-color: transparent;
-    border: 0;
+::ng-deep {
+  .ui-sidebar-lg {
+    z-index: 1500 !important;
+    width: 80vw !important;
+  }
 }
-
-.card-footer:last-child {
-    border-radius: 0 0 calc(.25rem -1px) calc(.25rem - 1px);
+::ng-deep {
+  .profileDetails .card-body,
+  .card-header {
+    border: 1px solid #ccc !important;
+  }
 }
-
-.card-footer {
-    padding: .75rem 1.25rem;
-    background-color: rgba(0,0,0, 0.03);
-    border-top: 1px solid rgba(0,0,0,.125);
+::ng-deep {
+  .profileDetails .card-body {
+    height: calc(100vh - 85px);
+    overflow-y: auto;
+  }
 }
-
-.card-user .button-container {
-    margin-bottom: 6px;
-    text-align: center;
-}
-
-.userCard {
-    border-radius: 15px !important;
-    box-shadow: 8px 8px 8px #ccc !important;
-}
-
-.description {
-    margin-bottom: 0px !important
-}
-
-

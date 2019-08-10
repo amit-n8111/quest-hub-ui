@@ -1,0 +1,67 @@
+<div style="border-bottom: 1px solid #ccc; padding: 20px;">
+    <div class="row">
+        <div class="col-md-1">
+            <i class="fa fa-user-circle userIcon" aria-hidden="true"></i>
+        </div>
+
+        <div class="col-md-9 pad user">
+            <h6 class="title" (click)="displaySidebar = true"> Amit Navarkar </h6>
+            <br />
+
+            <span>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                Pune, Maharashtra, India
+            </span>
+            |
+            <span>
+                BU: GFTS
+            </span>
+
+            <span class="ml-5 pl-5">
+                <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
+            </span>
+        </div>
+
+        <div class="col-md-2 pad align-center">
+            <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
+                    class="fa fa-heart"></i></button>
+            <button class="btn btn-primary" style="margin-top: 10px;">Contact</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12 mt-2 mb-2">
+            <p>Needed a web developr who can work on Angular and create a web page with responsive css, Jira ticket is
+                there for this task and attached screenshot of mockup/wireframes...</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <span class="label label-default">Angular Js</span>
+        <span class="label label-default">Html</span>
+        <span class="label label-default">Css</span>
+        <span class="label label-default">Bootstrap</span>
+        <span class="label label-default">Javascript</span>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 pl-5 border-right">
+            <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
+            <small style="position: relative; left: 20px;">Hours Worked</small>
+        </div>
+        <div class="col-md-4 pl-5 border-right">
+            <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
+            <small style="position: relative; left: 20px;">Experties</small>
+        </div>
+        <div class="col-md-4 pl-5">
+            <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
+            <small style="position: relative; left: 20px;">Task Completed</small>
+        </div>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg profileDetails">
+    <app-profile-details></app-profile-details>
+</p-sidebar>

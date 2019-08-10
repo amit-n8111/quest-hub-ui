@@ -49,15 +49,3 @@
     width: 80vw !important;
   }
 }
-::ng-deep {
-  .profileDetails .card-body,
-  .card-header {
-    border: 1px solid #ccc !important;
-  }
-}
-::ng-deep {
-  .profileDetails .card-body {
-    height: calc(100vh - 85px);
-    overflow-y: auto;
-  }
-}

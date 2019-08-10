@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-details',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-details.component.scss']
 })
 export class ProfileDetailsComponent implements OnInit {
+  isSidebar: boolean = true;
 
-  constructor() { }
+  constructor(
+    private activateRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.activateRoute.params.subscribe(params => {
+      if (params && params.id) {
+        this.isSidebar = false;
+      }
+    });
   }
+
+  openProfileDetails() {
+    window.open('http://localhost:4200/profiles/3');
+  }
+
+
 
 }

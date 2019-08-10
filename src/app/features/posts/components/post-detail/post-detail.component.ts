@@ -30,4 +30,8 @@ export class PostDetailComponent implements OnInit {
     );
   }
 
+  openPostDetails() {
+    window.open('http://localhost:4200/posts/3');
+  }
+
 }
