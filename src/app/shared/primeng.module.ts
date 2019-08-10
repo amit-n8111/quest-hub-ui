@@ -7,6 +7,9 @@ import { SidebarModule } from 'primeng/sidebar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CarouselModule } from 'primeng/carousel';
 
+import { EditorModule } from 'primeng/editor';
+import { CardModule } from 'primeng/card';
+
 @NgModule({
     declarations: [],
     imports: [
@@ -15,7 +18,9 @@ import { CarouselModule } from 'primeng/carousel';
         RadioButtonModule,
         SidebarModule,
         AutoCompleteModule,
-        CarouselModule
+        CarouselModule,
+        EditorModule,
+        CardModule
     ],
     exports: [
         TableModule,
@@ -23,7 +28,9 @@ import { CarouselModule } from 'primeng/carousel';
         RadioButtonModule,
         SidebarModule,
         AutoCompleteModule,
-        CarouselModule
+        CarouselModule,
+        EditorModule,
+        CardModule
     ]
 })
 

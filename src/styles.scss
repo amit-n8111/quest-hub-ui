@@ -65,3 +65,21 @@ label {margin-bottom: 0px !important;}
     height: 10px;
 } 
 
+.boxShadow {
+    box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+}
+
+.form-control-details label, li {
+    font-size: 1em;
+}
+
+.labelFontBold {
+    font-weight: 500;
+}
+
+.label-default {
+  background: #eee;
+  padding: 6px 8px;
+  margin: 7px;
+}
+

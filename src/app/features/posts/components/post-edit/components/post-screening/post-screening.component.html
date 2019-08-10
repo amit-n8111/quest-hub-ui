@@ -1,0 +1,60 @@
+<div class="boxShadow card card-user mb-2">
+    <div class="card-header">
+        <h5 class="card-title ">Task Screening</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="labelFontBold">What type of task do you have?</label>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <p-card [ngClass]="{'selected': 'microTask' == selectedTaskType}" [style]="{width: '200px'}"
+                                (click)="selectTaskTypeFn('microTask')">
+                                <i class="fa fa-user faIcon"></i><br />
+                                Micro Task
+                            </p-card>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p-card [ngClass]="{'selected': 'microProject' == selectedTaskType}"
+                                [style]="{width: '200px'}" (click)="selectTaskTypeFn('microProject')">
+                                <i class="fa fa-clipboard faIcon"></i><br />
+                                Micro Project
+                            </p-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="boxShadow card card-user mb-2">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="labelFontBold">Screening Questions (Optional)</label><br />
+                    <p class="mt-2">Add a few questions you'd like to answer when somebody applying to your
+                        task.
+                    </p>
+
+                    <div *ngFor="let question of questionArray">
+                        <input type="text" class="form-control mt-2 w-75 d-inline-block" name="taskName">
+                        <i class="fa fa-times mt-4 mr-5 float-right"></i><br />
+                        <code class="marginLeft">0/256 characters</code>
+                    </div>
+
+                    <div class="ml-2 mt-2 text-success">
+                        <div class="cursorPointer">
+                            <a class=""><i class="fa fa-plus"></i></a>
+                            <span class="ml-2" (click)="addQuestionFn()">Add</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

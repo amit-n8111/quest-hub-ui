@@ -1,0 +1,22 @@
+<ul class="nav flex-column nav-pills" aria-orientation="vertical">
+    <li class="nav-link" [ngClass]="{'active': 'taskOverviewTemplate' == selectedTemplateName }"
+        (click)="openSectionFn('taskOverviewTemplate')">
+        <a>Task Overview</a>
+    </li>
+    <li class="nav-link" [ngClass]="{'active': 'taskDescription' == selectedTemplateName }"
+        (click)="openSectionFn('taskDescription')">
+        <a>Task Description</a>
+    </li>
+    <li class="nav-link" [ngClass]="{'active': 'taskScreening' == selectedTemplateName }"
+        (click)="openSectionFn('taskScreening')">
+        <a>Task Screening</a>
+    </li>
+    <li class="nav-link" [ngClass]="{'active': 'taskSkillsets' == selectedTemplateName }"
+        (click)="openSectionFn('taskSkillsets')">
+        <a>Task Skillsets</a>
+    </li>
+    <li class="nav-link" [ngClass]="{'active': 'reviewAndPost' == selectedTemplateName }"
+        (click)="openSectionFn('reviewAndPost')">
+        <a>Review and Post</a>
+    </li>
+</ul>

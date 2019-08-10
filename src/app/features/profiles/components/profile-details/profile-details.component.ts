@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileDetailsComponent implements OnInit {
   isSidebar: boolean = true;
 
+  selectedTemplateName: string = 'profileTemplate';
+
   constructor(
     private activateRoute: ActivatedRoute
   ) { }
@@ -25,6 +27,7 @@ export class ProfileDetailsComponent implements OnInit {
     window.open('http://localhost:4200/profiles/3');
   }
 
-
-
+  openProfileSection(sectionName) {
+    this.selectedTemplateName = sectionName;
+  }
 }

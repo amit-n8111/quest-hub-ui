@@ -1,39 +1,23 @@
-<div class="row pt-4" *ngIf="taskForm">
+<div class="row pt-4">
     <div class="col-md-2">
-        <ul class="nav flex-column nav-pills" aria-orientation="vertical">
-            <li class="nav-link"
-                [ngClass]="{'active': ( selectedDocumentValue == document.get('documentValue').value ) }"
-                *ngFor="let document of taskForm.get('documents')['controls']; let i=index">
-                <a [routerLink]=""
-                    (click)="selectDocumentSection(document, i)">{{document.get('documentName').value}}</a>
-            </li>
-        </ul>
+        <app-post-edit-menu [selectedTemplateName]="selectedTemplateName" (openSection)="openSection($event)">
+        </app-post-edit-menu>
     </div>
+
     <div class="col-md-10">
-        <div [hidden]="selectedDocumentValue != document.get('documentValue').value"
-            *ngFor="let document of taskForm.get('documents')['controls']; let i=index">
-            <div *ngIf="document.get('documentValue').value != 'review' else documentReviewTemplate">
-                <div class="card card-user mb-2"
-                    *ngFor="let section of document.get('sections')['controls']; let j=index">
-                    <div class="card-header" *ngIf="j==0">
-                        <h5 class="card-title ">{{document.get('documentName').value}}</h5>
-                    </div>
-                    <div class="card-body">
-                        <ng-container [ngTemplateOutlet]="sectionTemplate"
-                            [ngTemplateOutletContext]="{section: section}">
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
+        <div [ngSwitch]="selectedTemplateName">
+            <app-post-overview *ngSwitchCase="'taskOverviewTemplate'"></app-post-overview>
+            <app-post-description *ngSwitchCase="'taskDescription'"></app-post-description>
+            <app-post-screening *ngSwitchCase="'taskScreening'"></app-post-screening>
+            <app-post-skillsets *ngSwitchCase="'taskSkillsets'"></app-post-skillsets>
+            <app-post-review *ngSwitchCase="'reviewAndPost'"></app-post-review>
         </div>
 
-        <div class="card card-user">
+        <div class="card card-user boxShadow">
             <div class="card-body">
                 <div class="row">
                     <div class="update ml-auto mr-auto">
-                        <button
-                            *ngIf="(taskForm.get('documents').value && ( selectedDocumentIndex + 1 ) != taskForm.get('documents').value.length) else submitButton"
-                            type="submit" class="btn btn-primary btn-round"
+                        <button type="submit" class="btn btn-primary btn-round"
                             (click)="changeDocumentByIndex()">Next</button>
                         <ng-template #submitButton>
                             <button type="submit" class="btn btn-primary btn-round"
@@ -46,7 +30,7 @@
     </div>
 </div>
 
-<ng-template #documentReviewTemplate>
+<!-- <ng-template #documentReviewTemplate>
     <div *ngFor="let document of taskForm.get('documents')['controls'];">
         <div *ngFor="let section of document.get('sections')['controls']; let i=index">
             <div class="card card-user mb-2">
@@ -65,9 +49,9 @@
             </div>
         </div>
     </div>
-</ng-template>
+</ng-template> -->
 
-<ng-template #sectionTemplate let-section="section">
+<!-- <ng-template #sectionTemplate let-section="section">
     <div class="row" [formGroup]="section">
         <div class="col-md-12 pr-1">
             <div class="form-group">
@@ -101,7 +85,7 @@
                         </div>
                     </div>
 
-                    <!-- <p-chips *ngSwitchCase="'dynamicChipSet'" formControlName="options"></p-chips> -->
+                    <p-chips *ngSwitchCase="'dynamicChipSet'" formControlName="options"></p-chips>
 
                     <input *ngSwitchDefault type="text" class="form-control"
                         name="{{section.get('sectionValue').value}}" formControlName="value">
@@ -109,4 +93,4 @@
             </div>
         </div>
     </div>
-</ng-template>
+</ng-template> -->

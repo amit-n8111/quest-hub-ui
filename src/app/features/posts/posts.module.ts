@@ -9,6 +9,12 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 import { PostsService } from './services/posts.service';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostOverviewCardComponent } from './components/post-overview-card/post-overview-card.component';
+import { PostEditMenuComponent } from './components/post-edit/components/post-edit-menu/post-edit-menu.component';
+import { PostOverviewComponent } from './components/post-edit/components/post-overview/post-overview.component';
+import { PostDescriptionComponent } from './components/post-edit/components/post-description/post-description.component';
+import { PostScreeningComponent } from './components/post-edit/components/post-screening/post-screening.component';
+import { PostSkillsetsComponent } from './components/post-edit/components/post-skillsets/post-skillsets.component';
+import { PostReviewComponent } from './components/post-edit/components/post-review/post-review.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { PostOverviewCardComponent } from './components/post-overview-card/post-
     MyPostListComponent,
     PostDetailComponent,
     PostListComponent,
-    PostOverviewCardComponent
+    PostOverviewCardComponent,
+    PostEditMenuComponent,
+    PostOverviewComponent,
+    PostDescriptionComponent,
+    PostScreeningComponent,
+    PostSkillsetsComponent,
+    PostReviewComponent
   ],
   imports: [
     PostsRoutingModule,
