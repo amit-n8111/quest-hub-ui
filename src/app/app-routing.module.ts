@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: './features/home/home.module#HomeModule'
   },
   {
+    path: 'inbox',
+    loadChildren: './features/inbox/inbox.module#InboxModule'
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

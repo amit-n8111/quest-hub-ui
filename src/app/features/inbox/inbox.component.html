@@ -1,0 +1,126 @@
+<!-- <div class="row sidebarNavigation mb-3 mt-3">
+    <div class="col-md-6">
+        <i class="fa fa-arrow-circle-left"></i>
+        Back to list
+    </div>
+    <div class="col-md-6 ">
+        <span class="float-right" (click)="openProfileDetails()">
+            <i class="fa fa-window-restore"></i>
+            Open profile in new window
+        </span>
+    </div>
+
+</div> -->
+
+<div class="row mt-3">
+    <div class="col-md-4">
+        <ul class="nav flex-column nav-pills" aria-orientation="vertical">
+            <li class="nav-link boxDesign p-1 mb-2" (click)="openNotification()" *ngFor="let i of [1,2]"
+                [ngClass]="{'selected': 1 == i}">
+                <!-- [ngClass]="{'active': true }"  -->
+                <div class="row">
+                    <div class="col-md-2 p-1">
+                        <i class="fa fa-user-circle userIcon align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-10 p-1">
+                        <div class="row">
+                            <div class="col-md-6 p-0"><span class="text-success">Amit Navarkar</span></div>
+                            <div class="col-md-6">
+                                <span class="float-right font-weight-light"><small>8.30 AM</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 p-0 text-center font-weight-light">
+                                <small><i class="fa fa-clock-o"></i>
+                                    5</small>
+                            </div>|
+                            <div class="col-md-5 p-0 text-center font-weight-light">
+                                <small><i class="fa fa-battery-three-quarters"></i> Advance
+                                </small>
+                            </div> |
+                            <div class="col-md-3 p-0 text-center font-weight-light">
+                                <small><i class="fa fa-handshake-o" aria-hidden="true"></i> 13</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0 font-weight-light"><small>Needed a web developer to
+                                    create a carous...</small></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-8 pl-0">
+        <div>
+            <ng-container [ngTemplateOutlet]="mailTemplate">
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #mailTemplate>
+    <div class="card-body boxDesign">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa fa-user-circle userIcon" aria-hidden="true"></i>
+            </div>
+
+            <div class="col-md-9 pad user">
+                <div class="ml-3">
+                    <h6 class="title"> Amit Navarkar </h6>
+                    <br />
+
+                    <span>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        Pune, Maharashtra, India
+                    </span>
+                    |
+                    <span>
+                        BU: GFTS
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <span class=" float-right">
+                    <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
+                </span>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <p><strong>Angular Developer</strong></p><br />
+
+                <p>Hi there.</p><br />
+
+                <p>My main expertise is Angular and the frontend side of applications: from simple tools to big
+                    enterprise systems.</p><br />
+
+                <p>I can create/improve an application for you or consult your team.</p><br />
+
+                <p>Also I am working on ngx-kit.com - open-source toolkit project for Angular.
+                    And ngrefs.com — Angular references.</p><br />
+                <p>My GitHub profile: github.com/navix</p><br />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 pl-5 border-right">
+                <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
+                <small style="position: relative; left: 20px;">Hours Worked</small>
+            </div>
+            <div class="col-md-4 pl-5 border-right">
+                <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
+                <small style="position: relative; left: 20px;">Experties</small>
+            </div>
+            <div class="col-md-4 pl-5">
+                <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
+                <small style="position: relative; left: 20px;">Task Completed</small>
+            </div>
+        </div>
+    </div>
+</ng-template>

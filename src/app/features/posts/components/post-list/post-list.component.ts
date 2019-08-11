@@ -7,14 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
   displaySidebar: boolean = false;
+  showScreeningPopup: boolean = false;
+
+  availableDateRange;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  test(abc) {
+  showSidebarFn(abc) {
     this.displaySidebar = true;
+  }
+
+  showScreeningPopupFn(event) {
+    this.showScreeningPopup = true;
   }
 
 }

@@ -1,6 +1,203 @@
 {
-    "postId": 1,
-    "postName": "postName",
-    "postDate": "26/06/1992",
-    "postTopic": "postTopic"
+    "taskName": "Create a web page",
+    "taskDescription": "Needed a Angular expert on this.",
+    "taskType": "MICRO_TASK",
+    "questions": [
+        {
+            "id": 0,
+            "question": "string"
+        }
+    ],
+    "startDate": "2019-08-10T17:42:58.557Z",
+    "status": "DRAFT",
+    "templateName": "string",
+    "assignedSeeker": {
+        "availability": {
+            "additionalProp1": 0,
+            "additionalProp2": 0,
+            "additionalProp3": 0
+        },
+        "buName": "ETS",
+        "firstName": "string",
+        "id": 0,
+        "lastName": "string",
+        "managerSoeId": "string",
+        "rating": 0,
+        "skills": {
+            "additionalProp1": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            },
+            "additionalProp2": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            },
+            "additionalProp3": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            }
+        },
+        "soeId": "string",
+        "teamName": "string",
+        "topicsSubscribed": [
+            {
+                "id": 0,
+                "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                "skills": [
+                    {
+                        "createdDate": "2019-08-10T17:42:58.557Z",
+                        "id": 0,
+                        "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                        "name": "string"
+                    }
+                ],
+                "topicName": "string"
+            }
+        ]
+    },
+    "buName": "ETS",
+    "createdBy": {
+        "availability": {
+            "additionalProp1": 0,
+            "additionalProp2": 0,
+            "additionalProp3": 0
+        },
+        "buName": "ETS",
+        "firstName": "string",
+        "id": 0,
+        "lastName": "string",
+        "managerSoeId": "string",
+        "rating": 0,
+        "skills": {
+            "additionalProp1": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            },
+            "additionalProp2": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            },
+            "additionalProp3": {
+                "lastWorked": "string",
+                "level": "BEGINNER",
+                "yearsOfExperience": 0
+            }
+        },
+        "soeId": "string",
+        "teamName": "string",
+        "topicsSubscribed": [
+            {
+                "id": 0,
+                "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                "skills": [
+                    {
+                        "createdDate": "2019-08-10T17:42:58.557Z",
+                        "id": 0,
+                        "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                        "name": "string"
+                    }
+                ],
+                "topicName": "string"
+            }
+        ]
+    },
+    "endDate": "2019-08-10T17:42:58.557Z",
+    "id": 0,
+    "interestedSeekers": [
+        {
+            "availability": {
+                "additionalProp1": 0,
+                "additionalProp2": 0,
+                "additionalProp3": 0
+            },
+            "buName": "ETS",
+            "firstName": "string",
+            "id": 0,
+            "lastName": "string",
+            "managerSoeId": "string",
+            "rating": 0,
+            "skills": {
+                "additionalProp1": {
+                    "lastWorked": "string",
+                    "level": "BEGINNER",
+                    "yearsOfExperience": 0
+                },
+                "additionalProp2": {
+                    "lastWorked": "string",
+                    "level": "BEGINNER",
+                    "yearsOfExperience": 0
+                },
+                "additionalProp3": {
+                    "lastWorked": "string",
+                    "level": "BEGINNER",
+                    "yearsOfExperience": 0
+                }
+            },
+            "soeId": "string",
+            "teamName": "string",
+            "topicsSubscribed": [
+                {
+                    "id": 0,
+                    "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                    "skills": [
+                        {
+                            "createdDate": "2019-08-10T17:42:58.557Z",
+                            "id": 0,
+                            "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                            "name": "string"
+                        }
+                    ],
+                    "topicName": "string"
+                }
+            ]
+        }
+    ],
+    "isTemplate": true,
+    "manHours": 0,
+    "skillsRequired": [
+        {
+            "createdDate": "2019-08-10T17:42:58.557Z",
+            "id": 0,
+            "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+            "name": "string"
+        }
+    ],
+    "toolsRequired": [
+        {
+            "id": 0,
+            "toolName": "string",
+            "topic": {
+                "id": 0,
+                "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                "skills": [
+                    {
+                        "createdDate": "2019-08-10T17:42:58.557Z",
+                        "id": 0,
+                        "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                        "name": "string"
+                    }
+                ],
+                "topicName": "string"
+            },
+            "version": "string"
+        }
+    ],
+    "topic": {
+        "id": 0,
+        "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+        "skills": [
+            {
+                "createdDate": "2019-08-10T17:42:58.557Z",
+                "id": 0,
+                "lastModifiedDate": "2019-08-10T17:42:58.557Z",
+                "name": "string"
+            }
+        ],
+        "topicName": "string"
+    }
 }

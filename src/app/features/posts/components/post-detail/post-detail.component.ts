@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
@@ -9,7 +9,7 @@ import { PostsService } from './../../services/posts.service';
   styleUrls: ['./post-detail.component.scss']
 })
 export class PostDetailComponent implements OnInit {
-  postDetails: any = {};
+  @Output() showScreeningPopup: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private postsService: PostsService,
@@ -17,21 +17,14 @@ export class PostDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activateRoute.params.subscribe(params => {
-      this.getPostDetails(params.id);
-    });
-  }
-
-  getPostDetails(postId) {
-    this.postsService.getPostDetailsByPostId(postId).subscribe(
-      (postDetails) => {
-        this.postDetails = postDetails;
-      }
-    );
   }
 
   openPostDetails() {
     window.open('http://localhost:4200/posts/3');
+  }
+
+  applyToTask() {
+    this.showScreeningPopup.emit(true);
   }
 
 }

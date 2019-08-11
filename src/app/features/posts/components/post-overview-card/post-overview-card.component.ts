@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class PostOverviewCardComponent implements OnInit {
   @Output() emitClick: EventEmitter<any> = new EventEmitter();
+  @Output() showScreeningPopup: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
@@ -15,6 +16,10 @@ export class PostOverviewCardComponent implements OnInit {
 
   cardClick() {
     this.emitClick.emit('abc');
+  }
+
+  applyToTask() {
+    this.showScreeningPopup.emit(true);
   }
 
 }

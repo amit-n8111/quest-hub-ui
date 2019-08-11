@@ -1,0 +1,56 @@
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #212529;
+    border: 1px solid #D8D8D8;
+    // border-left: 8px solid #379F01;
+    background-color: white !important;
+}
+
+::ng-deep div.profileDetails {
+    background-color: #F2F2F2 !important;
+}
+
+.sidebarNavigation {
+    color: #379F01;
+    font-size: 15px;
+}
+
+.boxDesign {
+    background-color: white !important;
+    box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+}
+
+.user {
+  width: auto;
+  display: -webkit-box;
+  margin-top: 10px;
+}
+
+.userIcon {
+  font-size: 48px;
+  color: #ccc;
+  margin-top: 12px;
+  display: inherit;
+}
+
+.user .title {
+  margin-bottom: 0px;
+  display: initial;
+  position: relative;
+  top: 4px;
+}
+
+.title {
+  color: #008de6;
+  padding: 6px 0px;
+  cursor: pointer;
+}
+
+.fixedBottom {
+    position: absolute;
+    bottom: 2vh;
+    margin-left: 18%;
+}
+
+li.selected {
+    box-shadow: 0 1px 6px rgba(0, 123, 255, 1);
+}

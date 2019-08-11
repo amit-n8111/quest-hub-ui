@@ -9,6 +9,11 @@ import { CarouselModule } from 'primeng/carousel';
 
 import { EditorModule } from 'primeng/editor';
 import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
 
 @NgModule({
     declarations: [],
@@ -20,7 +25,11 @@ import { CardModule } from 'primeng/card';
         AutoCompleteModule,
         CarouselModule,
         EditorModule,
-        CardModule
+        CardModule,
+        DialogModule,
+        CalendarModule,
+        InputTextModule,
+        InputTextareaModule
     ],
     exports: [
         TableModule,
@@ -30,7 +39,11 @@ import { CardModule } from 'primeng/card';
         AutoCompleteModule,
         CarouselModule,
         EditorModule,
-        CardModule
+        CardModule,
+        DialogModule,
+        CalendarModule,
+        InputTextModule,
+        InputTextareaModule
     ]
 })
 

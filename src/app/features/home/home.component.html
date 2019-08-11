@@ -1,6 +1,4 @@
 <div class="col-md-12 pad wallImg">
-    <!-- <h1>Welcome to Quest Hub</h1>
-            <h2>Here you can post your task and everyone can find you &amp; more...</h2>-->
     <div class="input-group mb-3 searchBar">
         <p-autoComplete class="autoComplete" placeholder="What kind of work you need to do?" [immutable]="false"
             [(ngModel)]="searchString" [suggestions]="topicList" (completeMethod)="searchTopics($event)" field="name"
@@ -11,6 +9,7 @@
         </div>
     </div>
 </div>
+
 <div class="col-md-12 pad alignCenter">
     <app-home-carousel>
     </app-home-carousel>

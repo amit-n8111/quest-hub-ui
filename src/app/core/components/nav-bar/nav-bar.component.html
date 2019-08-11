@@ -5,10 +5,10 @@
             Quest Hub
         </a>
         <ul class="navbar-nav ml-auto float-right">
-            <li class="nav-item" *ngIf="!entitlementService.isUserLoggedIn">
+            <li class="nav-item mr-2" *ngIf="!entitlementService.isUserLoggedIn">
                 <a class="nav-link">HOW IT WORKS</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-2">
                 <a class="nav-link" (click)="op.toggle($event)">TASKS</a>
                 <p-overlayPanel [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" #op
                     [dismissable]="true">
@@ -27,7 +27,7 @@
                     </ul>
                 </p-overlayPanel>
             </li>
-            <li class="nav-item" *ngIf="entitlementService.isUserLoggedIn">
+            <li class="nav-item mr-2" *ngIf="entitlementService.isUserLoggedIn">
                 <a class="nav-link" (click)="oq.toggle($event)">USERS</a>
                 <p-overlayPanel #oq [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
                     <ul>
@@ -40,18 +40,40 @@
                     </ul>
                 </p-overlayPanel>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-2">
                 <label class="expandSearch">
                     <input type="text" class="form-control" placeholder="Search..." name="search">
                     <i class="fa fa-search fa-pad"></i>
                 </label>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="or.toggle($event)"><i class="fa fa-user"></i></a>
+
+            <li class="nav-item customOverlayWidth">
+                <a class="nav-link" (click)="notification.toggle($event)">
+                    <i class="fa fa-bell fontSize24"></i>
+                    <span class="badge badge-danger">1</span>
+                </a>
+                <p-overlayPanel #notification [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['inbox']">
+                                <p>You have 1 new Application(s):</p>
+                                <span class="text-success">Needed a web developer to create...</span>
+                            </a>
+                        </li>
+                    </ul>
+                </p-overlayPanel>
+            </li>
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['invitation']"><i class="fa fa-user-plus fontSize24"></i></a>
+            </li> -->
+
+            <li class="nav-item customOverlayWidth">
+                <a class="nav-link" (click)="or.toggle($event)"><i class="fa fa-user-circle-o fontSize24"></i></a>
                 <p-overlayPanel #or [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
                     <ul>
                         <li class="nav-item">
-                            <a class="nav-link"><i class="fa fa-user"></i> &nbsp; Amit Navarkar </a>
+                            <a class="nav-link"><i class="fa fa-user-circle-o"></i> &nbsp; Amit Navarkar </a>
                         </li>
                         <div class="dropdown-divider"></div>
                         <li class="nav-item">
