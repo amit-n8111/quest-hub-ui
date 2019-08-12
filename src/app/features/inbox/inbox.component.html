@@ -1,60 +1,53 @@
-<!-- <div class="row sidebarNavigation mb-3 mt-3">
-    <div class="col-md-6">
-        <i class="fa fa-arrow-circle-left"></i>
-        Back to list
-    </div>
-    <div class="col-md-6 ">
-        <span class="float-right" (click)="openProfileDetails()">
-            <i class="fa fa-window-restore"></i>
-            Open profile in new window
-        </span>
-    </div>
-
-</div> -->
-
 <div class="row mt-3">
     <div class="col-md-4">
-        <ul class="nav flex-column nav-pills" aria-orientation="vertical">
-            <li class="nav-link boxDesign p-1 mb-2" (click)="openNotification()" *ngFor="let i of [1,2]"
-                [ngClass]="{'selected': 1 == i}">
-                <!-- [ngClass]="{'active': true }"  -->
-                <div class="row">
-                    <div class="col-md-2 p-1">
-                        <i class="fa fa-user-circle userIcon align-middle" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-10 p-1">
-                        <div class="row">
-                            <div class="col-md-6 p-0"><span class="text-success">Amit Navarkar</span></div>
-                            <div class="col-md-6">
-                                <span class="float-right font-weight-light"><small>8.30 AM</small>
-                                </span>
+        <div class="form-group">
+            <input type="text" class="form-control w-75 d-inline-block">
+            <div class="float-right mt-2">
+                <span class="mr-3"><i class="fa fa-sort filterIcons"></i></span>
+                <span class="mr-3"> <i class=" fa fa-filter filterIcons"></i></span>
+            </div>
+        </div>
+        <div>
+            <ul class="nav flex-column nav-pills" aria-orientation="vertical">
+                <li class="nav-link boxDesign p-1 mb-2" *ngFor="let i of [1,2]" [ngClass]="{'selected': 1 == i}">
+                    <div class="row">
+                        <div class="col-md-2 p-1">
+                            <i class="fa fa-user-circle userIcon align-middle" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-10 p-1">
+                            <div class="row">
+                                <div class="col-md-6 p-0"><span class="title">Amit Navarkar</span></div>
+                                <div class="col-md-6">
+                                    <span class="float-right font-weight-light"><small>8.30 AM</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 p-0 text-center font-weight-light">
+                                    <small><i class="fa fa-clock-o"></i>
+                                        5</small>
+                                </div>|
+                                <div class="col-md-5 p-0 text-center font-weight-light">
+                                    <small><i class="fa fa-battery-three-quarters"></i> Advance
+                                    </small>
+                                </div> |
+                                <div class="col-md-3 p-0 text-center font-weight-light">
+                                    <small><i class="fa fa-handshake-o" aria-hidden="true"></i> 13</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 p-0 font-weight-light"><small>Needed a web developer to
+                                        create a carous...</small></div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3 p-0 text-center font-weight-light">
-                                <small><i class="fa fa-clock-o"></i>
-                                    5</small>
-                            </div>|
-                            <div class="col-md-5 p-0 text-center font-weight-light">
-                                <small><i class="fa fa-battery-three-quarters"></i> Advance
-                                </small>
-                            </div> |
-                            <div class="col-md-3 p-0 text-center font-weight-light">
-                                <small><i class="fa fa-handshake-o" aria-hidden="true"></i> 13</small>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 p-0 font-weight-light"><small>Needed a web developer to
-                                    create a carous...</small></div>
-                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div class="col-md-8 pl-0">
-        <div>
+        <div class="boxDesign">
             <ng-container [ngTemplateOutlet]="mailTemplate">
             </ng-container>
         </div>
@@ -62,7 +55,7 @@
 </div>
 
 <ng-template #mailTemplate>
-    <div class="card-body boxDesign">
+    <div class="card-header">
         <div class="row">
             <div class="col-md-1">
                 <i class="fa fa-user-circle userIcon" aria-hidden="true"></i>
@@ -84,42 +77,68 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
-                <span class=" float-right">
+            <div class="col-md-2 mt-4">
+                <span class="float-right">
                     <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
                 </span>
             </div>
         </div>
-
-        <div class="row mt-5">
+    </div>
+    <div class="card-body">
+        <div class="row m-0">
             <div class="col-md-12">
-                <p><strong>Angular Developer</strong></p><br />
-
-                <p>Hi there.</p><br />
-
-                <p>My main expertise is Angular and the frontend side of applications: from simple tools to big
-                    enterprise systems.</p><br />
-
-                <p>I can create/improve an application for you or consult your team.</p><br />
-
-                <p>Also I am working on ngx-kit.com - open-source toolkit project for Angular.
-                    And ngrefs.com — Angular references.</p><br />
-                <p>My GitHub profile: github.com/navix</p><br />
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="float-right">
+                            <span class="ml-2 mr-2 text-success"><i class="fa fa-thumbs-up "></i> Approve</span> |
+                            <span class="ml-2 mr-2 text-warning"><i class="fa fa-reply"></i> Return</span>
+                            |
+                            <span class="ml-2 mr-2 text-danger"><i class="fa fa-trash"></i> Delete</span> |
+                            <span class="ml-2 mr-2 text-info"><i class="fa fa-user-circle "></i> Details</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row mt-4">
-            <div class="col-md-4 pl-5 border-right">
-                <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
-                <small style="position: relative; left: 20px;">Hours Worked</small>
+            <div class="col-md-12 text-primary">
+                <h5>Needed a web developer to create a carousel component</h5>
             </div>
-            <div class="col-md-4 pl-5 border-right">
-                <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
-                <small style="position: relative; left: 20px;">Experties</small>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <label class="text-primary">Available Dates</label><br />
+                <div class="ml-3">
+                    <p>08/07/2019 - 08/021/2019</p>
+                </div>
             </div>
-            <div class="col-md-4 pl-5">
-                <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
-                <small style="position: relative; left: 20px;">Task Completed</small>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <label class="text-primary">Screening Questions:</label><br />
+                <div class="ml-3 mt-1">
+                    <p class="text-info p-0 m-0">Do you have Jira Access?</p>
+                    <p>Yes</p>
+
+                    <p class="text-info p-0 m-0">Do you have intermidiate knowldge of Angular?</p>
+                    <p>Yes, but its only limited to my team's repo. You need to provide me access to your repository
+                        or you give me access through your local repository or in shared drive.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <label class="text-primary">Comments or Notes:</label><br />
+                <div class="ml-3 mt-1">
+                    <p>Can I work on this task from home? Is there any rewards associated with this task. </p>
+                </div>
             </div>
         </div>
     </div>

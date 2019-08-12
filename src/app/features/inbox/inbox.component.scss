@@ -5,14 +5,9 @@
     background-color: white !important;
 }
 
-::ng-deep div.profileDetails {
-    background-color: #F2F2F2 !important;
-}
-
-.sidebarNavigation {
-    color: #379F01;
-    font-size: 15px;
-}
+ .card-header {
+    border: 1px solid #ccc !important;
+  }
 
 .boxDesign {
     background-color: white !important;
@@ -30,6 +25,11 @@
   color: #ccc;
   margin-top: 12px;
   display: inherit;
+}
+
+.filterIcons {
+  font-size: 24px;
+  color: #008de6;
 }
 
 .user .title {
