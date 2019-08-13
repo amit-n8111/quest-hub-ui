@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SocketService } from './../../../../core/services/socket.service';
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -11,7 +13,9 @@ export class PostListComponent implements OnInit {
 
   availableDateRange;
 
-  constructor() { }
+  constructor(
+    private socketService: SocketService
+  ) { }
 
   ngOnInit() {
   }
@@ -22,6 +26,13 @@ export class PostListComponent implements OnInit {
 
   showScreeningPopupFn(event) {
     this.showScreeningPopup = true;
+  }
+
+  applyToPost() {
+    this.socketService.sendMessage({
+      from: 'an58526',
+      content: 'Hi my name is amit'
+    });
   }
 
 }

@@ -7,6 +7,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AuthGuard } from './services/auth.guard';
 import { HelperService } from './services/helper.service';
 import { EntitlementService } from './services/entitlement.service';
+import { SocketService } from './services/socket.service';
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
@@ -21,7 +22,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   providers: [
     AuthGuard,
     HelperService,
-    EntitlementService
+    EntitlementService,
+    SocketService
   ],
   exports: [
     NavBarComponent,
