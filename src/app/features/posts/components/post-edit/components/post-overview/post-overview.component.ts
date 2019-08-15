@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post-overview',
@@ -6,6 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-overview.component.scss']
 })
 export class PostOverviewComponent implements OnInit {
+
+  @Input() taskForm: FormGroup;
+
+  taskTopics: Array<Object> = [
+    {
+      topicId: 1,
+      topicName: 'Web Development'
+    },
+    {
+      topicId: 2,
+      topicName: 'Web Design'
+    },
+    {
+      topicId: 3,
+      topicName: 'Db Design'
+    }
+  ];
 
   constructor() { }
 

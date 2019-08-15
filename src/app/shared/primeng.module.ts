@@ -14,6 +14,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
+// This is used for third party chips component.
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
     declarations: [],
@@ -29,7 +31,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
         DialogModule,
         CalendarModule,
         InputTextModule,
-        InputTextareaModule
+        InputTextareaModule,
+        TagInputModule
     ],
     exports: [
         TableModule,
@@ -43,7 +46,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
         DialogModule,
         CalendarModule,
         InputTextModule,
-        InputTextareaModule
+        InputTextareaModule,
+        TagInputModule
     ]
 })
 

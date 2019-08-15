@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post-description',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-description.component.scss']
 })
 export class PostDescriptionComponent implements OnInit {
-  taskDescription: string = '';
+  @Input() taskForm: FormGroup;
 
   constructor() { }
 

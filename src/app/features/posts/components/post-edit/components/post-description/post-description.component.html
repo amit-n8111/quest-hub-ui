@@ -14,8 +14,8 @@
                         <li>Timeline to complete those deliverables</li>
                     </ul>
                 </div>
-                <div class="form-group">
-                    <p-editor [(ngModel)]="taskDescription" [style]="{'height':'200px'}">
+                <div class="form-group" [formGroup]="taskForm">
+                    <p-editor formControlName="taskDescription" [style]="{'height':'200px'}">
                         <p-header>
                             <span class="ql-formats">
                                 <button class="ql-bold" aria-label="Bold"></button>

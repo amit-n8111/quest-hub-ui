@@ -6,18 +6,18 @@
 
     <div class="col-md-10">
         <div [ngSwitch]="selectedTemplateName">
-            <app-post-overview *ngSwitchCase="'taskOverviewTemplate'"></app-post-overview>
-            <app-post-description *ngSwitchCase="'taskDescription'"></app-post-description>
-            <app-post-screening *ngSwitchCase="'taskScreening'"></app-post-screening>
-            <app-post-skillsets *ngSwitchCase="'taskSkillsets'"></app-post-skillsets>
-            <app-post-review *ngSwitchCase="'reviewAndPost'"></app-post-review>
+            <app-post-overview *ngSwitchCase="'taskOverviewTemplate'" [taskForm]="taskForm"></app-post-overview>
+            <app-post-description *ngSwitchCase="'taskDescription'" [taskForm]="taskForm"></app-post-description>
+            <app-post-screening *ngSwitchCase="'taskScreening'" [taskForm]="taskForm"></app-post-screening>
+            <app-post-skillsets *ngSwitchCase="'taskSkillsets'" [taskForm]="taskForm"></app-post-skillsets>
+            <app-post-review *ngSwitchCase="'reviewAndPost'" [taskForm]="taskForm"></app-post-review>
         </div>
 
         <div class="card card-user boxShadow">
             <div class="card-body">
                 <div class="row">
                     <div class="update ml-auto mr-auto">
-                        <button type="submit" class="btn btn-primary btn-round">Next</button>
+                        <button type="submit" class="btn btn-primary btn-round" (click)="submitForm()">Next</button>
                         <ng-template #submitButton>
                             <button type="submit" class="btn btn-primary btn-round">Submit</button>
                         </ng-template>
@@ -27,68 +27,3 @@
         </div>
     </div>
 </div>
-
-<!-- <ng-template #documentReviewTemplate>
-    <div *ngFor="let document of taskForm.get('documents')['controls'];">
-        <div *ngFor="let section of document.get('sections')['controls']; let i=index">
-            <div class="card card-user mb-2">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12 pr-1">
-                            <div class="form-group">
-                                <h6>{{section.get('header').value}}: </h6>
-                                <div>
-                                    {{section.get('value').value}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template> -->
-
-<!-- <ng-template #sectionTemplate let-section="section">
-    <div class="row" [formGroup]="section">
-        <div class="col-md-12 pr-1">
-            <div class="form-group">
-                <label>{{section.get('header').value}} </label>
-                <div [ngSwitch]="section.get('valueType').value">
-                    <div *ngSwitchCase="'radio'" class="ui-g" style="width:250px;margin-bottom:10px">
-                        <div class="ui-g-12" *ngFor="let radio of section.get('options')['controls']"
-                            [formGroup]="radio">
-                            <p-radioButton name="groupname" label="{{radio.get('value').value}}"
-                                value="{{radio.get('key').value}}" formControlName="isSelected">
-                            </p-radioButton>
-                        </div>
-                    </div>
-
-                    <textarea *ngSwitchCase="'textarea'" type="text" class="form-control"
-                        name="{{ section.sectionValue}}" formControlName="value"></textarea>
-
-                    <div class="row" *ngSwitchCase="'chipset'">
-                        <div class="col-md-4 height50" *ngFor="let chip of section.get('options')['controls']">
-                            <div [ngClass]="{'selectedChip': chip.get('isSelected').value }"
-                                class="card text-center align-middle h-100 chipsetBoxShadow">
-                                {{chip.get('value').value}}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ml-2 text-success" *ngSwitchCase="'dynamicInputSet'">
-                        <div class="cursorPointer">
-                            <a class=""><i class="fa fa-plus"></i></a>
-                            <span class="ml-2">Add</span>
-                        </div>
-                    </div>
-
-                    <p-chips *ngSwitchCase="'dynamicChipSet'" formControlName="options"></p-chips>
-
-                    <input *ngSwitchDefault type="text" class="form-control"
-                        name="{{section.get('sectionValue').value}}" formControlName="value">
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template> -->
