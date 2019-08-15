@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 import { SocketService } from './../../../../core/services/socket.service';
 
@@ -8,8 +8,10 @@ import { SocketService } from './../../../../core/services/socket.service';
   styleUrls: ['./post-overview-card.component.scss']
 })
 export class PostOverviewCardComponent implements OnInit {
-  @Output() emitClick: EventEmitter<any> = new EventEmitter();
+  @Output() showTaskDetails: EventEmitter<any> = new EventEmitter();
   @Output() showScreeningPopup: EventEmitter<boolean> = new EventEmitter();
+
+  @Input() taskDetails;
 
   applicationCount: number = 1;
 
@@ -25,12 +27,12 @@ export class PostOverviewCardComponent implements OnInit {
       });
   }
 
-  cardClick() {
-    this.emitClick.emit('abc');
+  openTaskDetails() {
+    this.showTaskDetails.emit(this.taskDetails);
   }
 
   applyToTask() {
-    this.showScreeningPopup.emit(true);
+    this.showScreeningPopup.emit(this.taskDetails);
   }
 
 }

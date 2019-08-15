@@ -25,24 +25,26 @@
                         class="fa fa-angle-down"></i></label></div>
         </div>
         <div class="card-body pad">
-            <app-post-overview-card (emitClick)="showSidebarFn($event)"
-                (showScreeningPopup)="showScreeningPopupFn($event)"></app-post-overview-card>
+            <app-post-overview-card *ngFor="let task of taskList" [taskDetails]="task"
+                (showTaskDetails)="showSidebarFn($event)" (showScreeningPopup)="showScreeningPopupFn($event)">
+            </app-post-overview-card>
         </div>
     </div>
 </div>
 
 <p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg profileDetails">
-    <app-post-detail (showScreeningPopup)="showScreeningPopupFn($event)"></app-post-detail>
+    <app-post-detail [taskDetails]="selectedTaskDetails" (showScreeningPopup)="showScreeningPopupFn($event)">
+    </app-post-detail>
 </p-sidebar>
 
 <p-dialog header="Task Screening" [(visible)]="showScreeningPopup" [modal]="true" [responsive]="true"
     [style]="{width: '70%'}" [maximizable]="true" [baseZIndex]="10000" [blockScroll]="true"
     [contentStyle]="{'overflow':'visible', 'minHeight': '40vh'}">
-    <div class="row">
+    <div class="row" [formGroup]="taskApplicationForm">
         <div class="col-md-12">
             <label><strong>Available Date Range:</strong></label><br />
             <div class="ml-5 mt-3">
-                <p-calendar [(ngModel)]="availableDateRange" selectionMode="range" [showIcon]="true">
+                <p-calendar formControlName="availableDateRange" selectionMode="range" [showIcon]="true">
                 </p-calendar>
             </div>
         </div>
@@ -63,7 +65,7 @@
             <label><strong>Comments or Notes:</strong></label><br />
             <div class="ml-5 mt-3">
                 <span class="ui-float-label mt-3">
-                    <textarea id="float-input-1" cols="80" pInputTextarea></textarea>
+                    <textarea id="float-input-1" cols="80" pInputTextarea formControlName="commentsOrNotes"></textarea>
                     <label for="float-input-1"><code>Ask you questions or provide notes here:</code></label>
                 </span>
             </div>

@@ -11,7 +11,7 @@ export class PostsService {
         private helperService: HelperService
     ) { }
 
-    getPostList() {
+    getTaskList() {
         const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
         return this.http.get(resourceURL).pipe(
@@ -23,14 +23,6 @@ export class PostsService {
         // Todo: Change this to resourceURL.
         const resourceUrl = this.helperService.getAssetsURL(PostsConstants.TASK_DETAILS);
         // + `${taskId}`;
-
-        return this.http.get(resourceUrl).pipe(
-            catchError(this.helperService.handleError<any>('getPostDetail', {}))
-        );
-    }
-
-    getEmptyForm() {
-        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_EMPTY_FORM);
 
         return this.http.get(resourceUrl).pipe(
             catchError(this.helperService.handleError<any>('getPostDetail', {}))

@@ -29,6 +29,7 @@ export class PostEditComponent implements OnInit {
     taskCreateDate: [''],
     manHoursNeeded: [''],
     rewardTypeId: [''],
+    rewardTypeName: [''],
     taskCreatedBy: [this.entitlementService.userDetails['soeId']],
     screeningQuestions: this.fb.array([
     ]),

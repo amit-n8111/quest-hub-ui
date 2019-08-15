@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
@@ -11,9 +11,9 @@ import { PostsService } from './../../services/posts.service';
 export class PostDetailComponent implements OnInit {
   @Output() showScreeningPopup: EventEmitter<boolean> = new EventEmitter();
 
+  @Input() taskDetails;
+
   constructor(
-    private postsService: PostsService,
-    private activateRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   applyToTask() {
-    this.showScreeningPopup.emit(true);
+    this.showScreeningPopup.emit(this.taskDetails);
   }
 
 }
