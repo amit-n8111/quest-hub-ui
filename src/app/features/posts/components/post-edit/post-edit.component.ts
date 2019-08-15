@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { PostsService } from './../../services/posts.service';
+import { EntitlementService } from './../../../../core/services/entitlement.service';
 
 import { TASK_SECTION } from './constants/post.constants';
 
@@ -22,7 +23,7 @@ export class PostEditComponent implements OnInit {
     taskType: [''],
     taskDueDate: [''],
     taskCreateDate: [''],
-    taskCreatedBy: [''],
+    taskCreatedBy: [this.entitlementService.userDetails['soeId']],
     screeningQuestions: this.fb.array([
     ]),
     taskSkills: [[]]
@@ -30,7 +31,8 @@ export class PostEditComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private postService: PostsService
+    private postService: PostsService,
+    private entitlementService: EntitlementService
   ) { }
 
   get TASK_SECTION() { return TASK_SECTION; }
