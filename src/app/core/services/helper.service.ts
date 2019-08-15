@@ -14,6 +14,10 @@ export class HelperService {
     return `${environment.BASE_URL}${resourceUrl}`;
   }
 
+  public getAssetsURL(resourceUrl: string): string {
+    return `${environment.ASSETS_URL}${resourceUrl}`;
+  }
+
   public handleError<T>(operation = 'operation', result?: T) {
     return (err: HttpErrorResponse): Observable<T> => {
       return of(result);

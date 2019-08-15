@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // BASE_URL: 'http://localhost:8080/api/topics/search/',
-  BASE_URL: '/',
+  BASE_URL: 'http://localhost:8080/api/v1/',
+  ASSETS_URL: '/',
   SOCKET_URL: 'http://localhost:3000'
 };
 

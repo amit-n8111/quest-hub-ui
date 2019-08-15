@@ -16,6 +16,7 @@ export class PostScreeningComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.selectedTaskType = this.taskForm.get('taskType').value;
   }
 
   selectTaskTypeFn(taskType) {

@@ -18,7 +18,8 @@
                 </div>
 
 
-                <div class="form-control-details mt-1 mt-2" *ngIf="taskForm.get('taskSkills').value.length">
+                <div class="form-control-details mt-1 mt-2"
+                    *ngIf="taskForm.get('taskSkills').value && taskForm.get('taskSkills').value.length">
                     <label class="labelFontBold">
                         Selected Skills
                     </label>

@@ -10,33 +10,27 @@ import { PostsService } from './../../services/posts.service';
 })
 
 export class MyPostListComponent implements OnInit {
-  tasks: any[];
+  displaySidebar: boolean = false;
+  showScreeningPopup: boolean = false;
 
-  isShowFilters: boolean = false;
+  availableDateRange;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private postsService: PostsService
   ) { }
 
   ngOnInit() {
-    this.getPostList();
   }
 
-  navigateToEditSection(rowData) {
-    this.router.navigate(['edit/', rowData.postId], { relativeTo: this.route });
+  showSidebarFn(abc) {
+    this.displaySidebar = true;
   }
 
-  navigateToDetailSection(rowData) {
-    this.router.navigate([rowData.postId], { relativeTo: this.route });
+  showScreeningPopupFn(event) {
+    this.showScreeningPopup = true;
   }
 
-  getPostList() {
-    this.postsService.getPostList().subscribe((taskList) => {
-      this.tasks = taskList;
-      console.log(this.tasks);
-    });
+  applyToPost() {
+
   }
 
 }

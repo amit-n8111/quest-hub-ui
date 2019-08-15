@@ -19,10 +19,10 @@ export class PostsService {
         );
     }
 
-    getPostDetailsByPostId(postId) {
-        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_DETAILS);
-
-        // reourceUrl = resourceUrl + postId;
+    getTaskDetailsByTaskId(taskId) {
+        // Todo: Change this to resourceURL.
+        const resourceUrl = this.helperService.getAssetsURL(PostsConstants.TASK_DETAILS);
+        // + `${taskId}`;
 
         return this.http.get(resourceUrl).pipe(
             catchError(this.helperService.handleError<any>('getPostDetail', {}))

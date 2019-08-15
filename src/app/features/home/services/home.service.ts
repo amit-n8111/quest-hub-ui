@@ -12,7 +12,8 @@ export class HomeService {
     ) { }
 
     getTopicList(topicName) {
-        const resourceURL = this.helperService.getResourceURL(HomeConstants.TOPIC_LIST);
+        // Todo: change asset url to resource url
+        const resourceURL = this.helperService.getAssetsURL(HomeConstants.TOPIC_LIST);
         const options = { params: { topicName } };
 
         return this.http.get(resourceURL, options).pipe(

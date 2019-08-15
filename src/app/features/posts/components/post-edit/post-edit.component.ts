@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
 import { EntitlementService } from './../../../../core/services/entitlement.service';
@@ -17,12 +18,17 @@ export class PostEditComponent implements OnInit {
   taskForm: FormGroup = this.fb.group({
     taskId: ['1'],
     taskName: [''],
-    taskTopic: [''],
+    taskTopicId: [''],
+    taskTopicName: [''],
     taskStatusId: [''],
+    taskStatusName: [''],
     taskDescription: [''],
     taskType: [''],
+    taskTypeName: [''],
     taskDueDate: [''],
     taskCreateDate: [''],
+    manHoursNeeded: [''],
+    rewardTypeId: [''],
     taskCreatedBy: [this.entitlementService.userDetails['soeId']],
     screeningQuestions: this.fb.array([
     ]),
@@ -32,12 +38,20 @@ export class PostEditComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private postService: PostsService,
-    private entitlementService: EntitlementService
+    private entitlementService: EntitlementService,
+    private activateRoute: ActivatedRoute
   ) { }
 
   get TASK_SECTION() { return TASK_SECTION; }
 
   ngOnInit() {
+    this.activateRoute.params.subscribe(params => {
+      if (params && +params.id) {
+        this.getTaskDetails(+params.id);
+      } else {
+        this.taskForm.reset();
+      }
+    });
   }
 
   openSection(sectionId) {
@@ -59,6 +73,34 @@ export class PostEditComponent implements OnInit {
 
   previousSection() {
     this.selectedTemplateId--;
+  }
+
+  getTaskDetails(taskId) {
+    this.postService.getTaskDetailsByTaskId(taskId).subscribe(
+      (data) => {
+        console.log(data);
+        this.fillTheDummyForm(data);
+      }
+    );
+  }
+
+  fillTheDummyForm(taskFormDetails) {
+    this.taskForm.patchValue({
+      taskId: taskFormDetails.taskId,
+      taskName: taskFormDetails.taskName,
+      taskTopicId: taskFormDetails.taskTopicId,
+      taskTopicName: taskFormDetails.taskTopicName,
+      taskStatusId: taskFormDetails.taskStatusId,
+      taskDescription: taskFormDetails.taskDescription,
+      taskType: taskFormDetails.taskType,
+      taskDueDate: taskFormDetails.taskDueDate,
+      taskCreateDate: taskFormDetails.taskCreateDate,
+      taskCreatedBy: taskFormDetails.taskCreatedBy,
+      manHoursNeeded: taskFormDetails.manHoursNeeded,
+      rewardTypeId: taskFormDetails.rewardTypeId,
+      screeningQuestions: taskFormDetails.screeningQuestions,
+      taskSkills: taskFormDetails.taskSkills
+    });
   }
 
 }

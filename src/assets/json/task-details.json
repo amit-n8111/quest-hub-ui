@@ -1,138 +1,34 @@
 {
-    "documents": [
+    "taskId": 3,
+    "taskName": "Need a web developer for carousel component.",
+    "taskTopicId": 2,
+    "taskTopicName": "Web Design",
+    "taskStatusId": 2,
+    "taskDescription": "<p>Need a web developer for this <strong>task</strong>.</p>",
+    "taskType": "MICRO_PROJECT",
+    "taskDueDate": "26 July 2019",
+    "taskCreateDate": "20 July 2019",
+    "taskCreatedBy": "an58526",
+    "manHoursNeeded": 8,
+    "rewardTypeId": 2,
+    "screeningQuestions": [
         {
-            "sections": [
-                {
-                    "isSection": true,
-                    "header": "Enter the tittle of your job post",
-                    "sectionName": "Task Title",
-                    "sectionValue": "taskTitle",
-                    "valueType": "input",
-                    "value": "Needed a web developer.",
-                    "options": []
-                },
-                {
-                    "isSection": false,
-                    "header": "Job Category",
-                    "sectionName": "",
-                    "sectionValue": "taskCategory",
-                    "valueType": "radio",
-                    "value": "webDevelopment",
-                    "options": [
-                        {
-                            "key": "webDevelopment",
-                            "value": "Web Development",
-                            "isSelected": false
-                        },
-                        {
-                            "key": "frontEndDevelopment",
-                            "value": "Front End Development",
-                            "isSelected": false
-                        }
-                    ]
-                }
-            ],
-            "documentName": "Task Overview",
-            "documentValue": "taskOverview",
-            "isDocument": true
+            "questionId": "1",
+            "questionName": "Do you haev Jira acceess."
         },
         {
-            "sections": [
-                {
-                    "isSection": true,
-                    "header": "A good description of task",
-                    "sectionName": "Task Title",
-                    "sectionValue": "taskTitle",
-                    "valueType": "textarea",
-                    "value": "I want a web developer who can work on Angular independently.",
-                    "options": []
-                }
-            ],
-            "documentName": "Task Description",
-            "documentValue": "taskDescription",
-            "isDocument": true
+            "questionId": "2",
+            "questionName": "Have you worked in Angular 7"
+        }
+    ],
+    "taskSkills": [
+        {
+            "name": "Angular",
+            "id": "1"
         },
         {
-            "sections": [
-                {
-                    "isSection": true,
-                    "header": "What type of task do you have?",
-                    "sectionName": "Task Screening",
-                    "sectionValue": "taskScreening",
-                    "valueType": "chipset",
-                    "value": "microTask",
-                    "options": [
-                        {
-                            "key": "microTask",
-                            "value": "Micro Task",
-                            "isSelected": true
-                        },
-                        {
-                            "key": "microProject",
-                            "value": "Micro Project",
-                            "isSelected": false
-                        },
-                        {
-                            "key": "recurringTask",
-                            "value": "Recurring Task",
-                            "isSelected": false
-                        }
-                    ]
-                },
-                {
-                    "isSection": false,
-                    "header": "Screening Questions",
-                    "sectionName": "",
-                    "sectionValue": "screeningQuestions",
-                    "valueType": "dynamicInputSet",
-                    "value": "",
-                    "options": [
-                        {
-                            "question": "Do you have Angular knowledge?",
-                            "answer": ""
-                        },
-                        {
-                            "question": "Please rate yourself in Angular",
-                            "answer": ""
-                        }
-                    ]
-                }
-            ],
-            "documentName": "Task Screening",
-            "documentValue": "taskScreening",
-            "isDocument": true
-        },
-        {
-            "sections": [
-                {
-                    "isSection": true,
-                    "header": "Select Task Skillset",
-                    "sectionName": "Skillset",
-                    "sectionValue": "skillset",
-                    "valueType": "dynamicChipSet",
-                    "value": "Some chipset will come here",
-                    "options": []
-                }
-            ],
-            "documentName": "Task Skillset",
-            "documentValue": "taskSkillSet",
-            "isDocument": true
-        },
-        {
-            "sections": [
-                {
-                    "isSection": true,
-                    "header": "Review and Post",
-                    "sectionName": "Review and Post",
-                    "sectionValue": "reviewAndPost",
-                    "valueType": "information",
-                    "value": "",
-                    "options": []
-                }
-            ],
-            "documentName": "Review and Post",
-            "documentValue": "review",
-            "isDocument": true
+            "name": "Java",
+            "id": "2"
         }
     ]
 }
