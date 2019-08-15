@@ -1,22 +1,22 @@
 <ul class="nav flex-column nav-pills" aria-orientation="vertical">
-    <li class="nav-link" [ngClass]="{'active': 'taskOverviewTemplate' == selectedTemplateName }"
-        (click)="openSectionFn('taskOverviewTemplate')">
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_OVERVIEW == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.TASK_OVERVIEW)">
         <a>Task Overview</a>
     </li>
-    <li class="nav-link" [ngClass]="{'active': 'taskDescription' == selectedTemplateName }"
-        (click)="openSectionFn('taskDescription')">
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_DESCRIPTION == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.TASK_DESCRIPTION)">
         <a>Task Description</a>
     </li>
-    <li class="nav-link" [ngClass]="{'active': 'taskScreening' == selectedTemplateName }"
-        (click)="openSectionFn('taskScreening')">
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_SCREENING == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.TASK_SCREENING)">
         <a>Task Screening</a>
     </li>
-    <li class="nav-link" [ngClass]="{'active': 'taskSkillsets' == selectedTemplateName }"
-        (click)="openSectionFn('taskSkillsets')">
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_SKILLSETS == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.TASK_SKILLSETS)">
         <a>Task Skillsets</a>
     </li>
-    <li class="nav-link" [ngClass]="{'active': 'reviewAndPost' == selectedTemplateName }"
-        (click)="openSectionFn('reviewAndPost')">
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.REVIEW_AND_POST == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.REVIEW_AND_POST)">
         <a>Review and Post</a>
     </li>
 </ul>

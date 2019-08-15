@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { TASK_SECTION } from './constants/post.constants';
+
 @Component({
   selector: 'app-post-edit',
   templateUrl: './post-edit.component.html',
   styleUrls: ['./post-edit.component.scss']
 })
 export class PostEditComponent implements OnInit {
-  selectedTemplateName: string = 'taskOverviewTemplate';
+  selectedTemplateId: number = TASK_SECTION.TASK_OVERVIEW;
 
   taskForm: FormGroup = this.fb.group({
     taskName: [''],
@@ -27,15 +29,25 @@ export class PostEditComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
+  get TASK_SECTION() { return TASK_SECTION; }
+
   ngOnInit() {
   }
 
-  openSection(sectionName) {
-    this.selectedTemplateName = sectionName;
+  openSection(sectionId) {
+    this.selectedTemplateId = sectionId;
   }
 
   submitForm() {
     console.log(this.taskForm.value);
+  }
+
+  nextSection() {
+    this.selectedTemplateId++;
+  }
+
+  previousSection() {
+    this.selectedTemplateId--;
   }
 
 }

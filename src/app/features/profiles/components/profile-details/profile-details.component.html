@@ -15,15 +15,15 @@
 <div class="row sidebarContent mt-3">
     <div class="col-md-3">
         <ul class="nav flex-column nav-pills" aria-orientation="vertical">
-            <li class="nav-link" [ngClass]="{'active': 'profileTemplate' == selectedTemplateName }"
+            <li class="nav-link" [ngClass]="{'active': 'profileTemplate' == selectedTemplateId }"
                 (click)="openProfileSection('profileTemplate')">
                 <a>Profile</a>
             </li>
-            <li class="nav-link" [ngClass]="{'active': 'skillsetsTemplate' == selectedTemplateName }"
+            <li class="nav-link" [ngClass]="{'active': 'skillsetsTemplate' == selectedTemplateId }"
                 (click)="openProfileSection('skillsetsTemplate')">
                 <a>Skillsets</a>
             </li>
-            <li class="nav-link" [ngClass]="{'active': 'historyFeedbackTemplate' == selectedTemplateName }"
+            <li class="nav-link" [ngClass]="{'active': 'historyFeedbackTemplate' == selectedTemplateId }"
                 (click)="openProfileSection('historyFeedbackTemplate')">
                 <a>Work History and Feedback</a>
             </li>
@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-md-9">
-        <div [ngSwitch]="selectedTemplateName">
+        <div [ngSwitch]="selectedTemplateId">
             <ng-container *ngSwitchCase="'skillsetsTemplate'" [ngTemplateOutlet]="skillsetsTemplate">
             </ng-container>
             <ng-container *ngSwitchCase="'historyFeedbackTemplate'" [ngTemplateOutlet]="historyFeedbackTemplate">

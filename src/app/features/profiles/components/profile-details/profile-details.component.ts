@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileDetailsComponent implements OnInit {
   isSidebar: boolean = true;
 
-  selectedTemplateName: string = 'profileTemplate';
+  selectedTemplateId: string = 'profileTemplate';
 
   constructor(
     private activateRoute: ActivatedRoute
@@ -28,6 +28,6 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   openProfileSection(sectionName) {
-    this.selectedTemplateName = sectionName;
+    this.selectedTemplateId = sectionName;
   }
 }
