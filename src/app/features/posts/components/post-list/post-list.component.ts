@@ -45,6 +45,14 @@ export class PostListComponent implements OnInit {
   }
 
   applyToPost() {
+    const taskId = this.selectedTaskDetails['taskId'];
+
+    this.postService.submitTaskApplication(taskId, this.taskApplicationForm.value).subscribe(
+      (data) => {
+        console.log('Application Successfull.....');
+      }
+    );
+
     this.socketService.sendMessage({
       from: 'an58526',
       content: 'Hi my name is amit'
