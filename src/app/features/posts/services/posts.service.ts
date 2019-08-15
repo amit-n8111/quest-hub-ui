@@ -36,4 +36,12 @@ export class PostsService {
             catchError(this.helperService.handleError<any>('getPostDetail', {}))
         );
     }
+
+    submitTask(taskId, taskForm) {
+        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_POST) + `${taskId}`;
+
+        return this.http.post(resourceUrl, taskForm).pipe(
+            catchError(this.helperService.handleError<any>('getPostDetail', {}))
+        );
+    }
 }

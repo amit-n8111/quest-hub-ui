@@ -25,7 +25,8 @@
                             *ngIf="TASK_SECTION.REVIEW_AND_POST != selectedTemplateId else submitButton"
                             (click)="nextSection()">Next</button>
                         <ng-template #submitButton>
-                            <button type="submit" class="btn btn-primary btn-round">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-round"
+                                (click)="submitTaskForm()">Submit</button>
                         </ng-template>
                     </div>
                 </div>
