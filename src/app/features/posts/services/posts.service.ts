@@ -12,9 +12,20 @@ export class PostsService {
     ) { }
 
     getTaskList() {
+        const requestJson = {
+            'createdBy': '',
+            'pageNumber': 1,
+            'pageSize': 10,
+            'search': '',
+            'skillId': '',
+            'sortBy': '',
+            'sortOrder': '',
+            'tasktopicId': 0,
+            'tasktypeId': 0
+        };
         const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
-        return this.http.get(resourceURL).pipe(
+        return this.http.post(resourceURL, requestJson).pipe(
             catchError(this.helperService.handleError<any>('getPostList', []))
         );
     }
