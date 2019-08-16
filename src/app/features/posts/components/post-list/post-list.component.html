@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg profileDetails">
+<p-sidebar [(visible)]="displaySidebar" position="right" [blockScroll]="true" styleClass="ui-sidebar-lg profileDetails">
     <app-post-detail [taskDetails]="selectedTaskDetails" (showScreeningPopup)="showScreeningPopupFn($event)">
     </app-post-detail>
 </p-sidebar>

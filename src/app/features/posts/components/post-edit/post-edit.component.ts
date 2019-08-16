@@ -51,11 +51,7 @@ export class PostEditComponent implements OnInit {
       if (params && +params.id) {
         this.getTaskDetails(+params.id);
       } else {
-        this.taskForm.reset();
-        this.taskForm.patchValue({
-          id: -1,
-          taskId: -1
-        });
+        this.resetTaskForm();
       }
     });
   }
@@ -122,6 +118,15 @@ export class PostEditComponent implements OnInit {
     });
 
     return questionsForm;
+  }
+
+  resetTaskForm() {
+    this.taskForm.reset();
+    this.taskForm.patchValue({
+      id: -1,
+      taskId: -1
+    });
+    this.taskForm.setControl('screeningQuestions', this.fb.array([]));
   }
 
 }
