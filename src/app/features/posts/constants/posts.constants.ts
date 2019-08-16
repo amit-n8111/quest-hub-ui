@@ -1,7 +1,7 @@
 export abstract class PostsConstants {
-    public static TASK_LIST = 'task/tasks';
+    public static TASK_LIST = 'v1/task/tasks';
 
-    public static TASK_DETAILS = 'assets/json/task-details.json';
+    public static TASK_DETAILS = 'tasks/';
 
     public static TASK_POST = 'tasks';
 

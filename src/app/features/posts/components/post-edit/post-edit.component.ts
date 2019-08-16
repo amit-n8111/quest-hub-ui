@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
@@ -102,10 +102,26 @@ export class PostEditComponent implements OnInit {
       taskCreatedBy: taskFormDetails.taskCreatedBy,
       manHoursNeeded: taskFormDetails.manHoursNeeded,
       rewardTypeId: taskFormDetails.rewardTypeId,
-      screeningQuestions: taskFormDetails.screeningQuestions,
       skills: taskFormDetails.skills,
       id: taskFormDetails.id
     });
+
+    this.taskForm.setControl('screeningQuestions', this.createQuestionsForm(taskFormDetails.screeningQuestions));
+  }
+
+  createQuestionsForm(questions) {
+    let questionsForm: FormArray = this.fb.array([]);
+
+    questions.forEach(question => {
+      questionsForm.push(
+        this.fb.group({
+          id: question.id,
+          question: question.question
+        })
+      );
+    });
+
+    return questionsForm;
   }
 
 }
