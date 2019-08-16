@@ -16,9 +16,10 @@ export class PostEditComponent implements OnInit {
   selectedTemplateId: number = TASK_SECTION.TASK_OVERVIEW;
 
   taskForm: FormGroup = this.fb.group({
-    taskId: ['1'],
+    id: [-1],
+    taskId: [-1],
     taskName: [''],
-    taskTopicId: [''],
+    topicId: [''],
     taskTopicName: [''],
     taskStatusId: [''],
     taskStatusName: [''],
@@ -33,7 +34,7 @@ export class PostEditComponent implements OnInit {
     taskCreatedBy: [this.entitlementService.userDetails['soeId']],
     screeningQuestions: this.fb.array([
     ]),
-    taskSkills: [[]]
+    skills: [[]]
   });
 
   constructor(
@@ -51,6 +52,10 @@ export class PostEditComponent implements OnInit {
         this.getTaskDetails(+params.id);
       } else {
         this.taskForm.reset();
+        this.taskForm.patchValue({
+          id: -1,
+          taskId: -1
+        });
       }
     });
   }
@@ -60,9 +65,7 @@ export class PostEditComponent implements OnInit {
   }
 
   submitTaskForm() {
-    const taskId = this.taskForm.get('taskId').value;
-
-    this.postService.submitTask(taskId, this.taskForm.value).subscribe(
+    this.postService.submitTask(this.taskForm.value).subscribe(
       (data) => {
         console.log(data);
       });
@@ -89,7 +92,7 @@ export class PostEditComponent implements OnInit {
     this.taskForm.patchValue({
       taskId: taskFormDetails.taskId,
       taskName: taskFormDetails.taskName,
-      taskTopicId: taskFormDetails.taskTopicId,
+      topicId: taskFormDetails.topicId,
       taskTopicName: taskFormDetails.taskTopicName,
       taskStatusId: taskFormDetails.taskStatusId,
       taskDescription: taskFormDetails.taskDescription,
@@ -100,7 +103,8 @@ export class PostEditComponent implements OnInit {
       manHoursNeeded: taskFormDetails.manHoursNeeded,
       rewardTypeId: taskFormDetails.rewardTypeId,
       screeningQuestions: taskFormDetails.screeningQuestions,
-      taskSkills: taskFormDetails.taskSkills
+      skills: taskFormDetails.skills,
+      id: taskFormDetails.id
     });
   }
 

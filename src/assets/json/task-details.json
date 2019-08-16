@@ -1,34 +1,35 @@
 {
+    "id": 3,
     "taskId": 3,
     "taskName": "Need a web developer for carousel component.",
-    "taskTopicId": 2,
+    "topicId": 2,
     "taskTopicName": "Web Design",
     "taskStatusId": 2,
     "taskDescription": "<p>Need a web developer for this <strong>task</strong>.</p>",
     "taskType": "MICRO_PROJECT",
-    "taskDueDate": "26 July 2019",
-    "taskCreateDate": "20 July 2019",
+    "taskDueDate": "",
+    "taskCreateDate": "",
     "taskCreatedBy": "an58526",
     "manHoursNeeded": 8,
     "rewardTypeId": 2,
     "screeningQuestions": [
         {
-            "questionId": "1",
-            "questionName": "Do you haev Jira acceess."
+            "id": 1,
+            "question": "Do you haev Jira acceess."
         },
         {
-            "questionId": "2",
-            "questionName": "Have you worked in Angular 7"
+            "id": 2,
+            "question": "Have you worked in Angular 7"
         }
     ],
-    "taskSkills": [
+    "skills": [
         {
             "name": "Angular",
-            "id": "1"
+            "id": 1
         },
         {
             "name": "Java",
-            "id": "2"
+            "id": 2
         }
     ]
 }

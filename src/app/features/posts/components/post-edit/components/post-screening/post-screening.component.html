@@ -43,8 +43,8 @@
                     <div formArrayName="screeningQuestions"
                         *ngFor="let question of taskForm.get('screeningQuestions')['controls']; let i = index;">
                         <div [formGroupName]="i">
-                            <input type="text" class="form-control mt-2 w-75 d-inline-block" name="questionName"
-                                formControlName="questionName">
+                            <input type="text" class="form-control mt-2 w-75 d-inline-block" name="question"
+                                formControlName="question">
                             <i class="fa fa-times mt-4 mr-5 float-right"></i><br />
                             <code class="marginLeft">0/256 characters</code>
                         </div>

@@ -30,8 +30,8 @@ export class PostScreeningComponent implements OnInit {
 
   createScreeningQuestion(): FormGroup {
     return this.fb.group({
-      questionId: ['0'],
-      questionName: ['']
+      id: [-1],
+      question: ['']
     });
   }
 

@@ -32,8 +32,8 @@
                     <label class="labelFontBold">Task Category</label><br />
                     <span class="mt-4">Here are some suggestions based on your task title:</span>
                     <div class="radio m-2" *ngFor="let topic of taskTopics">
-                        <label><input class="mr-2" type="radio" [value]="topic['topicId']" name="taskTopicId"
-                                formControlName="taskTopicId">{{topic['topicName']}}</label>
+                        <label><input class="mr-2" type="radio" [value]="topic['topicId']" name="topicId"
+                                formControlName="topicId">{{topic['topicName']}}</label>
                     </div>
 
                     <span class="text-success mt-3"><a>See more options</a></span>

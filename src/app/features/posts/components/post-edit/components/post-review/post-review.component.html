@@ -45,7 +45,7 @@
 
                     <div class="mt-3"
                         *ngFor="let question of taskForm.get('screeningQuestions')['controls']; let i=index;">
-                        <p class="ml-3 mb-2">{{i+1}}. {{question.get('questionName').value}}</p>
+                        <p class="ml-3 mb-2">{{i+1}}. {{question.get('question').value}}</p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <label class="labelFontBold">Skills and Experties</label><br />
                     <div class="form-control-details mt-3 mt-2"
-                        *ngIf="taskForm.get('taskSkills').value && taskForm.get('taskSkills').value.length">
+                        *ngIf="taskForm.get('skills').value && taskForm.get('skills').value.length">
                         <label class="labelFontBold">
                             Selected Skills
                         </label>
@@ -68,7 +68,7 @@
                         <br /> <br />
                         <p class="ml-3">
                             <span class="label label-default"
-                                *ngFor="let skill of taskForm.get('taskSkills').value">{{skill.name}}</span>
+                                *ngFor="let skill of taskForm.get('skills').value">{{skill.name}}</span>
                         </p>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './post-skillsets.component.html',
   styleUrls: ['./post-skillsets.component.scss']
 })
+
 export class PostSkillsetsComponent implements OnInit {
   @Input() taskForm: FormGroup;
 
@@ -15,5 +16,9 @@ export class PostSkillsetsComponent implements OnInit {
   }
 
   onSelectSkill(event) {
+  }
+
+  public onAdding(tag) {
+    tag.id = -1;
   }
 }
