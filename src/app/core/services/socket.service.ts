@@ -14,7 +14,7 @@ export class SocketService {
     private socket;
 
     constructor() {
-        this.socket = socketIo(SERVER_URL);
+        // this.socket = socketIo(SERVER_URL);
     }
 
     // public initSocket(): void {
