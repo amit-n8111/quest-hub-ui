@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     sessionStorage['soeId'] = this.soeId;
-    this.entitlementService.setUserInfo(this.soeId);
+    this.entitlementService.setUserInfo({ 'soeId': this.soeId });
     this.router.navigate(['/home']);
   }
 

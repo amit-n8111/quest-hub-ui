@@ -5,3 +5,8 @@ export enum TASK_SECTION {
     TASK_SKILLSETS,
     REVIEW_AND_POST
 }
+
+export enum TASK_MESSAGES {
+    SUCCESS_MESSAGES = 'Task Successfully Created!',
+    ERROR_MESSAGES = 'Something Went Wrong!',
+}

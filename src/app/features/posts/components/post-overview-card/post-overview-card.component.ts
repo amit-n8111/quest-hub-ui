@@ -20,11 +20,11 @@ export class PostOverviewCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.socketService
-      .onMessage()
-      .subscribe((message: string) => {
-        this.applicationCount++;
-      });
+    // this.socketService
+    //   .onMessage()
+    //   .subscribe((message: string) => {
+    //     this.applicationCount++;
+    //   });
   }
 
   openTaskDetails() {

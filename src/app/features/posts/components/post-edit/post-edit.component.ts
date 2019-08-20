@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
+import { GrowlService } from './../../../../core/services/growl.service';
+import { LoaderService } from './../../../../core/services/loader.service';
 import { EntitlementService } from './../../../../core/services/entitlement.service';
 
-import { TASK_SECTION } from './constants/post.constants';
+import { TASK_SECTION, TASK_MESSAGES } from './constants/post.constants';
 
 @Component({
   selector: 'app-post-edit',
@@ -41,7 +43,10 @@ export class PostEditComponent implements OnInit {
     private fb: FormBuilder,
     private postService: PostsService,
     private entitlementService: EntitlementService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private growlService: GrowlService,
+    private router: Router,
+    private loaderService: LoaderService
   ) { }
 
   get TASK_SECTION() { return TASK_SECTION; }
@@ -61,9 +66,16 @@ export class PostEditComponent implements OnInit {
   }
 
   submitTaskForm() {
+    this.loaderService.setLoader(true);
+
     this.postService.submitTask(this.taskForm.value).subscribe(
       (data) => {
-        console.log(data);
+        // Todo: Remove setTimeout, its just for showing loader.
+        setTimeout(() => {
+          this.loaderService.setLoader(false);
+          this.router.navigate(['/posts']);
+          this.growlService.showMessage(TASK_MESSAGES.SUCCESS_MESSAGES);
+        }, 5000);
       });
   }
 
