@@ -2,7 +2,8 @@
 
     <div class="col-md-10 pad">
         <!-- <input type="checkbox"> &nbsp; -->
-        <label>Posted 13 mins ago </label> | <small>{{applicationCount}} Application Received</small>
+        <label>{{taskDetails.taskCreateDate | dateAgoPipe}}</label> | <small>{{applicationCount}} Application
+            Received</small>
         <h5 class="title" (click)="openTaskDetails()">{{taskDetails.taskName}}</h5>
         <div class="row detailBlock">
             <div class="col-md-4">
@@ -28,7 +29,8 @@
         </div>
     </div>
     <div class="col-md-2 pad align-center">
-        <small>Apply Before </small> <strong style="font-size: 12px;">{{taskDetails.taskDueDate}}</strong><br />
+        <small>Apply Before: </small> <strong
+            style="font-size: 12px;">{{taskDetails.taskDueDate | date: 'mediumDate'}}</strong><br />
         <button class="btn btn-default" [ngClass]=""
             style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star"></i></button>
         <button class="btn btn-primary" style="margin-top: 10px;" [disabled]="taskDetails.isAlreadyApplied"

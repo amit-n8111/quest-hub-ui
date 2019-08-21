@@ -41,23 +41,32 @@
     [style]="{width: '70%'}" [maximizable]="true" [baseZIndex]="10000" [blockScroll]="true"
     [contentStyle]="{'overflow':'visible', 'minHeight': '40vh'}">
     <div class="row" [formGroup]="taskApplicationForm">
-        <div class="col-md-12">
-            <label><strong>Available Date Range:</strong></label><br />
+        <div class="col-md-6">
+            <label><strong>Available Start Date:</strong></label><br />
             <div class="ml-5 mt-3">
-                <p-calendar formControlName="availableDateRange" selectionMode="range" [showIcon]="true">
+                <p-calendar formControlName="startDate" dateFormat="dd/mm/yy"
+                    [maxDate]="taskApplicationForm.get('endDate').value" [showIcon]="true" placeholder="Start Date">
                 </p-calendar>
             </div>
         </div>
-        <div class="col-md-12 mt-4">
+        <div class="col-md-6">
+            <label><strong>Available End Date:</strong></label><br />
+            <div class="ml-5 mt-3">
+                <p-calendar formControlName="endDate" dateFormat="dd/mm/yy"
+                    [minDate]="taskApplicationForm.get('startDate').value" [showIcon]="true" placeholder="End Date">
+                </p-calendar>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4" formArrayName="screeningQuestions"
+            *ngIf="taskApplicationForm.get('screeningQuestions')['controls'].length">
             <label><strong>Screening Questions:</strong></label><br />
             <div class="ml-5 mt-3">
-                <span class="ui-float-label mt-4">
-                    <input id="float-input" type="text" size="80" pInputText>
-                    <label for="float-input"><code>Do you have Jira Access?</code></label>
-                </span>
-                <span class="ui-float-label mt-3">
-                    <input id="float-input" type="text" size="80" pInputText>
-                    <label for="float-input"><code>Do you have intermidiate knowldge of Angular?</code></label>
+                <span class="ui-float-label mt-4"
+                    *ngFor="let question of taskApplicationForm.get('screeningQuestions')['controls']; let i=index;"
+                    [formGroupName]="i">
+                    <input formControlName="answer" id="float-input" type="text" size="80" pInputText>
+
+                    <label formGroupName="question" for="float-input"><code>{{getQuestionName(i)}}</code></label>
                 </span>
             </div>
         </div>

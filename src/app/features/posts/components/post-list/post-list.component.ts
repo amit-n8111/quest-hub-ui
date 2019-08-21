@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+
+import { TASK_MESSAGES } from './../post-edit/constants/post.constants';
 
 import { PostsService } from './../../services/posts.service';
+import { GrowlService } from './../../../../core/services/growl.service';
+import { LoaderService } from './../../../../core/services/loader.service';
 import { SocketService } from './../../../../core/services/socket.service';
 
 @Component({
@@ -14,9 +18,9 @@ export class PostListComponent implements OnInit {
   showScreeningPopup: boolean = false;
 
   taskApplicationForm: FormGroup = this.fb.group({
-    availableDateRange: [''],
-    screeningQuestions: this.fb.array([
-    ]),
+    startDate: [''],
+    endDate: [''],
+    screeningQuestions: this.fb.array([]),
     commentsOrNotes: ['']
   });
 
@@ -25,7 +29,9 @@ export class PostListComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private growlService: GrowlService,
     private postService: PostsService,
+    private loaderService: LoaderService,
     private socketService: SocketService
   ) { }
 
@@ -40,31 +46,60 @@ export class PostListComponent implements OnInit {
 
   showScreeningPopupFn(selectedTask) {
     this.taskApplicationForm.reset();
+    this.taskApplicationForm.setControl('screeningQuestions', this.createQuestionsForm(selectedTask.screeningQuestions));
     this.selectedTaskDetails = selectedTask;
     this.showScreeningPopup = true;
   }
 
+  createQuestionsForm(questions) {
+    let questionsForm: FormArray = this.fb.array([]);
+
+    questions.forEach(question => {
+      questionsForm.push(
+        this.fb.group({
+          answer: [],
+          question: this.fb.group({
+            id: question.id,
+            question: question.question
+          })
+        })
+      );
+    });
+
+    return questionsForm;
+  }
+
   applyToPost() {
+    this.loaderService.setLoader(true);
     const taskId = this.selectedTaskDetails['taskId'];
 
     this.postService.submitTaskApplication(taskId, this.taskApplicationForm.value).subscribe(
       (data) => {
-        console.log('Application Successfull.....');
+        this.loaderService.setLoader(false);
+        this.growlService.showMessage(TASK_MESSAGES.TASK_APPLICATION_SEND);
       }
     );
 
-    this.socketService.sendMessage({
-      from: 'an58526',
-      content: 'Hi my name is amit'
-    });
+    // Todo: This is socket code, removing for now.
+    // this.socketService.sendMessage({
+    //   from: 'an58526',
+    //   content: 'Hi my name is amit'
+    // });
   }
 
   getTaskList() {
+    this.loaderService.setLoader(true);
+
     this.postService.getTaskList().subscribe(
       (data) => {
+        this.loaderService.setLoader(false);
         this.taskList = data;
       }
     );
+  }
+
+  getQuestionName(index) {
+    return (this.taskApplicationForm.get('screeningQuestions') as FormArray).at(index).get('question').get('question').value;
   }
 
 }

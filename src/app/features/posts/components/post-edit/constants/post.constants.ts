@@ -9,4 +9,5 @@ export enum TASK_SECTION {
 export enum TASK_MESSAGES {
     SUCCESS_MESSAGES = 'Task Successfully Created!',
     ERROR_MESSAGES = 'Something Went Wrong!',
+    TASK_APPLICATION_SEND = 'Task Application Send!'
 }

@@ -4,8 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { PrimengModule } from './primeng.module';
 
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+
 @NgModule({
-    declarations: [],
+    declarations: [
+        DateAgoPipe
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -15,7 +19,8 @@ import { PrimengModule } from './primeng.module';
         CommonModule,
         PrimengModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        DateAgoPipe
     ]
 })
 
