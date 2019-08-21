@@ -31,7 +31,7 @@
     <div class="col-md-2 pad align-center">
         <small>Apply Before: </small> <strong
             style="font-size: 12px;">{{taskDetails.taskDueDate | date: 'mediumDate'}}</strong><br />
-        <button class="btn btn-default" [ngClass]=""
+        <button class="btn btn-default" (click)="markAsFavorite()" [ngClass]=""
             style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star"></i></button>
         <button class="btn btn-primary" style="margin-top: 10px;" [disabled]="taskDetails.isAlreadyApplied"
             (click)="applyToTask()">Apply</button>

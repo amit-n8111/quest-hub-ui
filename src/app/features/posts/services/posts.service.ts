@@ -50,7 +50,15 @@ export class PostsService {
         const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_SUBMIT_APPLICATION) + `${taskId}`;
 
         return this.http.post(resourceUrl, applicationForm).pipe(
-            catchError(this.helperService.handleError<any>('getPostDetail', {}))
+            catchError(this.helperService.handleError<any>('submitTaskApplication', {}))
+        );
+    }
+
+    markTaskAsFavorite(taskId) {
+        const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_MARK_AS_FAVORITE) + `${taskId}`;
+
+        return this.http.get(resourceUrl).pipe(
+            catchError(this.helperService.handleError<any>('markTaskAsFavorite', {}))
         );
     }
 }

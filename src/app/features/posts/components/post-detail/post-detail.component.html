@@ -20,7 +20,7 @@
         </div>
         <div class="card-body">
             <label class="title">{{taskDetails.taskName}}</label><br>
-            <small>Posted 13 mins ago</small>
+            <small>{{taskDetails.taskCreateDate | dateAgoPipe}}</small>
             <br>
             <!-- <strong>Need to hire 7 Freelancers</strong> -->
             <p class="mt-3" [innerHtml]="taskDetails.taskDescription"></p>
@@ -87,8 +87,8 @@
             <button class="btn btn-success">Post a Job Like This</button>
         </div>
         <div class="card-body align-center">
-            <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
-                    class="fa fa-star"></i></button>
+            <button class="btn btn-default" (click)="markAsFavorite()"
+                style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star"></i></button>
             <button class="btn btn-primary" style="margin-top: 10px;" (click)="applyToTask()">Apply</button>
             <!-- <label class="label-default" style="margin: 15px 0px;">This and other task await your
                     proposal</label><br> -->
