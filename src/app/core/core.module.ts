@@ -11,6 +11,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AuthGuard } from './services/auth.guard';
 import { HelperService } from './services/helper.service';
+import { RefDataService } from './services/ref-data.service';
 import { EntitlementService } from './services/entitlement.service';
 import { SocketService } from './services/socket.service';
 import { GrowlService } from './services/growl.service';
@@ -39,7 +40,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     SocketService,
     GrowlService,
     MessageService,
-    LoaderService
+    LoaderService,
+    RefDataService
   ],
   exports: [
     GrowlModule,
