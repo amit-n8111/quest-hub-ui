@@ -23,10 +23,16 @@ export class PostsService {
             'tasktopicId': 0,
             'tasktypeId': 0
         };
-        const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
+        // const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
-        return this.http.post(resourceURL, requestJson).pipe(
-            catchError(this.helperService.handleError<any>('getPostList', []))
+        // return this.http.post(resourceURL, requestJson).pipe(
+        //     catchError(this.helperService.handleError<any>('getPostList', []))
+        // );
+
+        const resourceURL = this.helperService.getAssetsURL('assets/json/task-list.json');
+
+        return this.http.get(resourceURL).pipe(
+            catchError(this.helperService.handleError<any>('getTopicList', []))
         );
     }
 
@@ -42,7 +48,7 @@ export class PostsService {
         const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_POST);
 
         return this.http.post(resourceUrl, taskForm).pipe(
-            catchError(this.helperService.handleError<any>('getPostDetail', {}))
+            catchError(this.helperService.handleError<any>('submitTask', {}))
         );
     }
 
@@ -50,7 +56,7 @@ export class PostsService {
         const resourceUrl = this.helperService.getResourceURL(PostsConstants.TASK_SUBMIT_APPLICATION) + `${taskId}`;
 
         return this.http.post(resourceUrl, applicationForm).pipe(
-            catchError(this.helperService.handleError<any>('submitTaskApplication', {}))
+            catchError(this.helperService.handleError<any>('submitTaskApplication', ''))
         );
     }
 
