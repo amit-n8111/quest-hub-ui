@@ -1,0 +1,40 @@
+{
+    "soeId": "an58526",
+    "name": "Amit Navarkar",
+    "location": "Pune",
+    "buName": "ETS",
+    "totalHoursWorked": null,
+    "numberOfTasksCompleted": 0,
+    "rating": 3.0,
+    "numberOfReviews": null,
+    "skillDetails": [
+        {
+            "level": "BEGINNER",
+            "yearsOfExperience": 4,
+            "lastWorked": "Angular",
+            "skillName": "Angular"
+        },
+        {
+            "level": "BEGINNER",
+            "yearsOfExperience": 4,
+            "lastWorked": "Angular",
+            "skillName": "Javascript"
+        },
+        {
+            "level": "BEGINNER",
+            "yearsOfExperience": 4,
+            "lastWorked": "Angular",
+            "skillName": "JQuery"
+        }
+    ],
+    "workHistoryAndFeedbackDTO": [
+        {
+            "feedbackComment": "ICG 'Add Switch' button on product pages",
+            "taskName": "Aug,12",
+            "completionDate": "Amit worked on this task to add a switch button on web page. He completed this task in just 15 mins 4",
+            "rating": 4
+        }
+    ],
+    "description": "Something Something",
+    "availableTime": 5
+}

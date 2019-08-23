@@ -27,7 +27,8 @@
         </div>
 
         <div class="card-body pad">
-            <app-profile-overview-card *ngFor="let i of [1,2,3]"></app-profile-overview-card>
+            <app-profile-overview-card *ngFor="let userDetails of userList" [userDetails]="userDetails">
+            </app-profile-overview-card>
         </div>
     </div>
 </div>

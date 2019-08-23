@@ -1,31 +1,32 @@
-<div style="border-bottom: 1px solid #ccc; padding: 20px;">
+<div style="border-bottom: 1px solid #ccc; padding: 20px;" *ngIf="userDetails">
     <div class="row">
         <div class="col-md-1">
             <i class="fa fa-user-circle userIcon" aria-hidden="true"></i>
         </div>
 
         <div class="col-md-9 pad user">
-            <h6 class="title" (click)="displaySidebar = true"> Amit Navarkar </h6>
+            <h6 class="title" (click)="displaySidebar = true"> {{userDetails.name}} </h6>
             <br />
 
             <span>
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                Pune, Maharashtra, India
+                {{userDetails.location}}
             </span>
             |
             <span>
-                BU: GFTS
+                BU: {{userDetails.buName}}
             </span>
 
             <span class="ml-5 pl-5">
-                <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
+                <i class="fa fa-star" aria-hidden="true"></i> {{userDetails.rating}}
+                ({{userDetails.workHistoryAndFeedbackDTO ? userDetails.workHistoryAndFeedbackDTO.length : 0}})
             </span>
         </div>
 
         <div class="col-md-2 pad align-center">
             <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
                     class="fa fa-heart"></i></button>
-            <a href="sip:rani.jain@citi.com"><button class="btn btn-primary"
+            <a [href]="'sip:'+ userDetails.email"><button class="btn btn-primary"
                     style="margin-top: 10px;">Contact</button></a>
         </div>
     </div>
@@ -34,35 +35,32 @@
 
     <div class="row">
         <div class="col-md-12 mt-2 mb-2">
-            <p>Needed a web developr who can work on Angular and create a web page with responsive css, Jira ticket is
-                there for this task and attached screenshot of mockup/wireframes...</p>
+            <p [innerHTML]="userDetails.description"></p>
         </div>
     </div>
 
     <div class="row">
-        <span class="label label-default">Angular Js</span>
-        <span class="label label-default">Html</span>
-        <span class="label label-default">Css</span>
-        <span class="label label-default">Bootstrap</span>
-        <span class="label label-default">Javascript</span>
+        <span class="label label-default" *ngFor="let skill of userDetails.skillDetails">{{skill.skillName}}</span>
     </div>
 
     <div class="row mt-4">
         <div class="col-md-4 pl-5 border-right">
-            <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
+            <i class="fa fa-clock-o"></i> &nbsp; <strong>{{userDetails.numberOfTasksCompleted}}</strong><br>
             <small style="position: relative; left: 20px;">Hours Worked</small>
         </div>
         <div class="col-md-4 pl-5 border-right">
-            <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
+            <i class="fa fa-battery-three-quarters"></i> &nbsp;
+            <strong>{{userDetails.skillDetails[0]['level']}}</strong><br>
             <small style="position: relative; left: 20px;">Experties</small>
         </div>
         <div class="col-md-4 pl-5">
-            <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
+            <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp;
+            <strong>{{userDetails.numberOfTasksCompleted}}</strong><br>
             <small style="position: relative; left: 20px;">Task Completed</small>
         </div>
     </div>
 </div>
 
 <p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg profileDetails" [blockScroll]="true">
-    <app-profile-details></app-profile-details>
+    <app-profile-details [userDetails]="userDetails"></app-profile-details>
 </p-sidebar>

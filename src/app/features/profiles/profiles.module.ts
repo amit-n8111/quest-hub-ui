@@ -8,6 +8,7 @@ import { ProfileListComponent } from './components/profile-list/profile-list.com
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { ProfileOverviewCardComponent } from './components/profile-overview-card/profile-overview-card.component';
 
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,9 @@ import { ProfileOverviewCardComponent } from './components/profile-overview-card
     CommonModule,
     ProfilesRoutingModule,
     SharedModule
+  ],
+  providers: [
+    ProfileService
   ]
 })
 

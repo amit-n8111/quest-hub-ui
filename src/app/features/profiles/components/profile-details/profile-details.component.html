@@ -12,7 +12,7 @@
 
 </div>
 
-<div class="row sidebarContent mt-3">
+<div class="row sidebarContent mt-3" *ngIf="userDetails">
     <div class="col-md-3">
         <ul class="nav flex-column nav-pills" aria-orientation="vertical">
             <li class="nav-link" [ngClass]="{'active': 'profileTemplate' == selectedTemplateId }"
@@ -31,17 +31,17 @@
 
         <hr />
 
-        <div class="pad ml-3">
+        <div class="pad ml-3" *ngIf="userDetails.availableTime">
             <label class="title">Availablility</label><br />
-            <span>Less than 5 hours</span>
+            <span>Less than {{userDetails.availableTime}} hours</span>
+            <hr />
         </div>
 
-        <hr />
 
         <div class="pad align-center fixedBottom">
             <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
                     class="fa fa-heart"></i></button>
-            <a href="sip:rani.jain@citi.com"><button class="btn btn-primary"
+            <a [href]="'sip:' + userDetails.email"><button class="btn btn-primary"
                     style="margin-top: 10px;">Contact</button></a>
         </div>
     </div>
@@ -67,55 +67,47 @@
 
             <div class="col-md-9 pad user">
                 <div class="ml-3">
-                    <h6 class="title"> Amit Navarkar </h6>
+                    <h6 class="title"> {{userDetails.name}} </h6>
                     <br />
 
                     <span>
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        Pune, Maharashtra, India
+                        {{userDetails.location}}
                     </span>
                     |
                     <span>
-                        BU: GFTS
+                        BU: {{userDetails.buName}}
                     </span>
                 </div>
             </div>
 
             <div class="col-md-2">
                 <span class=" float-right">
-                    <i class="fa fa-star" aria-hidden="true"></i> 4.8 (193)
+                    <i class="fa fa-star" aria-hidden="true"></i> {{userDetails.rating}}
+                    ({{userDetails.workHistoryAndFeedbackDTO ? userDetails.workHistoryAndFeedbackDTO.length : 0}})
                 </span>
             </div>
         </div>
 
         <div class="row mt-5">
             <div class="col-md-12">
-                <p><strong>Angular Developer</strong></p><br />
-
-                <p>Hi there.</p><br />
-
-                <p>My main expertise is Angular and the frontend side of applications: from simple tools to big
-                    enterprise systems.</p><br />
-
-                <p>I can create/improve an application for you or consult your team.</p><br />
-
-                <p>Also I am working on ngx-kit.com - open-source toolkit project for Angular.
-                    And ngrefs.com — Angular references.</p><br />
-                <p>My GitHub profile: github.com/navix</p><br />
+                <p [innerHTML]="userDetails.description"></p>
             </div>
         </div>
 
         <div class="row mt-4">
             <div class="col-md-4 pl-5 border-right">
-                <i class="fa fa-clock-o"></i> &nbsp; <strong>5</strong><br>
+                <i class="fa fa-clock-o"></i> &nbsp; <strong>{{userDetails.numberOfTasksCompleted}}</strong><br>
                 <small style="position: relative; left: 20px;">Hours Worked</small>
             </div>
             <div class="col-md-4 pl-5 border-right">
-                <i class="fa fa-battery-three-quarters"></i> &nbsp; <strong>Advance</strong><br>
+                <i class="fa fa-battery-three-quarters"></i> &nbsp;
+                <strong>{{userDetails.skillDetails[0]['level']}}</strong><br>
                 <small style="position: relative; left: 20px;">Experties</small>
             </div>
             <div class="col-md-4 pl-5">
-                <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; <strong>13</strong><br>
+                <i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp;
+                <strong>{{userDetails.numberOfTasksCompleted}}</strong><br>
                 <small style="position: relative; left: 20px;">Task Completed</small>
             </div>
         </div>
@@ -169,29 +161,17 @@
 
         <hr />
 
-        <div class="row mb-4">
+        <div class="row mb-4" *ngFor="let work of userDetails.workHistoryAndFeedbackDTO">
+            <hr />
             <div class="col-md-10">
-                <strong>ICG 'Add Switch' button on product pages</strong><br />
-                <code>Aug,12</code><br /><br />
-                <span class="mt-5">Amit worked on this task to add a switch button on web page.
-                    He completed this task in just 15 min's.</span>
+                <strong>{{work.taskName}}</strong><br />
+                <code>{{work.completionDate}}</code><br /><br />
+                <span class="mt-5">{{work.feedbackComment}}</span>
             </div>
             <div class="col-md-2 float-right">
-                <i *ngFor="let i of [1,2,3,4]" class="fa fa-star" aria-hidden="true"></i> 4
+                <i *ngFor="let i of getArray( work.rating)" class="fa fa-star" aria-hidden="true"></i> 4
             </div>
         </div>
 
-        <hr />
-
-        <div class="row mb-4">
-            <div class="col-md-10">
-                <strong>Create a web page</strong><br />
-                <code>Aug,16</code><br /><br />
-                <span class="mt-5">No feeback shared</span>
-            </div>
-            <div class="col-md-2 float-right">
-                <i *ngFor="let i of [1,2,3]" class="fa fa-star" aria-hidden="true"></i> 3
-            </div>
-        </div>
     </div>
 </ng-template>
