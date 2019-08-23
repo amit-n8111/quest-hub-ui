@@ -32,15 +32,13 @@
     margin-top: 4px;
     display: inherit;
   }
-  .user .title {
-    margin-bottom: 0px;
-    display: initial;
-    position: relative;
-    top: 4px;
-  }
+  
   
   .title {
     color: #008de6;
+    display: initial;
+    position: relative;
+    top: 4px;
   }
   .card-body {
     border-bottom: 1px solid #ccc;
@@ -52,4 +50,4 @@
       width: 80vw !important;
     }
   }
-  
+   
