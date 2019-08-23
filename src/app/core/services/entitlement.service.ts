@@ -17,21 +17,16 @@ export class EntitlementService {
     private http: HttpClient
   ) { }
 
-  getUserInformation(): Observable<Object> {
-    const resourceURL = this.helperService.getResourceURL(CoreConstants.USERS);
+  getUserInformation(soeId): Observable<Object> {
+    // const resourceURL = this.helperService.getResourceURL(CoreConstants.USERS);
 
-    // Service call will go here.
-    // return this.http.get(resourceURL).pipe(
-    //   catchError(this.helperService.handleError<any>('getUserInformation', []))
-    // );
+    // const params = { params: { soeId } };
 
-    const soeId = sessionStorage['soeId'];
+    // return this.http.get(resourceURL, params);
 
-    if (soeId) {
-      this.userDetails = { 'soeId': soeId };
-    }
 
-    return of(this.userDetails);
+    // Todo: Remove this once all service changes are done.
+    return of({ soeId: 'AN58526' });
   }
 
   setUserInfo(soeId: any) {

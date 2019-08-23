@@ -1,4 +1,4 @@
 export abstract class CoreConstants {
-    public static USERS = 'USERS';
+    public static USERS = 'userInfoes/search/findBySoeId';
 }
 

@@ -26,15 +26,22 @@ export class AppComponent implements OnInit {
   }
 
   getUserInformation() {
-    this.entitlementService.getUserInformation().subscribe(
+    let soeId = sessionStorage['soeId'];
+
+    this.entitlementService.getUserInformation(soeId).subscribe(
       (userDetails) => {
         if (!!userDetails) {
           this.getRefData();
           this.isLoggedInUser = true;
+          this.entitlementService.setUserInfo(soeId);
         } else {
           this.router.navigate(['login']);
-          this.observeUserInfo();
         }
+        this.observeUserInfo();
+      },
+      (error) => {
+        this.router.navigate(['login']);
+        this.observeUserInfo();
       }
     );
   }
