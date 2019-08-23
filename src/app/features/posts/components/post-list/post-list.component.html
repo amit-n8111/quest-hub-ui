@@ -2,9 +2,22 @@
     <div class="row" style="padding-bottom: 15px;">
         <div class="col-md-10 pad-l" style="display: inline-flex">
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+                <button class="btn btn-primary dropdown-toggle" (click)="category.toggle($event)" type="button"><i
                         class="fa fa-list-alt"></i> &nbsp;Any Category
-                    <span class="caret"></span></button>
+                    <span class="caret"></span>
+                    <p-overlayPanel #category styleClass="sortBy">
+                        <ol class="subMenu"
+                            style="list-style-type:none; margin-bottom: 0px; padding-left: 0px; padding-bottom: 0;">
+                            <li> HTML</li>
+                            <li> CSS</li>
+                            <li> Javascript</li>
+                            <li> Angular</li>
+                            <li> Web Development</li>
+                            <li> Web Design</li>
+                            <li style="padding-bottom: 0;">DB Design</li>
+                        </ol>
+                    </p-overlayPanel>
+                </button>
                 <ul class="dropdown-menu">
                     <li><a href="#">Select a Category</a></li>
                 </ul>
@@ -12,17 +25,54 @@
             <input type="text" class="form-control textBox">
         </div>
         <div class="col-md-2 pad">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i
+            <button class="btn btn-primary dropdown-toggle" type="button" (click)="taskFilter.toggle($event)"><i
                     class="fa fa-filter"></i> &nbsp;Filters
                 <span class="caret"></span></button>
+            <p-overlayPanel #taskFilter styleClass="taskFilter">
+                <ol class="row" style="list-style-type:none; padding-left: 0px;">
+                    <li class="col-md-4">Skills
+                        <ol class="subItems" style="list-style-type:none; padding-bottom: 0; padding-left: 0px;">
+                            <li style="padding-left:25px;"><input type="checkbox" name="skills1"> HTML</li>
+                            <li style="padding-left:25px;"><input type="checkbox" name="skills2"> CSS</li>
+                            <li style="padding-left:25px;"><input type="checkbox" name="skills3"> Javascript</li>
+                            <li style="padding-left:25px; padding-bottom: 0;"><input type="checkbox" name="skills4">
+                                Angular</li>
+                        </ol>
+                    </li>
+                    <li class="col-md-4">Topic
+                        <ol class="subItems" style="list-style-type: none; padding-bottom: 0; padding-left: 0px;">
+                            <li style="padding-left:25px"><input type="radio" name="topic"> Web Development</li>
+                            <li style="padding-left:25px;"><input type="radio" name="topic"> Web Design</li>
+                            <li style="padding-left:25px; padding-bottom: 0;"><input type="radio" name="topic"> DB
+                                Design</li>
+                        </ol>
+                    </li>
+                    <li class="col-md-4">Task Type
+                        <ol class="subItems" style="list-style-type: none; padding-bottom: 0; padding-left: 0px;">
+                            <li style="padding-left:25px"><input type="checkbox" name="type1"> Micro Task</li>
+                            <li style="padding-left:25px;"><input type="checkbox" name="type2"> Micro Project</li>
+                        </ol>
+                    </li>
+                </ol>
+            </p-overlayPanel>
         </div>
     </div>
     <div class="col-md-12 pad card">
         <div class="card-header">
             <!-- <input type="checkbox">&nbsp; -->
             <label> 10 Results</label>
-            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i
-                        class="fa fa-angle-down"></i></label></div>
+            <div class="pull-right"><strong>Sort By: &nbsp; </strong>
+                <label style="cursor: pointer;" (click)="sortBy.toggle($event)">Newest <i
+                        class="fa fa-angle-down"></i></label>
+                <p-overlayPanel #sortBy styleClass="sortBy">
+                    <ol class="subMenu"
+                        style="list-style-type:none; margin-bottom: 0px; padding-left: 0px; padding-bottom: 0;">
+                        <li>Newest</li>
+                        <li>Oldest</li>
+                        <li>Coming Soon</li>
+                    </ol>
+                </p-overlayPanel>
+            </div>
         </div>
         <div class="card-body pad">
             <app-post-overview-card *ngFor="let task of taskList" [taskDetails]="task"

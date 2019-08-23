@@ -9,12 +9,14 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
 import { ProfileOverviewCardComponent } from './components/profile-overview-card/profile-overview-card.component';
 
 import { ProfileService } from './services/profile.service';
+import { MyProfilesComponent } from './components/my-profiles/my-profiles.component';
 
 @NgModule({
   declarations: [
     ProfileListComponent,
     ProfileDetailsComponent,
-    ProfileOverviewCardComponent
+    ProfileOverviewCardComponent,
+    MyProfilesComponent
   ],
   imports: [
     CommonModule,

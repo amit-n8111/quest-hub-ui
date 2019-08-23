@@ -1,0 +1,31 @@
+<div class="container pad-t-15 pad-b-15">
+    <div class="row" style="padding-bottom: 15px;">
+        <div class="col-md-10 pad" style="display: inline-flex">
+            <input type="text" class="form-control textBox" placeholder="Search Saved Freelancers">
+        </div>
+        <div class="col-md-2 pad">
+            <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+    <div class="col-md-12 pad card">
+        <div class="card-header">
+            <!-- <input type="checkbox">&nbsp; -->
+            <label> 10 Results</label>
+            <div class="pull-right"><strong>Sort By: &nbsp; </strong>
+                <label style="cursor: pointer;" (click)="sortBy.toggle($event)">Newest <i
+                        class="fa fa-angle-down"></i></label>
+                <p-overlayPanel #sortBy styleClass="sortBy">
+                    <ol class="subMenu"
+                        style="list-style-type:none; margin-bottom: 0px; padding-left: 0px; padding-bottom: 0;">
+                        <li>Newest</li>
+                        <li>Oldest</li>
+                        <li>Coming Soon</li>
+                    </ol>
+                </p-overlayPanel>
+            </div>
+        </div>
+        <div class="card-body pad">
+
+        </div>
+    </div>
+</div>

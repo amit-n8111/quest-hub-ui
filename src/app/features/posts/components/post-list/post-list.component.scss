@@ -1,7 +1,7 @@
 .dropdown-toggle {
   border-radius: 0px;
-  background: #ccc;
-  border: 1px solid #eee;
+  /*background: #ccc;
+  border: 1px solid #eee;*/
 }
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
@@ -9,6 +9,12 @@
   background-color: #ccc !important;
   border: 1px solid #eee !important;
 }
+::ng-deep {.taskFilter, .sortBy, .category {top: auto !important; left: auto !important;}}
+::ng-deep {.taskFilter {width: 40vw; right: 5vw;}}
+::ng-deep {.taskFilter .subItems li {cursor: pointer; padding-top: 3px; padding-bottom: 3px;}}
+::ng-deep {.taskFilter .subItems li:hover {background: #b2ebfb;}}
+::ng-deep {.sortBy .subMenu li {cursor: pointer; padding: 3px 6px; text-align: left;}}
+::ng-deep {.sortBy .subMenu li:hover {background: #b2ebfb;}}
 .textBox {
   position: relative;
   left: -1px;

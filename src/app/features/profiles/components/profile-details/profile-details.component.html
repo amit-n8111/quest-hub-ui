@@ -28,17 +28,13 @@
                 <a>Work History and Feedback</a>
             </li>
         </ul>
-
         <hr />
-
         <div class="pad ml-3" *ngIf="userDetails.availableTime">
             <label class="title">Availablility</label><br />
             <span>Less than {{userDetails.availableTime}} hours</span>
-            <hr />
         </div>
-
-
-        <div class="pad align-center fixedBottom">
+        <hr />
+        <div class="pad align-center">
             <button class="btn btn-default" style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i
                     class="fa fa-heart"></i></button>
             <a [href]="'sip:' + userDetails.email"><button class="btn btn-primary"

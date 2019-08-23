@@ -13,6 +13,7 @@ import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 // This is used for third party chips component.
 import { TagInputModule } from 'ngx-chips';
@@ -32,7 +33,8 @@ import { TagInputModule } from 'ngx-chips';
         CalendarModule,
         InputTextModule,
         InputTextareaModule,
-        TagInputModule
+        TagInputModule,
+        OverlayPanelModule
     ],
     exports: [
         TableModule,
@@ -47,7 +49,8 @@ import { TagInputModule } from 'ngx-chips';
         CalendarModule,
         InputTextModule,
         InputTextareaModule,
-        TagInputModule
+        TagInputModule,
+        OverlayPanelModule
     ]
 })
 

@@ -7,11 +7,12 @@
 
 .card-body {
   border: 1px solid #ccc;
+  background: #fff;
 }
 
 ::ng-deep {
   .profileDetails .card-body {
-    height: calc(100vh - 85px);
+    height: calc(100vh - 160px);
     overflow-y: auto;
   }
 }

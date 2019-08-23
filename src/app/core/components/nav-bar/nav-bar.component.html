@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" [routerLink]="entitlementService.isUserLoggedIn ? ['home/overview'] :['']">
-            <img src="assets/images/quest.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="assets/images/quest.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Quest Hub
         </a>
         <ul class="navbar-nav ml-auto float-right">
@@ -35,7 +35,7 @@
                             <a class="nav-link" [routerLink]="['profiles']">FIND USERS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['profiles']">MY USERS</a>
+                            <a class="nav-link" [routerLink]="['profiles','myProfiles']">MY USERS</a>
                         </li>
                     </ul>
                 </p-overlayPanel>

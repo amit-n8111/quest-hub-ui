@@ -8,7 +8,7 @@ body {
 .navbar {
     box-shadow: 0 1px 6px rgba(57,73,76,0.35) !important;
 }
-
+.fa-star.active {color: #008de6;}
 .cursorPointer {
     cursor: pointer;
 }
@@ -71,6 +71,7 @@ label {margin-bottom: 0px !important;}
 
 .form-control-details label, li {
     font-size: 1em;
+    cursor: pointer;
 }
 
 .labelFontBold {
