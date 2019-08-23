@@ -1,76 +1,31 @@
 <div class="container pad-t-15 pad-b-15">
-    <div class="row" style="padding-bottom: 15px;">
-        <div class="col-md-10 pad-l" style="display: inline-flex">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button"><i
-                        class="fa fa-list-alt"></i> &nbsp;Any Category
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Select a Category</a></li>
-                </ul>
+        <div class="row" style="padding-bottom: 15px;">
+            <div class="col-md-10 pad" style="display: inline-flex">
+                <input type="text" class="form-control textBox" placeholder="Search Job Postings">
             </div>
-            <input type="text" class="form-control textBox">
-        </div>
-        <div class="col-md-2 pad">
-            <button class="btn btn-primary dropdown-toggle" type="button"><i
-                    class="fa fa-filter"></i> &nbsp;Filters
-                <span class="caret"></span></button>
-        </div>
-    </div>
-    <div class="col-md-12 pad card">
-        <div class="card-header">
-            <!-- <input type="checkbox">&nbsp; -->
-            <label> 10 Results</label>
-            <div class="pull-right"><strong>Sort By: &nbsp; </strong><label>Newest <i
-                        class="fa fa-angle-down"></i></label></div>
-        </div>
-        <div class="card-body pad">
-            <app-post-overview-card (emitClick)="showSidebarFn($event)"
-                (showScreeningPopup)="showScreeningPopupFn($event)"></app-post-overview-card>
-        </div>
-    </div>
-</div>
-
-<p-sidebar [(visible)]="displaySidebar" position="right" styleClass="ui-sidebar-lg profileDetails">
-    <app-post-detail (showScreeningPopup)="showScreeningPopupFn($event)"></app-post-detail>
-</p-sidebar>
-
-<p-dialog header="Task Screening" [(visible)]="showScreeningPopup" [modal]="true" [responsive]="true"
-    [style]="{width: '70%'}" [maximizable]="true" [baseZIndex]="10000" [blockScroll]="true"
-    [contentStyle]="{'overflow':'visible', 'minHeight': '40vh'}">
-    <div class="row">
-        <div class="col-md-12">
-            <label><strong>Available Date Range:</strong></label><br />
-            <div class="ml-5 mt-3">
-                <p-calendar [(ngModel)]="availableDateRange" selectionMode="range" [showIcon]="true">
-                </p-calendar>
+            <div class="col-md-2 pad">
+                <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
             </div>
         </div>
-        <div class="col-md-12 mt-4">
-            <label><strong>Screening Questions:</strong></label><br />
-            <div class="ml-5 mt-3">
-                <span class="ui-float-label mt-4">
-                    <input id="float-input" type="text" size="80" pInputText>
-                    <label for="float-input"><code>Do you have Jira Access?</code></label>
-                </span>
-                <span class="ui-float-label mt-3">
-                    <input id="float-input" type="text" size="80" pInputText>
-                    <label for="float-input"><code>Do you have intermidiate knowldge of Angular?</code></label>
-                </span>
+        <div class="col-md-12 pad card">
+            <div class="card-header">
+                <!-- <input type="checkbox">&nbsp; -->
+                <label> 10 Results</label>
+                <div class="pull-right"><strong>Sort By: &nbsp; </strong>
+                    <label style="cursor: pointer;" (click)="sortBy.toggle($event)">Newest <i
+                            class="fa fa-angle-down"></i></label>
+                    <p-overlayPanel #sortBy styleClass="sortBy">
+                        <ol class="subMenu"
+                            style="list-style-type:none; margin-bottom: 0px; padding-left: 0px; padding-bottom: 0;">
+                            <li>Newest</li>
+                            <li>Oldest</li>
+                            <li>Coming Soon</li>
+                        </ol>
+                    </p-overlayPanel>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12 mt-4">
-            <label><strong>Comments or Notes:</strong></label><br />
-            <div class="ml-5 mt-3">
-                <span class="ui-float-label mt-3">
-                    <textarea id="float-input-1" cols="80" pInputTextarea></textarea>
-                    <label for="float-input-1"><code>Ask you questions or provide notes here:</code></label>
-                </span>
+            <div class="card-body pad">
+                
             </div>
         </div>
     </div>
-    <p-footer>
-        <button type="button" class="btn btn-default" (click)="showScreeningPopup=false">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="showScreeningPopup=false; applyToPost()">Apply</button>
-    </p-footer>
-</p-dialog>

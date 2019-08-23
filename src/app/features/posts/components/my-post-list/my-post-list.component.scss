@@ -1,19 +1,55 @@
-.fontSize8 {
-    font-size: 8px;
-}
-
-.absolutePos{
-    position: absolute;
-    padding-left: 12px;
-    padding-top: 10px;
-}
-
-.searchInput {
-    text-indent: 23px;
-    width: 50% !important;
-    display: inline-block;
-}
-
-.height150 {
-    height: 150px !important;
-}
+.dropdown-toggle {
+    border-radius: 0px;
+    /*background: #ccc;
+    border: 1px solid #eee;*/
+  }
+  .btn-primary:not(:disabled):not(.disabled).active,
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .show > .btn-primary.dropdown-toggle {
+    background-color: #ccc !important;
+    border: 1px solid #eee !important;
+  }
+  ::ng-deep {.taskFilter, .sortBy, .category {top: auto !important; left: auto !important;}}
+  ::ng-deep {.taskFilter {width: 40vw; right: 5vw;}}
+  ::ng-deep {.taskFilter .subItems li {cursor: pointer; padding-top: 3px; padding-bottom: 3px;}}
+  ::ng-deep {.taskFilter .subItems li:hover {background: #b2ebfb;}}
+  ::ng-deep {.sortBy .subMenu li {cursor: pointer; padding: 3px 6px; text-align: left;}}
+  ::ng-deep {.sortBy .subMenu li:hover {background: #b2ebfb;}}
+  .textBox {
+    position: relative;
+    left: -1px;
+    border-radius: 0px;
+    height: 34px;
+  }
+  .user {
+    width: auto;
+    display: -webkit-box; 
+  }
+  .userIcon {
+    font-size: 48px;
+    color: #ccc;
+    margin-right: 10px;
+    margin-top: 4px;
+    display: inherit;
+  }
+  .user .title {
+    margin-bottom: 0px;
+    display: initial;
+    position: relative;
+    top: 4px;
+  }
+  
+  .title {
+    color: #008de6;
+  }
+  .card-body {
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+  }
+  ::ng-deep {
+    .ui-sidebar-lg {
+      z-index: 1500 !important;
+      width: 80vw !important;
+    }
+  }
+  
