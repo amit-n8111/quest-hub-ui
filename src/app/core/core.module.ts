@@ -16,6 +16,7 @@ import { EntitlementService } from './services/entitlement.service';
 import { SocketService } from './services/socket.service';
 import { GrowlService } from './services/growl.service';
 import { LoaderService } from './services/loader.service';
+import { NotificationService } from './services/notification.service';
 
 import { LoaderComponent } from './components/loader/loader.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -44,7 +45,8 @@ import { StripHtmlPipe } from './pipes/strip-html.pipe';
     GrowlService,
     MessageService,
     LoaderService,
-    RefDataService
+    RefDataService,
+    NotificationService
   ],
   exports: [
     GrowlModule,

@@ -50,14 +50,18 @@
             <li class="nav-item customOverlayWidth">
                 <a class="nav-link" (click)="notification.toggle($event)">
                     <i class="fa fa-bell fontSize24"></i>
-                    <span class="badge badge-danger">1</span>
+                    <span class="badge badge-danger">{{notifications.length}}</span>
                 </a>
                 <p-overlayPanel #notification [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'">
                     <ul>
                         <li class="nav-item">
                             <a class="nav-link" [routerLink]="['inbox']">
-                                <p>You have 1 new Application(s):</p>
-                                <span class="text-success">Needed a web developer to create...</span>
+                                <p>You have {{notifications.length}} new Application(s):</p>
+                                <div *ngFor="let notification of notifications">
+                                    <hr />
+                                    <span class="text-success">{{notification.userName}} applied on your task
+                                        '{{notification.taskName}}'</span>
+                                </div>
                             </a>
                         </li>
                     </ul>
