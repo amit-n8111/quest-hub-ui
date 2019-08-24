@@ -49,9 +49,9 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="labelFontBold">Add Category Skills</label><br />
-                    <tag-input [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="onAdding($event)" [theme]="'bootstrap'"
-                        formControlName="skills" name="items" [secondaryPlaceholder]="'Enter Category Skills'"
-                        [placeholder]="'+ Skill'" [onlyFromAutocomplete]="true">
+                    <tag-input [identifyBy]="'id'" [displayBy]="'name'" [theme]="'bootstrap'" formControlName="skills"
+                        name="items" [secondaryPlaceholder]="'Enter Category Skills'" [placeholder]="'+ Skill'"
+                        [onlyFromAutocomplete]="true">
                         <tag-input-dropdown [identifyBy]="'id'" [displayBy]="'name'"
                             [autocompleteItems]="getSkillItemsByCategory">
                         </tag-input-dropdown>

@@ -27,8 +27,4 @@ export class PostOverviewComponent implements OnInit {
     return selectedTopic && selectedTopic['skills'] ? selectedTopic['skills'] : [];
   }
 
-  public onAdding(tag) {
-    tag.id = -1;
-  }
-
 }
