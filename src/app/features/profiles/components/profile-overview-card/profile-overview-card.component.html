@@ -35,17 +35,17 @@
 
     <div class="row">
         <div class="col-md-12 mt-2 mb-2">
-            <p [innerHTML]="userDetails.description"></p>
+            <p [innerHTML]="userDetails.userDescription"></p>
         </div>
     </div>
 
     <div class="row">
-        <span class="label label-default" *ngFor="let skill of userDetails.skillDetails">{{skill.skillName}}</span>
+        <span class="label label-default" *ngFor="let skill of userDetails.skillDetails">{{skill.name}}</span>
     </div>
 
     <div class="row mt-4">
         <div class="col-md-4 pl-5 border-right">
-            <i class="fa fa-clock-o"></i> &nbsp; <strong>{{userDetails.numberOfTasksCompleted}}</strong><br>
+            <i class="fa fa-clock-o"></i> &nbsp; <strong>{{userDetails.totalHoursWorked}}</strong><br>
             <small style="position: relative; left: 20px;">Hours Worked</small>
         </div>
         <div class="col-md-4 pl-5 border-right">

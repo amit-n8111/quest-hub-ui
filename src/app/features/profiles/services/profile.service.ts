@@ -30,9 +30,11 @@ export class ProfileService {
     }
 
     getProfileDetails(soeId) {
-        const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_DETAILS) + `${soeId}`;
+        const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_DETAILS);
 
-        return this.http.get(resourceURL).pipe(
+        const options = { params: { soeId } };
+
+        return this.http.get(resourceURL, options).pipe(
             catchError(this.helperService.handleError<any>('getProfileDetails', {}))
         );
     }
