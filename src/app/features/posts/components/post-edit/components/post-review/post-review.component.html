@@ -10,7 +10,19 @@
                 <hr />
                 <div class="form-group mt-4">
                     <label class="labelFontBold">Task Category</label><br />
-                    <p class="mt-3">{{taskForm.get('taskTopicName').value}}</p>
+                    <p class="mt-3">{{getItemNameById(taskForm.get('taskTopicId').value, 'topic' )}}</p>
+                </div>
+
+                <hr />
+                <div class="form-group mt-4">
+                    <label class="labelFontBold">Required Skillsets</label><br />
+                    <div class="form-control-details mt-4"
+                        *ngIf="taskForm.get('skills').value && taskForm.get('skills').value.length">
+                        <p class="ml-3">
+                            <span class="label label-default"
+                                *ngFor="let skill of taskForm.get('skills').value">{{skill.name}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,18 +48,28 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="labelFontBold">Task Type</label><br />
-                    <p class="mt-3">{{taskForm.get('taskType').value}}</p>
+                    <p class="mt-3">{{getItemNameById(taskForm.get('taskTypeId').value, 'taskType' )}}</p>
                 </div>
 
                 <hr />
-                <div class="form-group mt-4">
-                    <label class="labelFontBold">Screening Questions</label><br />
-
-                    <div class="mt-3"
-                        *ngFor="let question of taskForm.get('screeningQuestions')['controls']; let i=index;">
-                        <p class="ml-3 mb-2">{{i+1}}. {{question.get('question').value}}</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labelFontBold">Task Due Date</label><br />
+                        {{taskForm.get('taskDueDate').value | date: 'mediumDate'}}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labelFontBold">Estimated Required
+                            Hours</label><br />{{taskForm.get('manHoursNeeded').value}}
                     </div>
                 </div>
+
+                <hr />
+
+                <div class="form-group">
+                    <label class="labelFontBold">Reward And Recognition</label><br />
+                    <p class="mt-3">{{getItemNameById(taskForm.get('rewardTypeId').value, 'rewardType' )}}</p>
+                </div>
+
             </div>
         </div>
     </div>
@@ -57,19 +79,12 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                <div class="form-group">
-                    <label class="labelFontBold">Skills and Experties</label><br />
-                    <div class="form-control-details mt-3 mt-2"
-                        *ngIf="taskForm.get('skills').value && taskForm.get('skills').value.length">
-                        <label class="labelFontBold">
-                            Selected Skills
-                        </label>
+                <div class="form-group mt-4">
+                    <label class="labelFontBold">Screening Questions</label><br />
 
-                        <br /> <br />
-                        <p class="ml-3">
-                            <span class="label label-default"
-                                *ngFor="let skill of taskForm.get('skills').value">{{skill.name}}</span>
-                        </p>
+                    <div class="mt-3"
+                        *ngFor="let question of taskForm.get('screeningQuestions')['controls']; let i=index;">
+                        <p class="ml-3 mb-2">{{i+1}}. {{question.get('question').value}}</p>
                     </div>
                 </div>
             </div>

@@ -20,10 +20,13 @@ import { LoaderService } from './services/loader.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
+import { StripHtmlPipe } from './pipes/strip-html.pipe';
+
 @NgModule({
   declarations: [
     NavBarComponent,
-    LoaderComponent
+    LoaderComponent,
+    StripHtmlPipe
   ],
   imports: [
     GrowlModule,
@@ -48,7 +51,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     NgxSpinnerModule,
     OverlayPanelModule,
     NavBarComponent,
-    LoaderComponent
+    LoaderComponent,
+    StripHtmlPipe
   ]
 })
 

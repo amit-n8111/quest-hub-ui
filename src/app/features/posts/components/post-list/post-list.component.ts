@@ -7,6 +7,7 @@ import { PostsService } from './../../services/posts.service';
 import { GrowlService } from './../../../../core/services/growl.service';
 import { LoaderService } from './../../../../core/services/loader.service';
 import { SocketService } from './../../../../core/services/socket.service';
+import { RefDataService } from './../../../../core/services/ref-data.service';
 
 @Component({
   selector: 'app-post-list',
@@ -24,11 +25,13 @@ export class PostListComponent implements OnInit {
     commentsOrNotes: ['']
   });
 
+  refData;
   taskList: Array<Object> = [];
   selectedTaskDetails: Object = {};
 
   constructor(
     private fb: FormBuilder,
+    private refDataService: RefDataService,
     private growlService: GrowlService,
     private postService: PostsService,
     private loaderService: LoaderService,
@@ -36,6 +39,7 @@ export class PostListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getRefData();
     this.getTaskList();
   }
 
@@ -100,6 +104,14 @@ export class PostListComponent implements OnInit {
 
   getQuestionName(index) {
     return (this.taskApplicationForm.get('screeningQuestions') as FormArray).at(index).get('question').get('question').value;
+  }
+
+  getRefData() {
+    this.refDataService.getRefData().subscribe(
+      (data) => {
+        this.refData = data;
+      }
+    );
   }
 
 }

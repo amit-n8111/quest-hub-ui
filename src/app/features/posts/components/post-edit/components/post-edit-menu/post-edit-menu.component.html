@@ -2,22 +2,22 @@
     <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_OVERVIEW == selectedTemplateId }"
         (click)="openSectionFn(TASK_SECTION.TASK_OVERVIEW)">
         <i class="fa fa-pencil mr-2"></i>
-        <a>Task Overview</a>
+        <a>Overview</a>
     </li>
     <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_DESCRIPTION == selectedTemplateId }"
         (click)="openSectionFn(TASK_SECTION.TASK_DESCRIPTION)">
         <i class="fa fa-edit mr-2"></i>
-        <a>Task Description</a>
+        <a>Description</a>
+    </li>
+    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_DETAILS == selectedTemplateId }"
+        (click)="openSectionFn(TASK_SECTION.TASK_DETAILS)">
+        <i class="fa fa-tasks mr-2"></i>
+        <a>Details</a>
     </li>
     <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_SCREENING == selectedTemplateId }"
         (click)="openSectionFn(TASK_SECTION.TASK_SCREENING)">
         <i class="fa fa-book mr-2"></i>
-        <a>Task Screening</a>
-    </li>
-    <li class="nav-link" [ngClass]="{'active': TASK_SECTION.TASK_SKILLSETS == selectedTemplateId }"
-        (click)="openSectionFn(TASK_SECTION.TASK_SKILLSETS)">
-        <i class="fa fa-tasks mr-2"></i>
-        <a>Task Skillsets</a>
+        <a>Screening</a>
     </li>
     <li class="nav-link" [ngClass]="{'active': TASK_SECTION.REVIEW_AND_POST == selectedTemplateId }"
         (click)="openSectionFn(TASK_SECTION.REVIEW_AND_POST)">

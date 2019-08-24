@@ -1,124 +1,139 @@
-<div class="row sidebarNavigation ml-2 mt-2">
-    <div class="col-md-6">
-        <i class="fa fa-arrow-circle-left"></i>
-        Back to list
-    </div>
-    <div class="col-md-6">
-        <span class="float-right" (click)="openPostDetails()">
-            <i class="fa fa-window-restore"></i>
-            Open profile in new window
-        </span>
-    </div>
-</div>
-
-<hr />
-
-<div class="row">
-    <div class="col-md-8">
-        <div class="card-header">
-            <h4>{{taskDetails.taskName}}</h4>
+<div class="ml-2 mt-2" *ngIf="taskDetails">
+    <div class="row sidebarNavigation" *ngIf="isSidebar">
+        <div class="col-md-6">
+            <i class="fa fa-arrow-circle-left"></i>
+            Back to list
         </div>
-        <div class="card-body">
-            <label class="title">{{taskDetails.taskName}}</label><br>
-            <small>{{taskDetails.taskCreateDate | dateAgoPipe}}</small>
-            <br>
-            <!-- <strong>Need to hire 7 Freelancers</strong> -->
-            <p class="mt-3" [innerHtml]="taskDetails.taskDescription"></p>
-            <br>
-            <p>Primary Skills (Must have knowledge of) </p>
-            <ul>
-                <li *ngFor="let skill of taskDetails.skills">{{skill.name}}</li>
-            </ul>
-            <br>
-            <!-- <p>Secondary Skills (Nice to have) </p>
+        <div class="col-md-6">
+            <span class="float-right" (click)="openPostDetails()">
+                <i class="fa fa-window-restore"></i>
+                Open profile in new window
+            </span>
+        </div>
+    </div>
+
+    <hr *ngIf="isSidebar" />
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-header">
+                <h4>{{taskDetails.taskName}}</h4>
+            </div>
+            <div class="card-body">
+                <label class="title">{{taskDetails.taskName}}</label><br>
+                <small>{{taskDetails.taskCreateDate | dateAgoPipe}}</small>
+                <br>
+
+                <p class="mt-3" [innerHtml]="taskDetails.taskDescription"></p>
+                <br>
+                <p>Primary Skills (Must have knowledge of) </p>
                 <ul>
-                    <li>Microsoft SQL</li>
-                    <li>C# .NET</li>
-                    <li>Web Services and Web API</li>
-                </ul> -->
-            <!-- <strong>Qualification: </strong><label>Any Graduate</label><br>
-                <strong>Experience: </strong><label>2 - 7 Years</label> -->
-            <hr>
-            <div class="row">
-                <div class="col-md-4">
-                    <i class="fa fa-clock-o"></i> &nbsp; <strong>{{taskDetails.manHoursNeeded}}</strong><br>
-                    <small style="position: relative; left: 20px;">Hours Needed</small>
+                    <li *ngFor="let skill of taskDetails.taskSkills">{{skill.name}}</li>
+                </ul>
+                <br>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-clock-o"></i> &nbsp; <strong>{{taskDetails.manHoursNeeded}}</strong><br>
+                        <small style="position: relative; left: 20px;">Hours Needed</small>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa fa-calendar"></i> &nbsp;
+                        <strong>{{getItemNameById(taskDetails?.taskTypeId, 'taskType' )}}</strong><br>
+                        <small style="position: relative; left: 20px;">Task Type</small>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa fa-dollar"></i> &nbsp;
+                        <strong>{{getItemNameById(taskDetails.rewardTypeId, 'rewardType' )}}</strong><br>
+                        <small style="position: relative; left: 20px;">Reward Type</small>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="fa fa-calendar"></i> &nbsp; <strong>{{taskDetails.taskTypeName}}</strong><br>
-                    <small style="position: relative; left: 20px;">Task Type</small>
+                <hr>
+                <strong>Project Type : </strong> <label>Ongoing Project</label>
+                <hr>
+                <strong>Other Skills and Expertise</strong><br><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Backend Required Skills</strong><br>
+                        <div *ngIf="taskDetails.backendSkills; else elseNaTemplate">
+                            <label class="label label-default"
+                                *ngFor="let skill of taskDetails.backendSkills">{{skill.name}}</label>
+                        </div>
+                        <ng-template #elseNaTemplate>
+                            <label class="label label-default">N/A</label>
+                        </ng-template>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Databases</strong><br>
+                        <label class="label label-default">N/A</label>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="fa fa-dollar"></i> &nbsp; <strong>{{taskDetails.rewardTypeName}}</strong><br>
-                    <small style="position: relative; left: 20px;">Reward Type</small>
-                </div>
-            </div>
-            <hr>
-            <strong>Project Type : </strong> <label>{{taskDetails.projectType}}</label>
-            <hr>
-            <strong>Skills and Expertise</strong><br><br>
-            <div class="row">
-                <div class="col-md-6">
-                    <strong>Backend Skills Required</strong><br>
-                    <label class="label label-default">N/A</label>
-                </div>
-                <div class="col-md-6">
-                    <strong>Databases</strong><br>
-                    <label class="label label-default">N/A</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <strong>UI Skills Required</strong><br>
-                    <label class="label label-default">Angular Js</label>
-                    <label class="label label-default">HTML</label>
-                    <label class="label label-default">CSS</label>
-                    <label class="label label-default">Javascript</label>
-                </div>
-                <div class="col-md-6">
-                    <strong>Others</strong><br>
-                    <label class="label label-default">N/A</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>UI/UX Required Skills</strong><br>
+                        <div *ngIf="taskDetails.uiUxSkills; else elseNaTemplate">
+                            <label class="label label-default"
+                                *ngFor="let skill of taskDetails.uiUxSkills">{{skill.name}}</label>
+                        </div>
+                        <ng-template #elseNaTemplate>
+                            <label class="label label-default">N/A</label>
+                        </ng-template>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Others</strong><br>
+                        <div *ngIf="taskDetails.otherSkills; else elseNaTemplate">
+                            <label class="label label-default"
+                                *ngFor="let skill of taskDetails.otherSkills">{{skill.name}}</label>
+                        </div>
+                        <ng-template #elseNaTemplate>
+                            <label class="label label-default">N/A</label>
+                        </ng-template>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-header align-center">
-            <button class="btn btn-success">Post a Job Like This</button>
-        </div>
-        <div class="card-body align-center">
-            <button class="btn btn-default" (click)="markAsFavorite()"
-                style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star-o"></i></button>
-            <button class="btn btn-default" (click)="markAsFavorite()"
-                style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star active"></i></button>
-            <button class="btn btn-primary" style="margin-top: 10px;" (click)="applyToTask()">Apply</button>
-            <!-- <label class="label-default" style="margin: 15px 0px;">This and other task await your
-                    proposal</label><br> -->
-            <div class="card-header" style="margin-top: 15px;">
-                <strong>Posted By</strong>
+
+        <div class="col-md-4">
+            <div class="card-header align-center">
+                <button class="btn btn-success">Post a Job Like This</button>
             </div>
-            <div class="card-body" style="height: auto !important;">
-                <div class="user">
-                    <i class="fa fa-user-circle-o userIcon"></i>
-                    <h6 class="title">{{taskDetails?.userInfo?.name}}</h6><br>
-                    <strong><i class="fa fa-map-marker"></i>&nbsp; {{taskDetails?.userInfo?.location}}</strong>
+            <div class="card-body align-center">
+                <button class="btn btn-default fa-btn" (click)="markAsFavorite()"><i class="fa "
+                        [ngClass]="{'fa-star active': taskDetails.markedAsFavorite, 'fa-star-o': !taskDetails.markedAsFavorite}"></i></button>
+                <button class="btn btn-primary" style="margin-top: 10px;" (click)="applyToTask()">Apply</button>
+
+                <div class="card-header" style="margin-top: 15px;">
+                    <strong>Posted By</strong>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6 pad smallFont align-left">BU: </div>
-                    <div class="col-md-6 pad smallFont align-right">{{taskDetails?.userInfo?.buName}}</div>
+                <div class="card-body" style="height: auto !important;">
+                    <div class="user">
+                        <i class="fa fa-user-circle-o userIcon"></i>
+                        <h6 class="title">{{taskDetails?.taskCreatedBy?.name}}</h6><br>
+                        <strong><i class="fa fa-map-marker"></i>&nbsp; {{taskDetails?.taskCreatedBy?.location}}</strong>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 pad smallFont align-left">BU: </div>
+                        <div class="col-md-6 pad smallFont align-right">{{taskDetails?.taskCreatedBy?.buName}}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 pad smallFont align-left">Designation:</div>
+                        <div class="col-md-6 pad smallFont align-right">{{taskDetails?.taskCreatedBy?.designation}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 pad smallFont align-left">Project:</div>
+                        <div class="col-md-6 pad smallFont align-right">
+                            {{taskDetails?.taskCreatedBy?.numberOfProjects ? taskDetails?.taskCreatedBy?.numberOfProjects : 0}}
+                        </div>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6 pad smallFont align-left">Designation</div>
-                    <div class="col-md-6 pad smallFont align-right">{{taskDetails?.userInfo?.designation}}</div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6 pad smallFont align-left">Project</div>
-                    <div class="col-md-6 pad smallFont align-right">{{taskDetails?.userInfo?.numberOfProjects}}</div>
-                </div>
-                <hr>
             </div>
         </div>
     </div>

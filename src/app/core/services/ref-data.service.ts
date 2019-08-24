@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { catchError } from 'rxjs/internal/operators/catchError';
 
 import { HelperService } from './helper.service';
@@ -28,6 +29,7 @@ export class RefDataService {
             const resourceUrl = this.helperService.getResourceURL(CoreConstants.REF_DATA);
 
             this.refDataObservable = this.http.get(resourceUrl).pipe(
+                tap(data => { this.refData = data; }),
                 catchError(this.helperService.handleError<any>('getPostDetail', {}))
             );
 

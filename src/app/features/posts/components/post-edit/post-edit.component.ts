@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from './../../services/posts.service';
 import { GrowlService } from './../../../../core/services/growl.service';
 import { LoaderService } from './../../../../core/services/loader.service';
+import { RefDataService } from './../../../../core/services/ref-data.service';
 import { EntitlementService } from './../../../../core/services/entitlement.service';
 
 import { TASK_SECTION, TASK_MESSAGES } from './constants/post.constants';
@@ -15,43 +16,50 @@ import { TASK_SECTION, TASK_MESSAGES } from './constants/post.constants';
   styleUrls: ['./post-edit.component.scss']
 })
 export class PostEditComponent implements OnInit {
+  refData;
   selectedTemplateId: number = TASK_SECTION.TASK_OVERVIEW;
 
   taskForm: FormGroup = this.fb.group({
     id: [-1],
     taskId: [-1],
     taskName: [''],
-    topicId: [''],
+    taskTopicId: [''],
     taskTopicName: [''],
     taskStatusId: [''],
     taskStatusName: [''],
-    taskDescription: [''],
-    taskType: [''],
+    taskTypeId: [''],
     taskTypeName: [''],
+    rewardTypeId: [''],
+    rewardTypeName: [''],
+    taskDescription: [''],
     taskDueDate: [''],
     taskCreateDate: [''],
     manHoursNeeded: [''],
-    rewardTypeId: [''],
-    rewardTypeName: [''],
     taskCreatedBy: [this.entitlementService.userDetails['soeId']],
     screeningQuestions: this.fb.array([
     ]),
-    skills: [[]]
+    skills: [[]],
+    backendSkills: [[]],
+    uiUxSkills: [[]],
+    otherSkills: [[]]
   });
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private postService: PostsService,
-    private entitlementService: EntitlementService,
-    private activateRoute: ActivatedRoute,
     private growlService: GrowlService,
-    private router: Router,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private activateRoute: ActivatedRoute,
+    private refDataService: RefDataService,
+    private entitlementService: EntitlementService
   ) { }
 
   get TASK_SECTION() { return TASK_SECTION; }
 
   ngOnInit() {
+    this.getRefData();
+
     this.activateRoute.params.subscribe(params => {
       if (params && +params.id) {
         this.getTaskDetails(+params.id);
@@ -75,7 +83,7 @@ export class PostEditComponent implements OnInit {
           this.loaderService.setLoader(false);
           this.router.navigate(['/posts']);
           this.growlService.showMessage(TASK_MESSAGES.SUCCESS_MESSAGES);
-        }, 5000);
+        }, 2000);
       });
   }
 
@@ -88,30 +96,38 @@ export class PostEditComponent implements OnInit {
   }
 
   getTaskDetails(taskId) {
+    this.loaderService.setLoader(true);
+
     this.postService.getTaskDetailsByTaskId(taskId).subscribe(
       (data) => {
-        console.log(data);
-        this.fillTheDummyForm(data);
+        this.patchFormData(data);
+        this.loaderService.setLoader(false);
       }
     );
   }
 
-  fillTheDummyForm(taskFormDetails) {
+  patchFormData(taskFormDetails) {
     this.taskForm.patchValue({
+      id: taskFormDetails.id,
       taskId: taskFormDetails.taskId,
       taskName: taskFormDetails.taskName,
-      topicId: taskFormDetails.topicId,
+      taskTopicId: taskFormDetails.taskTopicId,
       taskTopicName: taskFormDetails.taskTopicName,
       taskStatusId: taskFormDetails.taskStatusId,
+      taskStatusName: taskFormDetails.taskStatusName,
       taskDescription: taskFormDetails.taskDescription,
-      taskType: taskFormDetails.taskType,
-      taskDueDate: taskFormDetails.taskDueDate,
+      taskTypeId: taskFormDetails.taskTypeId,
+      taskTypeName: taskFormDetails.taskTypeName,
+      taskDueDate: new Date(taskFormDetails.taskDueDate),
       taskCreateDate: taskFormDetails.taskCreateDate,
       taskCreatedBy: taskFormDetails.taskCreatedBy,
       manHoursNeeded: taskFormDetails.manHoursNeeded,
       rewardTypeId: taskFormDetails.rewardTypeId,
+      rewardTypeName: taskFormDetails.rewardTypeName,
       skills: taskFormDetails.skills,
-      id: taskFormDetails.id
+      backendSkills: taskFormDetails.backendSkills,
+      uiUxSkills: taskFormDetails.uiUxSkills,
+      otherSkills: taskFormDetails.otherSkills
     });
 
     this.taskForm.setControl('screeningQuestions', this.createQuestionsForm(taskFormDetails.screeningQuestions));
@@ -139,6 +155,14 @@ export class PostEditComponent implements OnInit {
       taskId: -1
     });
     this.taskForm.setControl('screeningQuestions', this.fb.array([]));
+  }
+
+  getRefData() {
+    this.refDataService.getRefData().subscribe(
+      (data) => {
+        this.refData = data;
+      }
+    );
   }
 
 }

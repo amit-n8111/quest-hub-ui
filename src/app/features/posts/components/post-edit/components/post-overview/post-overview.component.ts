@@ -7,27 +7,28 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./post-overview.component.scss']
 })
 export class PostOverviewComponent implements OnInit {
-
+  @Input() refData;
   @Input() taskForm: FormGroup;
 
-  taskTopics: Array<Object> = [
-    {
-      topicId: 1,
-      topicName: 'Web Development'
-    },
-    {
-      topicId: 2,
-      topicName: 'Web Design'
-    },
-    {
-      topicId: 3,
-      topicName: 'Db Design'
-    }
-  ];
+  skills: Array<Object> = [];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get getSkillItemsByCategory() {
+    const taskTopicId = this.taskForm.get('taskTopicId').value;
+
+    const selectedTopic = this.refData['topic'].find((topic) => {
+      return topic.id === taskTopicId;
+    });
+
+    return selectedTopic && selectedTopic['skills'] ? selectedTopic['skills'] : [];
+  }
+
+  public onAdding(tag) {
+    tag.id = -1;
   }
 
 }

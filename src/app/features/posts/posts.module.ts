@@ -13,7 +13,7 @@ import { PostEditMenuComponent } from './components/post-edit/components/post-ed
 import { PostOverviewComponent } from './components/post-edit/components/post-overview/post-overview.component';
 import { PostDescriptionComponent } from './components/post-edit/components/post-description/post-description.component';
 import { PostScreeningComponent } from './components/post-edit/components/post-screening/post-screening.component';
-import { PostSkillsetsComponent } from './components/post-edit/components/post-skillsets/post-skillsets.component';
+import { PostDetailsComponent } from './components/post-edit/components/post-details/post-details.component';
 import { PostReviewComponent } from './components/post-edit/components/post-review/post-review.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { PostReviewComponent } from './components/post-edit/components/post-revi
     PostOverviewComponent,
     PostDescriptionComponent,
     PostScreeningComponent,
-    PostSkillsetsComponent,
+    PostDetailsComponent,
     PostReviewComponent
   ],
   imports: [

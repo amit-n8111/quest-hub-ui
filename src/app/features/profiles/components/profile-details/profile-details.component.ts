@@ -19,11 +19,11 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(
     private loaderService: LoaderService,
     private profileService: ProfileService,
-    private activateRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.activateRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       if (params && params.id) {
         this.isSidebar = false;
         this.getUserDetailsBySOEId(params.id);

@@ -3,6 +3,7 @@
   padding: 6px 0px;
   cursor: pointer;
 }
+
 .detailBlock {
   background: #eee;
   padding: 5px;
@@ -14,6 +15,7 @@
   display: -webkit-box;
   margin-top: 10px;
 }
+
 .userIcon {
   font-size: 48px;
   color: #ccc;
@@ -21,13 +23,21 @@
   margin-top: 4px;
   display: inherit;
 }
+
 .user .title {
   margin-bottom: 0px;
   display: initial;
   position: relative;
   top: 4px;
 }
+
 .align-center {
   text-align: center;
+}
+
+.fa-btn {
+  margin-top: 10px;
+  margin-right: 3px;
+  border: 1px solid #ccc;
 }
 

@@ -76,14 +76,16 @@
         </div>
         <div class="card-body pad">
             <app-post-overview-card *ngFor="let task of taskList" [taskDetails]="task"
-                (showTaskDetails)="showSidebarFn($event)" (showScreeningPopup)="showScreeningPopupFn($event)">
+                (showTaskDetails)="showSidebarFn($event)" (showScreeningPopup)="showScreeningPopupFn($event)"
+                [refData]="refData">
             </app-post-overview-card>
         </div>
     </div>
 </div>
 
 <p-sidebar [(visible)]="displaySidebar" position="right" [blockScroll]="true" styleClass="ui-sidebar-lg profileDetails">
-    <app-post-detail [taskDetails]="selectedTaskDetails" (showScreeningPopup)="showScreeningPopupFn($event)">
+    <app-post-detail [refData]="refData" [taskDetails]="selectedTaskDetails"
+        (showScreeningPopup)="showScreeningPopupFn($event)">
     </app-post-detail>
 </p-sidebar>
 

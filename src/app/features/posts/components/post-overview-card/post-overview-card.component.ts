@@ -14,6 +14,7 @@ export class PostOverviewCardComponent implements OnInit {
   @Output() showTaskDetails: EventEmitter<any> = new EventEmitter();
   @Output() showScreeningPopup: EventEmitter<boolean> = new EventEmitter();
 
+  @Input() refData;
   @Input() taskDetails;
 
   applicationCount: number = 1;
@@ -55,6 +56,18 @@ export class PostOverviewCardComponent implements OnInit {
         }
       }
     );
+  }
+
+  getItemNameById(typeId, entityDataId) {
+    let entityObj = this.refData[entityDataId].find((entity) => {
+      return entity.id === typeId;
+    });
+
+    if (!entityObj) {
+      return '';
+    }
+
+    return (entityDataId === 'topic') ? entityObj['topicName'] : entityObj['name'];
   }
 
 }

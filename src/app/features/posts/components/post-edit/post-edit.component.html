@@ -11,12 +11,16 @@
 
     <div class="col-md-10">
         <div [ngSwitch]="selectedTemplateId">
-            <app-post-overview *ngSwitchCase="TASK_SECTION['TASK_OVERVIEW']" [taskForm]="taskForm"></app-post-overview>
+            <app-post-overview *ngSwitchCase="TASK_SECTION['TASK_OVERVIEW']" [taskForm]="taskForm" [refData]="refData">
+            </app-post-overview>
             <app-post-description *ngSwitchCase="TASK_SECTION.TASK_DESCRIPTION" [taskForm]="taskForm">
             </app-post-description>
-            <app-post-screening *ngSwitchCase="TASK_SECTION.TASK_SCREENING" [taskForm]="taskForm"></app-post-screening>
-            <app-post-skillsets *ngSwitchCase="TASK_SECTION.TASK_SKILLSETS" [taskForm]="taskForm"></app-post-skillsets>
-            <app-post-review *ngSwitchCase="TASK_SECTION.REVIEW_AND_POST" [taskForm]="taskForm"></app-post-review>
+            <app-post-details *ngSwitchCase="TASK_SECTION.TASK_DETAILS" [taskForm]="taskForm" [refData]="refData">
+            </app-post-details>
+            <app-post-screening *ngSwitchCase="TASK_SECTION.TASK_SCREENING" [taskForm]="taskForm">
+            </app-post-screening>
+            <app-post-review *ngSwitchCase="TASK_SECTION.REVIEW_AND_POST" [taskForm]="taskForm" [refData]="refData">
+            </app-post-review>
         </div>
 
         <div class="card card-user boxShadow">

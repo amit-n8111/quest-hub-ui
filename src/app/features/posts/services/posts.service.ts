@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { HelperService } from './../../../core/services/helper.service';
 
@@ -20,13 +20,15 @@ export class PostsService {
             'skillId': '',
             'sortBy': '',
             'sortOrder': '',
-            'tasktopicId': 0,
-            'tasktypeId': 0
+            'taskTopicId': 0,
+            'taskTypeId': 0,
+            'taskStatusId': 0
         };
         // const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
         // return this.http.post(resourceURL, requestJson).pipe(
-        //     catchError(this.helperService.handleError<any>('getPostList', []))
+        //     tap(data => console.log(data)),
+        //     catchError(this.helperService.handleError<any>('getTaskList', []))
         // );
 
         const resourceURL = this.helperService.getAssetsURL('assets/json/task-list.json');

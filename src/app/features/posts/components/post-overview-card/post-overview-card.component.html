@@ -6,35 +6,38 @@
             Received</small>
         <h5 class="title" (click)="openTaskDetails()">{{taskDetails.taskName}}</h5>
         <div class="row detailBlock">
-            <div class="col-md-4">
-                <strong>{{taskDetails.manHoursNeeded}}</strong><br>
+            <div class="col-md-4 pl-4">
+                <span class="pl-3"><i class="fa fa-clock-o"></i>
+                    &nbsp;<strong>{{taskDetails.manHoursNeeded}}</strong><br></span>
                 <small>Hours Needed</small>
             </div>
-            <div class="col-md-4">
-                <strong>{{taskDetails.taskTypeName}}</strong><br>
+            <div class="col-md-4 pl-4">
+                <span class=""><i class="fa fa-calendar"></i>
+                    &nbsp;
+                    <strong>{{getItemNameById(taskDetails.taskTypeId, 'taskType' )}}</strong><br></span>
                 <small>Task Type</small>
             </div>
-            <div class="col-md-4">
-                <strong>{{taskDetails.rewardTypeName}}</strong><br>
+            <div class="col-md-4 pl-4">
+                <span class=""><i class="fa fa-dollar"></i>
+                    <strong> {{getItemNameById(taskDetails.rewardTypeId, 'rewardType' )}} </strong><br></span>
                 <small>Reward Type</small>
             </div>
         </div>
         <p [innerHtml]="taskDetails.taskDescription"></p>
-        <span class="label label-default" *ngFor="let skill of taskDetails.skills">{{skill.name}}</span>
+        <span class="label label-default" *ngFor="let skill of taskDetails.taskSkills">{{skill.name}}</span>
 
         <div class="user">
             <i class="fa fa-user-circle-o userIcon"></i>
-            <h6 class="title">{{taskDetails?.userInfo?.name}}</h6><br>
-            <strong>{{taskDetails?.userInfo?.location}}</strong> | <small>BU: {{taskDetails?.userInfo?.buName}}</small>
+            <h6 class="title">{{taskDetails?.taskCreatedBy?.name}}</h6><br>
+            <strong>{{taskDetails?.taskCreatedBy?.location}}</strong> | <small>BU:
+                {{taskDetails?.taskCreatedBy?.buName}}</small>
         </div>
     </div>
     <div class="col-md-2 pad align-center">
         <small>Apply Before: </small> <strong
             style="font-size: 12px;">{{taskDetails.taskDueDate | date: 'mediumDate'}}</strong><br />
-        <button class="btn btn-default" (click)="markAsFavorite()" [ngClass]=""
-            style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star"></i></button>
-            <button class="btn btn-default" (click)="markAsFavorite()"
-                style="margin-top: 10px;margin-right: 3px;border: 1px solid #ccc;"><i class="fa fa-star active"></i></button>
+        <button class="btn btn-default fa-btn" (click)="markAsFavorite()"><i class="fa "
+                [ngClass]="{'fa-star active': taskDetails.markedAsFavorite, 'fa-star-o': !taskDetails.markedAsFavorite}"></i></button>
         <button class="btn btn-primary" style="margin-top: 10px;" [disabled]="taskDetails.isAlreadyApplied"
             (click)="applyToTask()">Apply</button>
     </div>

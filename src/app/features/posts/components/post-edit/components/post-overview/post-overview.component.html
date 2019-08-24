@@ -31,12 +31,31 @@
                 <div class="form-group">
                     <label class="labelFontBold">Task Category</label><br />
                     <span class="mt-4">Here are some suggestions based on your task title:</span>
-                    <div class="radio m-2" *ngFor="let topic of taskTopics">
-                        <label><input class="mr-2" type="radio" [value]="topic['topicId']" name="topicId"
-                                formControlName="topicId">{{topic['topicName']}}</label>
+                    <div class="radio m-2" *ngFor="let topic of refData['topic']">
+                        <label><input class="mr-2" type="radio" [value]="topic['id']" name="taskTopicId"
+                                formControlName="taskTopicId">{{topic['topicName']}}</label>
                     </div>
 
                     <span class="text-success mt-3"><a>See more options</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="boxShadow card card-user mb-2" [formGroup]="taskForm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="labelFontBold">Add Category Skills</label><br />
+                    <tag-input [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="onAdding($event)" [theme]="'bootstrap'"
+                        formControlName="skills" name="items" [secondaryPlaceholder]="'Enter Category Skills'"
+                        [placeholder]="'+ Skill'" [onlyFromAutocomplete]="true">
+                        <tag-input-dropdown [identifyBy]="'id'" [displayBy]="'name'"
+                            [autocompleteItems]="getSkillItemsByCategory">
+                        </tag-input-dropdown>
+                    </tag-input>
                 </div>
             </div>
         </div>

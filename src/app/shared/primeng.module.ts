@@ -15,6 +15,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 
+import { SpinnerModule } from 'primeng/spinner';
+import { KeyFilterModule } from 'primeng/keyfilter';
+
 // This is used for third party chips component.
 import { TagInputModule } from 'ngx-chips';
 
@@ -34,7 +37,9 @@ import { TagInputModule } from 'ngx-chips';
         InputTextModule,
         InputTextareaModule,
         TagInputModule,
-        OverlayPanelModule
+        OverlayPanelModule,
+        SpinnerModule,
+        KeyFilterModule
     ],
     exports: [
         TableModule,
@@ -50,7 +55,9 @@ import { TagInputModule } from 'ngx-chips';
         InputTextModule,
         InputTextareaModule,
         TagInputModule,
-        OverlayPanelModule
+        OverlayPanelModule,
+        SpinnerModule,
+        KeyFilterModule
     ]
 })
 

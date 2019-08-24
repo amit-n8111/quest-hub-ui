@@ -7,8 +7,6 @@ import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./post-screening.component.scss']
 })
 export class PostScreeningComponent implements OnInit {
-  selectedTaskType: string = '';
-
   @Input() taskForm: FormGroup;
 
   constructor(
@@ -16,12 +14,9 @@ export class PostScreeningComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.selectedTaskType = this.taskForm.get('taskType').value;
   }
 
-  selectTaskTypeFn(taskType) {
-    this.selectedTaskType = taskType;
-    this.taskForm.get('taskType').setValue(taskType);
+  selectTaskTypeFn(taskTypeId) {
   }
 
   addQuestionFn() {
@@ -33,6 +28,14 @@ export class PostScreeningComponent implements OnInit {
       id: [-1],
       question: ['']
     });
+  }
+
+  public onAdding(tag) {
+    tag.id = -1;
+  }
+
+  removeQuestion(index) {
+    (this.taskForm.get('screeningQuestions') as FormArray).removeAt(index);
   }
 
 }
