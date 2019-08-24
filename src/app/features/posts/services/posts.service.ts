@@ -24,17 +24,11 @@ export class PostsService {
             'taskTypeId': 0,
             'taskStatusId': 0
         };
-        // const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
+        const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
-        // return this.http.post(resourceURL, requestJson).pipe(
-        //     tap(data => console.log(data)),
-        //     catchError(this.helperService.handleError<any>('getTaskList', []))
-        // );
-
-        const resourceURL = this.helperService.getAssetsURL('assets/json/task-list.json');
-
-        return this.http.get(resourceURL).pipe(
-            catchError(this.helperService.handleError<any>('getTopicList', []))
+        return this.http.post(resourceURL, requestJson).pipe(
+            tap(data => console.log(data)),
+            catchError(this.helperService.handleError<any>('getTaskList', []))
         );
     }
 

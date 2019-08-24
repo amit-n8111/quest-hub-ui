@@ -22,30 +22,18 @@ export class ProfileService {
             'taskTopicId': ''
         };
 
-        // const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_LIST);
+        const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_LIST);
 
-        // return this.http.post(resourceURL, requestJson).pipe(
-        //     catchError(this.helperService.handleError<any>('getPostList', []))
-        // );
-
-        const resourceURL = this.helperService.getAssetsURL('assets/json/profile-list.json');
-
-        return this.http.get(resourceURL).pipe(
-            catchError(this.helperService.handleError<any>('getProfileList', []))
+        return this.http.post(resourceURL, requestJson).pipe(
+            catchError(this.helperService.handleError<any>('getPostList', []))
         );
     }
 
     getProfileDetails(soeId) {
-        // const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_DETAILS) + `${soeId}`;
-
-        // return this.http.get(resourceURL).pipe(
-        //     catchError(this.helperService.handleError<any>('getProfileDetails', {}))
-        // );
-
-        const resourceURL = this.helperService.getAssetsURL('assets/json/profile-details.json');
+        const resourceURL = this.helperService.getResourceURL(ProfileConstants.PROFILE_DETAILS) + `${soeId}`;
 
         return this.http.get(resourceURL).pipe(
-            catchError(this.helperService.handleError<any>('getTopicList', []))
+            catchError(this.helperService.handleError<any>('getProfileDetails', {}))
         );
     }
 }

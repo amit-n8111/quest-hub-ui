@@ -22,11 +22,8 @@ export class LoginComponent implements OnInit {
   logIn() {
     this.entitlementService.getUserInformation(this.soeId).subscribe(
       (data) => {
-        // Todo: Remove below line as user is not coming here.
-        data['soeId'] = 'AN58526';
-
-        sessionStorage['soeId'] = data['soeId'];
-        this.entitlementService.setUserInfo({ 'soeId': data['soeId'] });
+        sessionStorage['soeId'] = data['userSoeId'];
+        this.entitlementService.setUserInfo(data['userSoeId']);
         this.router.navigate(['/home']);
       }
     );

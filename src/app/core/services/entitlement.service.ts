@@ -9,7 +9,7 @@ import { Observable, of, Subject } from 'rxjs';
 
 @Injectable()
 export class EntitlementService {
-  public userDetails: Object;
+  public userDetails: string = '';
   public userInfoChangeObserver$ = new Subject();
 
   constructor(
@@ -18,15 +18,11 @@ export class EntitlementService {
   ) { }
 
   getUserInformation(soeId): Observable<Object> {
-    // const resourceURL = this.helperService.getResourceURL(CoreConstants.USERS);
+    const resourceURL = this.helperService.getResourceURL(CoreConstants.USERS);
 
-    // const params = { params: { soeId } };
+    const params = { params: { soeId } };
 
-    // return this.http.get(resourceURL, params);
-
-
-    // Todo: Remove this once all service changes are done.
-    return of({ soeId: 'AN58526' });
+    return this.http.get(resourceURL, params);
   }
 
   setUserInfo(soeId: any) {
