@@ -31,7 +31,7 @@ export class NavBarComponent implements OnInit {
   }
 
   getNotifications() {
-    this.notificationService.getNotifications(this.entitlementService.userDetails).subscribe(
+    this.notificationService.getNotifications().subscribe(
       (data) => {
         this.notificationCount = data['count'];
         this.notifications = data['notifications'];
