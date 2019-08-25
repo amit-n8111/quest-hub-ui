@@ -13,6 +13,7 @@ import { NotificationService } from './../../services/notification.service';
 export class NavBarComponent implements OnInit {
 
   notifications = [];
+  notificationCount: number = 0;
 
   constructor(
     private loaderService: LoaderService,
@@ -30,12 +31,10 @@ export class NavBarComponent implements OnInit {
   }
 
   getNotifications() {
-    this.loaderService.setLoader(true);
-
     this.notificationService.getNotifications(this.entitlementService.userDetails).subscribe(
-      (notifications) => {
-        this.loaderService.setLoader(false);
-        this.notifications = notifications['notifications'];
+      (data) => {
+        this.notificationCount = data['count'];
+        this.notifications = data['notifications'];
       }
     );
   }

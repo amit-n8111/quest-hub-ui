@@ -14,11 +14,9 @@ export class NotificationService {
     ) { }
 
     getNotifications(soeId) {
-        const resourceUrl = this.helperService.getResourceURL(CoreConstants.NOTIFICATIONS);
+        const resourceUrl = this.helperService.getResourceURL(CoreConstants.NOTIFICATIONS) + `${soeId}`;
 
-        const options = { params: { soeId } };
-
-        return this.http.get(resourceUrl, options).pipe(
+        return this.http.get(resourceUrl).pipe(
             catchError(this.helperService.handleError<any>('getNotifications', {}))
         );
     }
