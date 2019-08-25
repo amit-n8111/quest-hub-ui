@@ -91,12 +91,14 @@
         </div>
 
         <div class="row mt-2">
-            <span class="label label-default" *ngFor="let skill of userDetails.skillDetails">{{skill.name}}</span>
+            <span class="label label-default"
+                *ngFor="let skill of userDetails.skillDetails">{{skill?.skill?.name}}</span>
         </div>
 
         <div class="row mt-4">
             <div class="col-md-4 pl-5 border-right">
-                <i class="fa fa-clock-o"></i> &nbsp; <strong>{{userDetails.totalHoursWorked}}</strong><br>
+                <i class="fa fa-clock-o"></i> &nbsp;
+                <strong>{{userDetails.totalHoursWorked ? userDetails.totalHoursWorked : 0 }}</strong><br>
                 <small style="position: relative; left: 20px;">Hours Worked</small>
             </div>
             <div class="col-md-4 pl-5 border-right">
