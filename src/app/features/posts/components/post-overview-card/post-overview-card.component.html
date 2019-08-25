@@ -2,7 +2,7 @@
 
     <div class="col-md-10 pad">
         <!-- <input type="checkbox"> &nbsp; -->
-        <label>{{taskDetails.taskCreateDate | dateAgoPipe}}</label> | <small>{{applicationCount}} Application
+        <label>{{taskDetails.taskCreatedDate | dateAgoPipe}}</label> | <small>{{applicationCount}} Application
             Received</small>
         <h5 class="title" (click)="openTaskDetails()">{{taskDetails.taskName}}</h5>
         <div class="row detailBlock">
