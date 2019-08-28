@@ -2,6 +2,10 @@
   "name": "quest-hub-ui",
   "version": "0.0.0",
   "scripts": {
+    "android": "tns run android",
+    "ios": "tns run ios",
+    "mobile": "tns run",
+    "preview": "tns preview",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -11,6 +15,10 @@
   },
   "private": true,
   "dependencies": {
+    "nativescript-angular": "~8.0.1",
+    "nativescript-theme-core": "~1.0.4",
+    "reflect-metadata": "~0.1.12",
+    "tns-core-modules": "~6.0.0",
     "@angular/animations": "~8.1.2",
     "@angular/cdk": "^8.1.1",
     "@angular/common": "~8.1.2",
@@ -20,6 +28,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@nativescript/schematics": "^0.7.1",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "ngx-chips": "^2.0.2",
@@ -33,6 +42,9 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
+    "nativescript-dev-webpack": "~1.0.0",
+    "@nativescript/schematics": "~0.7.0",
+    "@nativescript/tslint-rules": "~0.0.2",
     "@angular-devkit/build-angular": "~0.801.2",
     "@angular/cli": "~8.1.2",
     "@angular/compiler-cli": "~8.1.2",
@@ -52,5 +64,11 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
+  },
+  "nativescript": {
+    "id": "org.nativescript.ngsample",
+    "tns-ios": {
+      "version": "6.0.2"
+    }
   }
 }

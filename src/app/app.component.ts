@@ -11,7 +11,7 @@ import { EntitlementService } from './core/services/entitlement.service';
 })
 
 export class AppComponent implements OnInit {
-  public isLoggedInUser: boolean = false;
+  public isLoggedInUser = false;
 
   constructor(
     private refDataService: RefDataService,
