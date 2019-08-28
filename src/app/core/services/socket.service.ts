@@ -5,7 +5,7 @@ import { Message } from './../model/message.model';
 // import { Event } from '../model/event';
 
 import * as socketIo from 'socket.io-client';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 
 const SERVER_URL = environment.SOCKET_URL;
 

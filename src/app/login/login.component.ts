@@ -6,7 +6,7 @@ import { EntitlementService } from './../core/services/entitlement.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   public soeId: string = '';
