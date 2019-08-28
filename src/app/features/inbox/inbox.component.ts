@@ -9,8 +9,8 @@ import { NotificationService } from './../../core/services/notification.service'
   styleUrls: ['./inbox.component.scss']
 })
 export class InboxComponent implements OnInit {
-  notifications: Array<Object> = [];
-  selectedNotification: Object;
+  notifications = [];
+  selectedNotification;
 
   constructor(
     private loaderService: LoaderService,
