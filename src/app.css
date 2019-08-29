@@ -10,3 +10,14 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
+
+.btn-primary {
+  height: 50;
+  background-color: #282753;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+}
