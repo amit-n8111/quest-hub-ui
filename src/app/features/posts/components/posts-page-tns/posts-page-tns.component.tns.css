@@ -1,0 +1,17 @@
+.bottom-navigation {
+  height: 52;
+  text-align: center;
+  background-color: #ffffff;
+  border-top-color: #dae1e7;
+  border-top-width: 1;
+}
+
+.bottom-navigation .bottom-navigation-item .label {
+  color: #C1C1C1;
+  font-size: 10;
+}
+
+.bottom-navigation .bottom-navigation-item .label.selected {
+  color: #379F01;
+}
+

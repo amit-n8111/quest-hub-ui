@@ -1,0 +1,59 @@
+<GridLayout width="100%">
+    <ListView [items]="data">
+        <ng-template let-task="item">
+            <StackLayout (tap)="showTaskDetails(task)">
+                <StackLayout margin="12">
+                    <GridLayout width="100%" columns="auto,*, auto, auto" rows="auto,auto" verticalAlignment="center">
+                        <Label row="0" col="1" class="text-header" textwrap="true" horizontalAlignment="left"
+                            [text]="task.taskName"></Label>
+                        <GridLayout class="light-text" row="1" col="1" rows="auto" columns="auto,auto,auto">
+                            <Label row="0" col="0" class="item-category" textwrap="true" verticalAlignment="top"
+                                horizontalAlignment="left" [text]="'1 min ago'"></Label>
+                            <Label row="0" col="1" [text]="' | '"></Label>
+                            <Label col=" 2" row="0" class="rating-value item-category" [text]="'1 application'"></Label>
+                        </GridLayout>
+                        <Label col="2" row="0" class="fa selected" [text]="'&#xf08a;'" horizontalAlignment="right"
+                            marginRight="10"></Label>
+                        <Label col="3" row="0" class="fa selected" [text]="'&#xf1d9;'"
+                            horizontalAlignment="right"></Label>
+                    </GridLayout>
+
+                    <GridLayout columns="auto,*,auto" rows="auto" class="card-bar" marginTop="15">
+                        <GridLayout col="0" rows="auto, auto" columns="auto,auto" horizontalAlignment="left">
+                            <Label col="0" class="fa" row="0" [text]="'&#xf017;'"></Label>
+                            <Label col="1" row="0" class="layout" [text]="task.hoursNeeded"></Label>
+                            <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Hours'"></Label>
+                        </GridLayout>
+
+                        <GridLayout col="1" rows="auto, auto" columns="auto,auto" horizontalAlignment="center">
+                            <Label col="0" class="fa" row="0" [text]="'&#xf0ae;'"></Label>
+                            <Label col="1" row="0" class="layout" [text]="task.taskType"></Label>
+                            <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Task Type'"></Label>
+                        </GridLayout>
+
+                        <GridLayout col="2" rows="auto, auto" columns="auto,auto" horizontalAlignment="right">
+                            <Label col="0" row="0" #favorite class="fa" [text]="'&#xf155;'"
+                                horizontalAlignment="right"></Label>
+                            <Label col="1" row="0" class="layout" [text]="task.rewardType"></Label>
+                            <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Reward Type'"></Label>
+                        </GridLayout>
+                    </GridLayout>
+
+                    <GridLayout width="100%" class="text-secondary" columns="auto" rows="auto"
+                        verticalAlignment="center" marginTop="15">
+                        <HtmlView row="0" col="1" verticalAlignment="center" horizontalAlignment="left"
+                            [html]="task.description"></HtmlView>
+                    </GridLayout>
+
+                    <GridLayout [col]="task?.skills?.length" [columns]="getColumns(task)" rows="auto">
+                        <Label class="tag" *ngFor="let skillObj of task.skills; let i = index" row="0" [col]="i"
+                            textwrap="true" [text]="skillObj.skill"></Label>
+                    </GridLayout>
+                </StackLayout>
+
+                <StackLayout width="100%" class="lineBreak"></StackLayout>
+
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

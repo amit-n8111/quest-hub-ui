@@ -11,6 +11,13 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
 
+Page {
+    background-color: white;
+}
+StackLayout {
+    background-color: white;
+}
+
 .btn-primary {
   height: 50;
   background-color: #282753;
@@ -20,4 +27,57 @@ refer to http://docs.nativescript.org/ui/theme.
 }
 .btn-primary:disabled {
   opacity: 0.5;
+}
+
+.text-header {
+  color: #379F01;
+}
+
+.fa {
+  font-family: FontAwesome;
+}
+
+.light-text {
+  color: gray;
+  font-size: 15%;
+}
+
+.text-secondary {
+  font-size: 160% !important;
+  color: darkslategray;
+}
+
+
+.tag {
+  background: #eee;
+  padding: 6px 8px;
+  margin: 7px;
+  color: darkslategray;
+}
+
+.fa.selected {
+   color: #379F01;
+}
+
+.line {
+    height: 0.5;
+    border: none;
+    color: #e0e0e0;
+    background-color: #e0e0e0;
+}
+
+.lineBreak {
+    height: 7;
+    border: none;
+    color: #e0e0e0;
+    background-color: #e0e0e0;
+}
+
+.backgroundColor {
+    background-color: #F8F8F8;
+}
+
+.borderBottom {
+  border-bottom-width: 1;
+  border-bottom-color: #eeeeee;
 }

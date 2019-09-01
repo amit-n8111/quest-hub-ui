@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { RefDataService } from './core/services/ref-data.service';
 import { EntitlementService } from './core/services/entitlement.service';
 
+import { isAndroid, isIOS } from 'tns-core-modules/ui/page';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +24,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserInformation();
+    if (!isAndroid && !isIOS) {
+      this.getUserInformation();
+    }
   }
 
   getUserInformation() {

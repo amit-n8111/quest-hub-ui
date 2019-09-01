@@ -1,0 +1,76 @@
+<GridLayout rows="*, auto">
+    <ScrollView>
+        <StackLayout>
+            <GridLayout columns="auto, *" rows="auto" verticalAlignment="center" class="backgroundColor">
+                <Label col="1" row="0" [text]="taskDetails.taskName" class="h2 text-header p-10" margin="6"
+                    textwrap="true" horizontalAlignment="left"> </Label>
+            </GridLayout>
+
+            <StackLayout col="1" row="0" class="hr-light"></StackLayout>
+
+            <GridLayout columns="*,*" rows="auto" class="m-10">
+                <GridLayout col="0" columns="auto, *" rows="auto, auto" verticalAlignment="center">
+                    <Label col="1" row="0" text="Start Date:" class="" margin="12" textwrap="true"
+                        horizontalAlignment="left">
+                    </Label>
+                    <Label row="1" col="1" colSpan="2" text='{{ taskDetails.startDate | date:"y/M/d" }}'
+                        class="light-text borderBottom" marginLeft="13"></Label>
+                </GridLayout>
+                <GridLayout col="1" columns="auto, *" rows="auto, auto" verticalAlignment="center">
+                    <Label col="1" row="0" text="End Date:" class="" margin="12" textwrap="true"
+                        horizontalAlignment="left">
+                    </Label>
+                    <Label row="1" col="1" colSpan="2" text='{{ taskDetails.endDate | date:"y/M/d" }}'
+                        class="light-text borderBottom" marginLeft="13"></Label>
+                </GridLayout>
+            </GridLayout>
+
+            <GridLayout columns="*" rows="auto, auto, auto, auto, auto" class="m-10">
+                <GridLayout row="0" columns="auto, *" rows="auto, auto, auto" verticalAlignment="center" margin="12">
+                    <Label col="1" row="0" text="Do you have Jira access?" textwrap="true" horizontalAlignment="left">
+                    </Label>
+                    <TextField col="1" hint="Answer for Do you have Jira access?" row="1" class="input" marginTop="5"
+                        autocorrect="false" autocapitalizationType="none" returnKeyType="next"></TextField>
+                    <StackLayout col="1" row="2" class="hr-light"></StackLayout>
+                </GridLayout>
+
+                <GridLayout row="1" columns="auto, *" rows="auto, auto, auto" verticalAlignment="center" margin="12">
+                    <Label col="1" row="0" text="Have you previously worked on Angular 7?" textwrap="true"
+                        horizontalAlignment="left">
+                    </Label>
+                    <TextField col="1" hint="Answer for Have you previously worked on Angular 7?" row="1" class="input"
+                        marginTop="5" autocorrect="false" autocapitalizationType="none" returnKeyType="next">
+                    </TextField>
+                    <StackLayout col="1" row="2" class="hr-light"></StackLayout>
+                </GridLayout>
+
+                <GridLayout row="2" columns="auto, *" rows="auto, auto, auto" verticalAlignment="center" margin="12">
+                    <Label col="1" row="0" text="Do you have your managers approval??" textwrap="true"
+                        horizontalAlignment="left">
+                    </Label>
+                    <TextField col="1" hint="Answer for Do you have your managers approval?" row="1" class="input"
+                        marginTop="5" autocorrect="false" autocapitalizationType="none" returnKeyType="next">
+                    </TextField>
+                    <StackLayout col="1" row="2" class="hr-light"></StackLayout>
+                </GridLayout>
+            </GridLayout>
+
+            <GridLayout columns="*" rows="auto" class="m-10">
+                <GridLayout row="0" columns="auto, *" rows="auto, auto, auto" verticalAlignment="center" margin="12">
+                    <Label col="1" row="0" text="Comments or Note" textwrap="true" horizontalAlignment="left">
+                    </Label>
+                    <TextField col="1" hint="Comments or Note" row="1" class="input" marginTop="5" autocorrect="false"
+                        autocapitalizationType="none" returnKeyType="next"></TextField>
+                    <StackLayout col="1" row="2" class="hr-light"></StackLayout>
+                </GridLayout>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+
+    <GridLayout columns="*" verticalAlignment="center" rows="*, *, *" row="1" class="m-5 backgroundColor">
+        <StackLayout col="1" row="0" class="hr-light"></StackLayout>
+        <Button col="1" row="1" [text]="'Submit'" (tap)="submitForm()" class="btn btn-primary m-t-20"></Button>
+        <Label horizontalAlignment="center" col="1" row="2" text="Cancel" class="login-label" (tap)="close()"></Label>
+    </GridLayout>
+
+</GridLayout>

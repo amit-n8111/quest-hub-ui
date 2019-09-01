@@ -1,0 +1,18 @@
+<ActionBar title="Tasks"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+    <app-post-list></app-post-list>
+
+    <GridLayout columns="*, *" verticalAlignment="center" row="1" class="bottom-navigation">
+        <GridLayout verticalAlignment="center" col="0" rows="*, *" class="bottom-navigation-item">
+            <Label row="0" class="fa selected" text="&#xf002;"></Label>
+            <Label row="1" [text]="'Search'" class="label selected"></Label>
+        </GridLayout>
+
+        <GridLayout verticalAlignment="center" col="1" rows="*, *" class="bottom-navigation-item">
+            <Label row="0" text="&#xf0a2;" class="fa"></Label>
+            <Label row="1" [text]="'Alerts'" class="label"></Label>
+        </GridLayout>
+    </GridLayout>
+</GridLayout>

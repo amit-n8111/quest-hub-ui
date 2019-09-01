@@ -1,0 +1,61 @@
+<ActionBar title="Task Details"></ActionBar>
+
+<GridLayout rows="*, auto">
+    <ScrollView row="0">
+        <StackLayout verticalAlignment="top">
+            <GridLayout class="backgroundColor" columns="auto, *" rows="auto" verticalAlignment="center">
+                <Label col="1" row="0" [text]="taskDetails.taskName" class="h2 text-header" margin="12" textwrap="true"
+                    horizontalAlignment="left"> </Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <GridLayout class="light-text m-15" row="1" col="1" rows="auto" columns="auto,auto,auto">
+                <Label row="0" col="0" class="item-category" textwrap="true" verticalAlignment="top"
+                    horizontalAlignment="left" [text]="'1 min ago'"></Label>
+                <Label row="0" col="1" [text]="' | '"></Label>
+                <Label col="2" row="0" class="rating-value item-category" [text]="'1 application'"></Label>
+            </GridLayout>
+
+
+            <GridLayout class="text-secondary m-15" columns="auto" rows="auto" verticalAlignment="center">
+                <HtmlView row="0" col="1" verticalAlignment="center" horizontalAlignment="left"
+                    [html]="taskDetails.description">
+                </HtmlView>
+            </GridLayout>
+
+            <GridLayout columns="auto,*,auto" rows="auto" class="m-15">
+                <GridLayout col="0" rows="auto, auto" columns="auto,auto" horizontalAlignment="left">
+                    <Label col="0" class="fa" row="0" [text]="'&#xf017;'"></Label>
+                    <Label col="1" row="0" class="layout" [text]="taskDetails.hoursNeeded"></Label>
+                    <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Hours'"></Label>
+                </GridLayout>
+
+                <GridLayout col="1" rows="auto, auto" columns="auto,auto" horizontalAlignment="center">
+                    <Label col="0" class="fa" row="0" [text]="'&#xf0ae;'"></Label>
+                    <Label col="1" row="0" class="layout" [text]="taskDetails.taskType"></Label>
+                    <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Task Type'"></Label>
+                </GridLayout>
+
+                <GridLayout col="2" rows="auto, auto" columns="auto,auto" horizontalAlignment="right">
+                    <Label col="0" row="0" class="fa" [text]="'&#xf155;'" horizontalAlignment="right"></Label>
+                    <Label col="1" row="0" class="layout" [text]="taskDetails.rewardType"></Label>
+                    <Label col="0" row="1" colSpan="2" class="light-text" [text]="'Reward Type'"></Label>
+                </GridLayout>
+            </GridLayout>
+
+            <GridLayout [col]="taskDetails?.skills?.length" [columns]="getColumns(taskDetails)" rows="auto">
+                <Label class="tag" *ngFor="let skillObj of taskDetails.skills; let i = index" row="0" [col]="i"
+                    textwrap="true" [text]="skillObj.skill"></Label>
+            </GridLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+
+    <GridLayout class="backgroundColor mt-15" row="1" columns="*" rows="*, *" verticalAlignment="center">
+        <StackLayout col="1" row="0" class="hr-light"></StackLayout>
+        <Button class="btn btn-primary" col="1" row="1" text="Apply" (tap)="showApplicationForm()"></Button>
+    </GridLayout>
+
+</GridLayout>

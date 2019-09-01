@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { RouterExtensions } from 'nativescript-angular/router';
+
 import { EntitlementService } from './../core/services/entitlement.service';
 
 @Component({
@@ -12,6 +14,7 @@ export class LoginComponent implements OnInit {
   public soeId: string = '';
 
   constructor(
+    private mobileRouter: RouterExtensions,
     private router: Router,
     private entitlementService: EntitlementService
   ) { }
@@ -33,6 +36,18 @@ export class LoginComponent implements OnInit {
 
   forgotPassword() {
     console.log('....................Forgot Passowrd Functionality is not there.........');
+  }
+
+  logInMobile() {
+    console.log('....................Navigating to Search Tasks.........');
+    this.mobileRouter.navigate(
+      ['search-tasks'], {
+      transition: {
+        name: 'fade'
+      },
+      clearHistory: true
+    }
+    );
   }
 
 }
