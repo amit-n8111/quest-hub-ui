@@ -38,8 +38,12 @@
 
 
 .sidebarNavigation {
-    color: #379F01;
+    color: #379F01 !important;
     font-size: 15px;
+}
+
+.sidebarNavigation a {
+    color: #379F01 !important;
 }
 
 .fa-btn {

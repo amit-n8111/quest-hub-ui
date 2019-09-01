@@ -5,7 +5,7 @@
             Back to list
         </div>
         <div class="col-md-6">
-            <span class="float-right" (click)="openPostDetails()">
+            <span class="float-right" (click)="openPostDetails(taskDetails.taskId)">
                 <i class="fa fa-window-restore"></i>
                 Open profile in new window
             </span>
@@ -91,6 +91,21 @@
                         <ng-template #elseNaTemplate>
                             <label class="label label-default">N/A</label>
                         </ng-template>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="row">
+                        <strong>Other Similar Tasks </strong><br><br>
+                    </div>
+                    <div class="row sidebarNavigation">
+                        <div class="col-md-12" *ngFor="let task of taskDetails.simillarTasks">
+                            <span class="float-left" (click)="openPostDetails(task.id)">
+                                <a href="">{{task.taskName}}</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

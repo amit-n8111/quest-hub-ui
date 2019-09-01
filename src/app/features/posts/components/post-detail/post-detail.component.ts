@@ -38,8 +38,7 @@ export class PostDetailComponent implements OnInit {
     });
   }
 
-  openPostDetails() {
-    const taskId = this.taskDetails.taskId;
+  openPostDetails(taskId) {
     window.open('http://localhost:4200/posts/' + taskId);
   }
 

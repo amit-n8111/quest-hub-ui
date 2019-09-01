@@ -14,15 +14,15 @@ export class PostsService {
     getTaskList() {
         const requestJson = {
             'createdBy': '',
-            'pageNumber': 1,
+            'pageNumber': 0,
             'pageSize': 10,
             'search': '',
             'skillId': '',
             'sortBy': '',
             'sortOrder': '',
-            'taskTopicId': 0,
-            'taskTypeId': 0,
-            'taskStatusId': 0
+            'taskTopicId': '',
+            'taskTypeId': '',
+            'taskStatusId': ''
         };
         const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_LIST);
 
