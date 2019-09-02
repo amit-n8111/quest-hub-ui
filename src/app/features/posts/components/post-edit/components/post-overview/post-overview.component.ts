@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { PostsService } from './../../../../services/posts.service';
+
 @Component({
   selector: 'app-post-overview',
   templateUrl: './post-overview.component.html',
@@ -11,10 +13,15 @@ export class PostOverviewComponent implements OnInit {
   @Input() taskForm: FormGroup;
 
   skills: Array<Object> = [];
+  filteredTaskNames = [];
+  filteredTopics = [];
 
-  constructor() { }
+  constructor(
+    private postsService: PostsService
+  ) { }
 
   ngOnInit() {
+    this.filteredTopics = this.refData['topic'];
   }
 
   get getSkillItemsByCategory() {
@@ -25,6 +32,20 @@ export class PostOverviewComponent implements OnInit {
     });
 
     return selectedTopic && selectedTopic['skills'] ? selectedTopic['skills'] : [];
+  }
+
+  showTaskNameSuggestions() {
+    this.postsService.getTaskSuggestions(this.taskForm.get('taskName').value).subscribe(
+      (data) => {
+        if (Object.keys(data).length) {
+          this.filteredTaskNames = data['relatedTasks'];
+          this.filteredTopics = data['filteredTopics'];
+        } else {
+          this.filteredTaskNames = [];
+          this.filteredTopics = this.refData['topic'];
+        }
+      }
+    );
   }
 
 }

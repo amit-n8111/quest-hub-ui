@@ -14,7 +14,7 @@ export class PostsService {
     getTaskList() {
         const requestJson = {
             'createdBy': '',
-            'pageNumber': 0,
+            'pageNumber': 1,
             'pageSize': 10,
             'search': '',
             'skillId': '',
@@ -61,6 +61,17 @@ export class PostsService {
 
         return this.http.get(resourceUrl).pipe(
             catchError(this.helperService.handleError<any>('markTaskAsFavorite', {}))
+        );
+    }
+
+    getTaskSuggestions(taskName) {
+        const resourceURL = this.helperService.getResourceURL(PostsConstants.TASK_SUGGESTIONS);
+
+        // return of([{ id: 1, taskName: 'web developer requiree' }]);
+
+        return this.http.post(resourceURL, { taskName }).pipe(
+            tap(data => console.log(data)),
+            catchError(this.helperService.handleError<any>('getTaskList', {}))
         );
     }
 }

@@ -7,7 +7,12 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="labelFontBold">Enter the name of your task</label>
-                    <input type="text" class="form-control mt-2" name="taskName" formControlName="taskName">
+                    <br />
+
+                    <p-autoComplete class="inputBox" formControlName="taskName" [suggestions]="filteredTaskNames"
+                        (completeMethod)="showTaskNameSuggestions($event)" field="taskName" [size]="30"
+                        placeholder="Task Name" [minLength]="5">
+                    </p-autoComplete>
                 </div>
                 <div class="form-control-details mt-2">
                     <label class="labelFontBold">
@@ -31,7 +36,7 @@
                 <div class="form-group">
                     <label class="labelFontBold">Task Category</label><br />
                     <span class="mt-4">Here are some suggestions based on your task title:</span>
-                    <div class="radio m-2" *ngFor="let topic of refData['topic']">
+                    <div class="radio m-2" *ngFor="let topic of filteredTopics">
                         <label><input class="mr-2" type="radio" [value]="topic['id']" name="taskTopicId"
                                 formControlName="taskTopicId">{{topic['topicName']}}</label>
                     </div>
