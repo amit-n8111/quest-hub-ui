@@ -9,3 +9,7 @@
 .selectedChip {
      border-bottom: 4px solid #379E02;
 }
+
+::ng-deep .templatePopup .ui-dialog-titlebar-close {
+    display: none;
+}

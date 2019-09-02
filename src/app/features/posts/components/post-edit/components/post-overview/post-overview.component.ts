@@ -34,15 +34,12 @@ export class PostOverviewComponent implements OnInit {
     return selectedTopic && selectedTopic['skills'] ? selectedTopic['skills'] : [];
   }
 
-  showTaskNameSuggestions() {
-    this.postsService.getTaskSuggestions(this.taskForm.get('taskName').value).subscribe(
+  showTaskNameSuggestions(taskName) {
+    this.postsService.getTaskSuggestions(taskName).subscribe(
       (data) => {
         if (Object.keys(data).length) {
           this.filteredTaskNames = data['relatedTasks'];
-          this.filteredTopics = data['filteredTopics'];
-        } else {
-          this.filteredTaskNames = [];
-          this.filteredTopics = this.refData['topic'];
+          this.filteredTopics = data['relatedTopics'] || this.refData['topic'];
         }
       }
     );

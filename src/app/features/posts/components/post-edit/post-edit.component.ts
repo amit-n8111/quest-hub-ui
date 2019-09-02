@@ -16,6 +16,10 @@ import { TASK_SECTION, TASK_MESSAGES } from './constants/post.constants';
   styleUrls: ['./post-edit.component.scss']
 })
 export class PostEditComponent implements OnInit {
+  showSampleTemplates: boolean = false;
+  startingTaskType: string = 'newTask';
+  selectedTemplate;
+
   refData;
   selectedTemplateId: number = TASK_SECTION.TASK_OVERVIEW;
 
@@ -64,6 +68,7 @@ export class PostEditComponent implements OnInit {
       if (params && +params.id) {
         this.getTaskDetails(+params.id);
       } else {
+        this.showSampleTemplates = true;
         this.resetTaskForm();
       }
     });
@@ -164,6 +169,20 @@ export class PostEditComponent implements OnInit {
         this.refData = data;
       }
     );
+  }
+
+  continueTaskCreation(startingTaskType) {
+    switch (startingTaskType) {
+      case 'newTask':
+        break;
+      case 'existingTask':
+        break;
+      case 'templateTask':
+        this.patchFormData(this.selectedTemplate);
+        break;
+    }
+
+    this.showSampleTemplates = false;
   }
 
 }
