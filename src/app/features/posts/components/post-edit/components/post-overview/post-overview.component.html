@@ -2,16 +2,17 @@
     <div class="card-header">
         <h5 class="card-title ">Task Overview</h5>
     </div>
-    <div class="card-body" [formGroup]="taskForm">
+    <div class="card-body">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="labelFontBold">Enter the name of your task</label>
                     <br />
 
-                    <p-autoComplete class="inputBox" formControlName="taskName" [suggestions]="filteredTaskNames"
-                        (completeMethod)="showTaskNameSuggestions($event)" field="taskName" [size]="30"
-                        placeholder="Task Name" [minLength]="5">
+                    <p-autoComplete class="inputBox" [(ngModel)]="taskNameObj" [suggestions]="filteredTaskNames"
+                        (completeMethod)="showTaskNameSuggestions($event)" (onSelect)="onTaskNameSelect($event)"
+                        (onClear)="showTaskNameSuggestions('')" field="taskName" [size]="30" placeholder="Task Name"
+                        [minLength]="5">
                     </p-autoComplete>
                 </div>
                 <div class="form-control-details mt-2">

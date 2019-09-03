@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { PostsService } from './../../../../services/posts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post-overview',
@@ -16,11 +17,26 @@ export class PostOverviewComponent implements OnInit {
   filteredTaskNames = [];
   filteredTopics = [];
 
+  taskNameObj = { id: -1, taskName: '' };
+  taskNameChangeSubscription: Subscription;
+
   constructor(
     private postsService: PostsService
   ) { }
 
   ngOnInit() {
+    if (this.taskForm.get('taskName').value) {
+      this.taskNameObj['taskName'] = this.taskForm.get('taskName').value;
+    }
+
+    this.taskNameChangeSubscription = this.taskForm.get('taskName').valueChanges.subscribe(
+      (data) => {
+        this.taskNameObj['taskName'] = data;
+        this.taskNameObj = JSON.parse(JSON.stringify(this.taskNameObj));
+        this.taskNameChangeSubscription.unsubscribe();
+      }
+    );
+
     this.filteredTopics = this.refData['topic'];
   }
 
@@ -35,7 +51,15 @@ export class PostOverviewComponent implements OnInit {
   }
 
   showTaskNameSuggestions(taskName) {
-    this.postsService.getTaskSuggestions(taskName).subscribe(
+    this.taskForm.get('taskName').setValue(taskName.query);
+
+    if (!this.taskForm.get('taskName').value) {
+      this.filteredTaskNames = [];
+      this.filteredTopics = [];
+      return true;
+    }
+
+    this.postsService.getTaskSuggestions(this.taskForm.get('taskName').value).subscribe(
       (data) => {
         if (Object.keys(data).length) {
           this.filteredTaskNames = data['relatedTasks'];
@@ -43,6 +67,10 @@ export class PostOverviewComponent implements OnInit {
         }
       }
     );
+  }
+
+  onTaskNameSelect(value) {
+    this.taskForm.get('taskName').setValue(value.taskName);
   }
 
 }
