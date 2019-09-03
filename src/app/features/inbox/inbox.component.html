@@ -9,7 +9,7 @@
         </div>
         <div>
             <ul class="nav flex-column nav-pills" aria-orientation="vertical">
-                <li class="nav-link boxDesign p-1 mb-2" *ngFor="let notification of notifications"
+                <li class="nav-link boxDesign p-1 mb-2" *ngFor="let notification of notifications; let i = index"
                     [ngClass]="{'selected': 1 == i}" (click)="showNotificationDetails(notification)">
                     <div class="row">
                         <div class="col-md-2 p-1">
