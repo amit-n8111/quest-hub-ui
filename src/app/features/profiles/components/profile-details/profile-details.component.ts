@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProfileService } from './../../services/profile.service';
+import { HelperService } from './../../../../core/services/helper.service';
 import { LoaderService } from './../../../../core/services/loader.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class ProfileDetailsComponent implements OnInit {
   selectedTemplateId: string = 'profileTemplate';
 
   constructor(
+    private helperService: HelperService,
     private loaderService: LoaderService,
     private profileService: ProfileService,
     private activatedRoute: ActivatedRoute
@@ -32,7 +34,8 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   openProfileDetails() {
-    window.open('http://localhost:4200/profiles/' + `${this.userDetails.soeId}`);
+    const url = this.helperService.getResourceURL('profiles/') + `${this.userDetails.soeId}`;
+    window.open(url);
   }
 
   openProfileSection(sectionName) {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoaderService } from './../../core/services/loader.service';
 import { NotificationService } from './../../core/services/notification.service';
+import { InboxService } from './inbox.service';
+import { HelperService } from './../../core/services/helper.service';
 
 @Component({
   selector: 'app-inbox',
@@ -13,6 +15,8 @@ export class InboxComponent implements OnInit {
   selectedNotification;
 
   constructor(
+    private helperService: HelperService,
+    private inboxService: InboxService,
     private loaderService: LoaderService,
     private notificationService: NotificationService
   ) { }
@@ -35,6 +39,20 @@ export class InboxComponent implements OnInit {
         this.loaderService.setLoader(false);
       }
     );
+  }
+
+  approveUser(notification) {
+    this.loaderService.setLoader(true);
+    this.inboxService.approveUser(notification.notification.taskId, notification.userInfo.soeId).subscribe(
+      (data) => {
+        this.loaderService.setLoader(false);
+      }
+    );
+  }
+
+  navigateToUser(soeId) {
+    const url = this.helperService.getResourceURL('profiles/') + `${soeId}`;
+    window.open(url);
   }
 
 }

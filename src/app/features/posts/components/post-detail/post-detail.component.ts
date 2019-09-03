@@ -5,6 +5,7 @@ import { PostsService } from './../../services/posts.service';
 import { GrowlService } from './../../../../core/services/growl.service';
 import { LoaderService } from './../../../../core/services/loader.service';
 import { RefDataService } from './../../../../core/services/ref-data.service';
+import { HelperService } from './../../../../core/services/helper.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -20,6 +21,7 @@ export class PostDetailComponent implements OnInit {
   isSidebar: boolean = true;
 
   constructor(
+    private helperService: HelperService,
     private refDataService: RefDataService,
     private activatedRoute: ActivatedRoute,
     private growlService: GrowlService,
@@ -39,7 +41,8 @@ export class PostDetailComponent implements OnInit {
   }
 
   openPostDetails(taskId) {
-    window.open('http://localhost:4200/posts/' + taskId);
+    const url = this.helperService.getResourceURL('posts/') + taskId;
+    window.open(url);
   }
 
   applyToTask() {

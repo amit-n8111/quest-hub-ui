@@ -5,6 +5,8 @@ import { InboxRoutingModule } from './inbox-routing.module';
 
 import { InboxComponent } from './inbox.component';
 
+import { InboxService } from './inbox.service';
+
 @NgModule({
     declarations: [
         InboxComponent
@@ -14,6 +16,7 @@ import { InboxComponent } from './inbox.component';
         SharedModule
     ],
     providers: [
+        InboxService
     ]
 })
 
