@@ -18,6 +18,8 @@ export class PostListComponent implements OnInit {
   displaySidebar: boolean = false;
   showScreeningPopup: boolean = false;
 
+  showAddSkillsPopup: boolean = false;
+
   taskApplicationForm: FormGroup = this.fb.group({
     startDate: [''],
     endDate: [''],
@@ -27,6 +29,8 @@ export class PostListComponent implements OnInit {
 
   refData;
   taskList: Array<Object> = [];
+
+  selectedSkills: Array<Object> = [];
   selectedTaskDetails: Object = {};
 
   constructor(
@@ -81,6 +85,7 @@ export class PostListComponent implements OnInit {
       (data) => {
         this.loaderService.setLoader(false);
         this.growlService.showMessage(TASK_MESSAGES.TASK_APPLICATION_SEND);
+        this.showAddSkillsPopupFn();
       }
     );
 
@@ -112,6 +117,22 @@ export class PostListComponent implements OnInit {
         this.refData = data;
       }
     );
+  }
+
+  addSkills() {
+    this.growlService.showMessage('Skills Added Successfully...');
+  }
+
+  showAddSkillsPopupFn() {
+    this.selectedSkills = [];
+
+    this.selectedSkills = this.selectedTaskDetails['taskSkills'];
+    this.showAddSkillsPopup = true;
+  }
+
+  closeShowSkillsSuggestionPopup() {
+    this.selectedSkills = [];
+    this.showAddSkillsPopup = false;
   }
 
 }

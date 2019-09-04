@@ -137,3 +137,27 @@
         <button type="button" class="btn btn-primary" (click)="showScreeningPopup=false; applyToPost()">Apply</button>
     </p-footer>
 </p-dialog>
+
+<p-dialog header="Would you like to add these skills to your profile?" [(visible)]="showAddSkillsPopup" [modal]="true"
+    [responsive]="true" [style]="{width: '50%'}" [maximizable]="true" [baseZIndex]="10000" [blockScroll]="true"
+    [contentStyle]="{'overflow':'visible', 'minHeight': '10vh'}">
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <label><strong>Would you like to add these skills to your profile?</strong></label><br />
+        </div>
+    </div> -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <tag-input [identifyBy]="'id'" [displayBy]="'name'" [theme]="'bootstrap'" [(ngModel)]="selectedSkills"
+                name="items" [secondaryPlaceholder]="'Enter Category Skills'" [placeholder]="'+ Skill'">
+                <tag-input-dropdown [identifyBy]="'id'" [displayBy]="'name'">
+                </tag-input-dropdown>
+            </tag-input>
+        </div>
+    </div>
+    <p-footer>
+        <button type="button" class="btn btn-default"
+            (click)="showAddSkillsPopup=false; closeShowSkillsSuggestionPopup()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="showAddSkillsPopup=false; addSkills()">Submit</button>
+    </p-footer>
+</p-dialog>
