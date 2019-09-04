@@ -129,7 +129,7 @@ export class PostEditComponent implements OnInit {
       manHoursNeeded: taskFormDetails.manHoursNeeded,
       rewardTypeId: taskFormDetails.rewardTypeId,
       rewardTypeName: taskFormDetails.rewardTypeName,
-      skills: taskFormDetails.skills,
+      skills: taskFormDetails.taskSkills,
       backendSkills: taskFormDetails.backendSkills,
       uiUxSkills: taskFormDetails.uiUxSkills,
       otherSkills: taskFormDetails.otherSkills

@@ -6,7 +6,8 @@
 
     <div class="col-md-10">
         <div [ngSwitch]="selectedTemplateId">
-            <app-post-overview *ngSwitchCase="TASK_SECTION['TASK_OVERVIEW']" [taskForm]="taskForm" [refData]="refData">
+            <app-post-overview (emitTaskData)="patchFormData($event)" *ngSwitchCase="TASK_SECTION['TASK_OVERVIEW']"
+                [taskForm]="taskForm" [refData]="refData">
             </app-post-overview>
             <app-post-description *ngSwitchCase="TASK_SECTION.TASK_DESCRIPTION" [taskForm]="taskForm">
             </app-post-description>

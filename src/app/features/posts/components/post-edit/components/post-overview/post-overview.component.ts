@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { PostsService } from './../../../../services/posts.service';
@@ -12,6 +12,8 @@ import { Subscription } from 'rxjs';
 export class PostOverviewComponent implements OnInit {
   @Input() refData;
   @Input() taskForm: FormGroup;
+
+  @Output() emitTaskData: EventEmitter<any> = new EventEmitter();
 
   skills: Array<Object> = [];
   filteredTaskNames = [];
@@ -31,6 +33,7 @@ export class PostOverviewComponent implements OnInit {
 
     this.taskNameChangeSubscription = this.taskForm.get('taskName').valueChanges.subscribe(
       (data) => {
+        this.taskNameObj = { id: -1, taskName: '' };
         this.taskNameObj['taskName'] = data;
         this.taskNameObj = JSON.parse(JSON.stringify(this.taskNameObj));
         this.taskNameChangeSubscription.unsubscribe();
@@ -63,13 +66,21 @@ export class PostOverviewComponent implements OnInit {
       (data) => {
         if (Object.keys(data).length) {
           this.filteredTaskNames = data['relatedTasks'];
-          this.filteredTopics = data['relatedTopics'] || this.refData['topic'];
+          if (data['relatedTopics'].length) {
+            this.filteredTopics = data['relatedTopics'];
+          }
         }
       }
     );
   }
 
   onTaskNameSelect(value) {
+
+    this.postsService.getTaskDetailsByTaskId(value.id).subscribe(
+      (taskDetails) => {
+        this.emitTaskData.emit(taskDetails);
+      }
+    );
     this.taskForm.get('taskName').setValue(value.taskName);
   }
 
