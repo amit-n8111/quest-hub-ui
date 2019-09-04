@@ -13,7 +13,8 @@ export class InboxService {
         const resourceURL = this.helperService.getResourceURL('tasks/approve/') + taskId;
 
         return this.http.post(resourceURL, assignedTo).pipe(
-            tap(data => console.log(data)),
+            tap(data => {
+            }),
             catchError(this.helperService.handleError<any>('getTaskList', {}))
         );
     }

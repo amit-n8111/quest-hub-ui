@@ -10,9 +10,18 @@ import { HelperService } from './../../core/services/helper.service';
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss']
 })
+
 export class InboxComponent implements OnInit {
   notifications = [];
   selectedNotification;
+  selectedNotificationIndex: number = 0;
+
+  columns = [
+    { field: 'soeId', header: 'SOE ID' },
+    { field: 'name', header: 'Applicants Name' },
+    { field: 'score', header: 'Score' },
+    { field: 'availableDates', header: 'Available Dates' }
+  ];
 
   constructor(
     private helperService: HelperService,
@@ -25,8 +34,13 @@ export class InboxComponent implements OnInit {
     this.getAllNotiifcations();
   }
 
-  showNotificationDetails(notification) {
+  showNotificationDetails(notification, index) {
+    this.loaderService.setLoader(true);
+    this.selectedNotificationIndex = index;
     this.selectedNotification = notification;
+    setTimeout(() => {
+      this.loaderService.setLoader(false);
+    }, 500);
   }
 
   getAllNotiifcations() {
