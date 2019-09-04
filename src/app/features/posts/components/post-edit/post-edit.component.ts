@@ -39,7 +39,7 @@ export class PostEditComponent implements OnInit {
     taskDueDate: [''],
     taskCreateDate: [''],
     manHoursNeeded: [''],
-    taskCreatedBy: this.entitlementService.userDetails,
+    taskCreatedBy: this.entitlementService.userDetailsSoeId,
     screeningQuestions: this.fb.array([
     ]),
     skills: [[]],
@@ -158,7 +158,7 @@ export class PostEditComponent implements OnInit {
     this.taskForm.patchValue({
       id: -1,
       taskId: -1,
-      taskCreatedBy: this.entitlementService.userDetails
+      taskCreatedBy: this.entitlementService.userDetailsSoeId
     });
     this.taskForm.setControl('screeningQuestions', this.fb.array([]));
   }

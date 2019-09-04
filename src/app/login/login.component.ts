@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.entitlementService.getUserInformation(this.soeId).subscribe(
       (data) => {
         sessionStorage['soeId'] = data['userSoeId'];
+        this.entitlementService.setUserDetails(data);
         this.entitlementService.setUserInfo(data['userSoeId']);
         this.router.navigate(['/home']);
       }

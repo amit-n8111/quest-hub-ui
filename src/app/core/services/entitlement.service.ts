@@ -9,7 +9,8 @@ import { Observable, of, Subject } from 'rxjs';
 
 @Injectable()
 export class EntitlementService {
-  public userDetails: string = '';
+  public userDetailsObj;
+  public userDetailsSoeId: string = '';
   public userInfoChangeObserver$ = new Subject();
 
   constructor(
@@ -26,7 +27,7 @@ export class EntitlementService {
   }
 
   setUserInfo(soeId: any) {
-    this.userDetails = soeId;
+    this.userDetailsSoeId = soeId;
     this.userInfoChangeObserver$.next(soeId);
   }
 
@@ -35,6 +36,14 @@ export class EntitlementService {
   }
 
   get isUserLoggedIn(): boolean {
-    return !!this.userDetails;
+    return !!this.userDetailsSoeId;
+  }
+
+  setUserDetails(userDetails) {
+    this.userDetailsObj = userDetails;
+  }
+
+  get userDetailsFn() {
+    return this.userDetailsObj;
   }
 }

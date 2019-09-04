@@ -9,7 +9,7 @@ export class ApiGatewayInterceptorService implements HttpInterceptor {
     constructor(private entitlementService: EntitlementService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const currentUser = this.entitlementService.userDetails ? this.entitlementService.userDetails : '';
+        const currentUser = this.entitlementService.userDetailsSoeId ? this.entitlementService.userDetailsSoeId : '';
 
         let headers = new HttpHeaders({
             'Content-Type': 'application/json; charset=UTF-8',

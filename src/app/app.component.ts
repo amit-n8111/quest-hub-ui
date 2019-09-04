@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
     this.entitlementService.getUserInformation(soeId).subscribe(
       (userDetails) => {
         if (!!userDetails) {
+          this.entitlementService.setUserDetails(userDetails);
           this.entitlementService.setUserInfo(userDetails['userSoeId']);
           this.isLoggedInUser = true;
           this.getRefData();
