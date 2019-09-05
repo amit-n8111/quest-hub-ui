@@ -125,3 +125,65 @@
 .alignCenter {
   text-align: center;
 }
+.fa-globe {
+  position: relative;
+    font-size: 80px;
+    background: orange;
+    color: #fff;
+    padding: 15px;
+    bottom: 35px;
+    left: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px lightgray;
+}
+.fa-tasks {
+  position: relative;
+    font-size: 80px;
+    background: green;
+    color: #fff;
+    padding: 15px;
+    bottom: 35px;
+    left: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px lightgray;
+}
+.fa-dollar {
+  position: relative;
+    font-size: 80px;
+    background: red;
+    color: #fff;
+    padding: 15px;
+    bottom: 35px;
+    left: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px lightgray;
+}
+.title1 {
+  color: #97999b;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+}
+.title2 {
+      align-self: flex-end;
+      padding-right: 15px;
+    position: absolute;
+    top: 50px;
+    font-size: 30px;
+    color: #53565a;
+}
+.title3 {
+  position: relative;
+    top: 15px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 2px;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
+}
+.blocks .card {border-radius: 5px; box-shadow: 0px 5px 5px #ccc;}
+.icon {height: 95px;}
+.blocks .fa {width: 110px; text-align: center;}
+::ng-deep {body .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {border: none !important;}}
+::ng-deep {body .ui-carousel .ui-carousel-viewport {border: none !important;}}
