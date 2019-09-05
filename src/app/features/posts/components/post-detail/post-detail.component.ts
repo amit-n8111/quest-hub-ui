@@ -6,6 +6,7 @@ import { GrowlService } from './../../../../core/services/growl.service';
 import { LoaderService } from './../../../../core/services/loader.service';
 import { RefDataService } from './../../../../core/services/ref-data.service';
 import { HelperService } from './../../../../core/services/helper.service';
+import { EntitlementService } from './../../../../core/services/entitlement.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -29,6 +30,7 @@ export class PostDetailComponent implements OnInit {
   ];
 
   constructor(
+    private entitlementService: EntitlementService,
     private router: Router,
     private helperService: HelperService,
     private refDataService: RefDataService,
@@ -48,6 +50,8 @@ export class PostDetailComponent implements OnInit {
       }
     });
   }
+
+  get loggedInUser() { return this.entitlementService.userDetailsSoeId; }
 
   openPostDetails(taskId) {
     const url = this.helperService.getResourceURL('posts/') + taskId;

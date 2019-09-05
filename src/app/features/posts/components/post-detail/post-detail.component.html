@@ -148,9 +148,12 @@
             </div>
             <div class="card-body align-center">
                 <div *ngIf="!isMyTask">
-                    <button class="btn btn-default fa-btn" (click)="markAsFavorite()"><i class="fa "
+                    <button [disabled]="( taskDetails?.taskCreatedBy.soeId == loggedInUser)"
+                        class="btn btn-default fa-btn" (click)="markAsFavorite()"><i class="fa "
                             [ngClass]="{'fa-star active': taskDetails.markedAsFavorite, 'fa-star-o': !taskDetails.markedAsFavorite}"></i></button>
-                    <button class="btn btn-primary" style="margin-top: 10px;" (click)="applyToTask()">Apply</button>
+                    <button
+                        [disabled]="( taskDetails?.taskCreatedBy.soeId == loggedInUser) || taskDetails.isAlreadyApplied"
+                        class="btn btn-primary" style="margin-top: 10px;" (click)="applyToTask()">Apply</button>
                 </div>
 
                 <div *ngIf="isMyTask">
