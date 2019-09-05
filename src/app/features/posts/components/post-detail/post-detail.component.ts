@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
 import { GrowlService } from './../../../../core/services/growl.service';
@@ -17,10 +17,19 @@ export class PostDetailComponent implements OnInit {
 
   @Input() refData;
   @Input() taskDetails;
+  @Input() isMyTask: boolean = false;
 
   isSidebar: boolean = true;
 
+  columns = [
+    { field: 'soeId', header: 'SOE ID' },
+    { field: 'name', header: 'Applicants Name' },
+    { field: 'score', header: 'Score' },
+    { field: 'availableDates', header: 'Available Dates' }
+  ];
+
   constructor(
+    private router: Router,
     private helperService: HelperService,
     private refDataService: RefDataService,
     private activatedRoute: ActivatedRoute,
@@ -94,5 +103,9 @@ export class PostDetailComponent implements OnInit {
         this.refData = data;
       }
     );
+  }
+
+  editTask(taskId) {
+    this.router.navigate([`posts/edit/${taskId}`]);
   }
 }

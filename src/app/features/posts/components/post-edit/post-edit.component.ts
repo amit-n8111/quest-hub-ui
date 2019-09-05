@@ -86,9 +86,24 @@ export class PostEditComponent implements OnInit {
         // Todo: Remove setTimeout, its just for showing loader.
         setTimeout(() => {
           this.loaderService.setLoader(false);
-          this.router.navigate(['/posts']);
+          this.router.navigate(['posts/myPosts']);
           this.growlService.showMessage(TASK_MESSAGES.SUCCESS_MESSAGES);
-        }, 2000);
+        }, 1000);
+      });
+  }
+
+
+  saveTaskForm() {
+    this.loaderService.setLoader(true);
+
+    this.postService.saveTask(this.taskForm.value).subscribe(
+      (data) => {
+        // Todo: Remove setTimeout, its just for showing loader.
+        setTimeout(() => {
+          this.loaderService.setLoader(false);
+          this.router.navigate(['posts/myPosts']);
+          this.growlService.showMessage(TASK_MESSAGES.SUCCESS_MESSAGES);
+        }, 1000);
       });
   }
 

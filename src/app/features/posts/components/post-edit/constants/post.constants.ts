@@ -11,3 +11,11 @@ export enum TASK_MESSAGES {
     ERROR_MESSAGES = 'Something Went Wrong!',
     TASK_APPLICATION_SEND = 'Task Application Send!'
 }
+
+export enum TASK_STATUSES {
+    DRAFT = 1,
+    PUBLISHED = 2,
+    ASSIGNED = 3,
+    IN_PROGRESS = 4,
+    COMPLETED = 5
+}

@@ -1,9 +1,14 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PostsService } from './../../services/posts.service';
 import { GrowlService } from './../../../../core/services/growl.service';
 import { LoaderService } from './../../../../core/services/loader.service';
 import { SocketService } from './../../../../core/services/socket.service';
+
+import { TASK_STATUSES } from './../post-edit/constants/post.constants';
+
+import { EntitlementService } from './../../../../core/services/entitlement.service';
 
 @Component({
   selector: 'app-post-overview-card',
@@ -16,10 +21,13 @@ export class PostOverviewCardComponent implements OnInit {
 
   @Input() refData;
   @Input() taskDetails;
+  @Input() isMyTask: boolean = false;
 
   applicationCount: number = 1;
 
   constructor(
+    private entitlementService: EntitlementService,
+    private router: Router,
     private growlService: GrowlService,
     private loaderService: LoaderService,
     private postsService: PostsService,
@@ -33,6 +41,10 @@ export class PostOverviewCardComponent implements OnInit {
     //     this.applicationCount++;
     //   });
   }
+
+  get TASK_STATUSES() { return TASK_STATUSES; }
+
+  get loggedInUser() { return this.entitlementService.userDetailsSoeId; }
 
   openTaskDetails() {
     this.showTaskDetails.emit(this.taskDetails);
@@ -68,6 +80,10 @@ export class PostOverviewCardComponent implements OnInit {
     }
 
     return (entityDataId === 'topic') ? entityObj['topicName'] : entityObj['name'];
+  }
+
+  editTask(taskId) {
+    this.router.navigate([`posts/edit/${taskId}`]);
   }
 
 }

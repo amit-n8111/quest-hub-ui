@@ -30,7 +30,8 @@
                             *ngIf="TASK_SECTION.REVIEW_AND_POST != selectedTemplateId else submitButton"
                             (click)="nextSection()">Next</button>
                         <ng-template #submitButton>
-                            <button type="submit" class="btn btn-primary btn-round"
+                            <button type="submit" class="btn btn-info btn-round" (click)="saveTaskForm()">Save</button>
+                            <button type="submit" class="btn btn-primary btn-round ml-3"
                                 (click)="submitTaskForm()">Submit</button>
                         </ng-template>
                     </div>

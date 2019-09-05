@@ -1,9 +1,10 @@
 <div class="row" style="border-bottom: 1px solid #ccc; padding: 20px;">
 
     <div class="col-md-10 pad">
-        <!-- <input type="checkbox"> &nbsp; -->
-        <label>{{taskDetails.taskCreatedDate | dateAgoPipe}}</label> | <small>{{applicationCount}} Application
-            Received</small>
+        <div *ngIf="!isMyTask">
+            <label>{{taskDetails.taskCreatedDate | dateAgoPipe}}</label> | <small>{{applicationCount}} Application
+                Received</small>
+        </div>
         <h5 class="title" (click)="openTaskDetails()">{{taskDetails.taskName}}</h5>
         <div class="row detailBlock">
             <div class="col-md-4 pl-4">
@@ -26,19 +27,56 @@
         <p [innerHtml]="taskDetails.taskDescription"></p>
         <span class="label label-default" *ngFor="let skill of taskDetails.taskSkills">{{skill.name}}</span>
 
-        <div class="user">
+        <div class="user" *ngIf="!isMyTask">
             <i class="fa fa-user-circle-o userIcon"></i>
             <h6 class="title">{{taskDetails?.taskCreatedBy?.name}}</h6><br>
             <strong>{{taskDetails?.taskCreatedBy?.location}}</strong> | <small>BU:
                 {{taskDetails?.taskCreatedBy?.buName}}</small>
         </div>
     </div>
-    <div class="col-md-2 pad align-center">
+
+    <div class="col-md-2 pad align-center" *ngIf="!isMyTask">
         <small>Apply Before: </small> <strong
             style="font-size: 12px;">{{taskDetails.taskDueDate | date: 'mediumDate'}}</strong><br />
-        <button class="btn btn-default fa-btn" (click)="markAsFavorite()"><i class="fa "
+        <button [disabled]="( taskDetails?.taskCreatedBy.soeId == loggedInUser)" class="btn btn-default fa-btn"
+            (click)="markAsFavorite()"><i class="fa "
                 [ngClass]="{'fa-star active': taskDetails.markedAsFavorite, 'fa-star-o': !taskDetails.markedAsFavorite}"></i></button>
-        <button class="btn btn-primary" style="margin-top: 10px;" [disabled]="taskDetails.isAlreadyApplied"
+        <button class="btn btn-primary" style="margin-top: 10px;"
+            [disabled]="( taskDetails?.taskCreatedBy.soeId == loggedInUser) || taskDetails.isAlreadyApplied"
             (click)="applyToTask()">Apply</button>
+    </div>
+
+    <div class="col-md-2 pad align-center" *ngIf="isMyTask">
+        <div *ngIf="isMyTask">
+            <small>Created Date : <label>{{taskDetails.taskCreatedDate | date: 'mediumDate'}}</label></small>
+        </div>
+
+        <div>
+            <div class="alert alert-danger m-3" *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.DRAFT">
+                <strong>Draft</strong>
+            </div>
+
+            <div class="alert alert-info m-3" *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.PUBLISHED">
+                <strong>Published</strong>
+            </div>
+
+            <div class="alert alert-warning m-3" *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.ASSIGNED">
+                <strong>Assigned</strong>
+            </div>
+
+            <div class="alert alert-warning m-3" *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.IN_PROGRESS">
+                <strong>In Progress</strong>
+            </div>
+
+            <div class="alert alert-success m-3" *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.COMPLETED">
+                <strong>Completed</strong>
+            </div>
+        </div>
+
+        <div *ngIf="taskDetails?.taskStatusId == TASK_STATUSES.DRAFT">
+            <button class="btn btn-default fa-btn" (click)="editTask(taskDetails?.taskId)"><i
+                    class="fa fa-pencil"></i></button>
+            <button class="btn btn-default fa-btn ml-1"><i class="fa fa-trash"></i></button>
+        </div>
     </div>
 </div>
