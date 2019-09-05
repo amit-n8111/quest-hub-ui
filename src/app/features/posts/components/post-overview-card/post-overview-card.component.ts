@@ -86,4 +86,8 @@ export class PostOverviewCardComponent implements OnInit {
     this.router.navigate([`posts/edit/${taskId}`]);
   }
 
+  navigateToUsers() {
+    this.router.navigate(['profiles']);
+  }
+
 }
